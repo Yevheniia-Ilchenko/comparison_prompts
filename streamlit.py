@@ -31,7 +31,7 @@ st.markdown("""This dashboard visualizes the differences between two different p
 The comparison highlights differences in accuracy, structure, efficiency, and cost between these approaches.""")
 
 # Metrics comparison section
-st.header("Performance Metrics Comparison")
+st.header("Performance Metrics Comparison for different email categories")
 
 # Create tabs for different email categories
 tabs = st.tabs(["Corporate", "Organizational", "Marketing", "Conversation"])
