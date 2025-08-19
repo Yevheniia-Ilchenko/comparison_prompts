@@ -208,17 +208,40 @@ for i, (tab, category) in enumerate(zip(tabs, ["corporate", "organizational", "m
                     st.write(", ".join(knot_group))
         
         # Knots from section comparison
-        if "knots_from_section" in separate_knots:
-            st.markdown("---")
-            st.subheader("Knots from Section Comparison")
-            
-            # Extract knots from section for separate execution (combined doesn't have this)
-            separate_section_knots = separate_knots.get("knots_from_section", [])
-            
+        st.markdown("---")
+        st.subheader("Knots from Section Comparison")
+
+        # Extract knots from section for both approaches
+        separate_section_knots = separate_knots.get("knots_from_section", [])
+
+        # Check if combined execution has section knots (unlikely, but we should check)
+        combined_section_knots = []
+        if "knots_from_section" in combined_knots:
+            combined_section_knots = combined_knots.get("knots_from_section", [])
+
+        col1, col2 = st.columns(2)
+
+        with col1:
             st.markdown("##### Separate Execution Section Knots")
-            for i, knot_group in enumerate(separate_section_knots):
-                with st.expander(f"Section {i+1} ({len(knot_group)} entities)"):
-                    st.write(", ".join(knot_group))
+            if separate_section_knots:
+                for i, knot_group in enumerate(separate_section_knots):
+                    with st.expander(f"Section {i+1} ({len(knot_group)} entities)"):
+                        st.write(", ".join(knot_group))
+            else:
+                st.info("No section knots available in separate execution")
+
+        with col2:
+            st.markdown("##### Combined Execution Section Knots")
+            if combined_section_knots:
+                for i, knot_group in enumerate(combined_section_knots):
+                    with st.expander(f"Section {i+1} ({len(knot_group)} entities)"):
+                        st.write(", ".join(knot_group))
+            else:
+                st.error("⚠️ Missing Feature: 'knots_from_section' structure is not available in combined execution")
+                st.markdown("""
+                The combined execution approach does not extract section-level knots, 
+                which is a significant structural limitation compared to the separate execution approach.
+                """)
 
 # Add summary section at the bottom
 st.markdown("---")
