@@ -84,24 +84,55 @@ for i, (tab, category) in enumerate(zip(tabs, ["corporate", "organizational", "m
             col1, col2, col3 = st.columns(3)
             
             with col1:
-                st.metric("Total Execution Time (s)", 
-                          f"{metrics_sep.get('total_execution_time', metrics_sep['total_execution_time']):.2f}",
-                          f"-{comparison['time_savings_percentage']:.1f}%")
+                st.markdown("""
+                <small>
+                <b>Time and Cost Comparison</b><br>
+                Shows execution metrics for both approaches.
+                </small>
+                """, unsafe_allow_html=True)
                 
-                st.metric("Total Cost ($)", 
-                          f"{metrics_sep.get('total_cost', metrics_sep['total_cost']):.6f}",
-                          f"-{comparison['cost_savings_percentage']:.1f}%")
+                col1a, col1b = st.columns(2)
+                
+                with col1a:
+                    st.metric("Separate Time (s)", 
+                            f"{metrics_sep.get('total_execution_time', metrics_sep['total_execution_time']):.2f}")
+                    
+                    st.metric("Separate Cost ($)", 
+                            f"{metrics_sep.get('total_cost', metrics_sep['total_cost']):.6f}")
+                
+                with col1b:
+                    st.metric("Combined Time (s)", 
+                            f"{metrics_comb.get('execution_time', metrics_comb['execution_time']):.2f}",
+                            f"-{comparison['time_savings_percentage']:.1f}%")
+                    
+                    st.metric("Combined Cost ($)", 
+                            f"{metrics_comb.get('cost', metrics_comb['cost']):.6f}",
+                            f"-{comparison['cost_savings_percentage']:.1f}%")
             
             with col2:
+                st.markdown("""
+                <small>
+                <b>Token Usage Comparison</b><br>
+                Shows total tokens processed by each approach.
+                </small>
+                """, unsafe_allow_html=True)
+                
                 st.metric("Separate Execution Tokens", 
-                          f"{metrics_sep.get('total_input_tokens', metrics_sep['total_input_tokens']) + metrics_sep.get('total_output_tokens', metrics_sep['total_output_tokens'])}")
+                        f"{metrics_sep.get('total_input_tokens', metrics_sep['total_input_tokens']) + metrics_sep.get('total_output_tokens', metrics_sep['total_output_tokens'])}")
                 
                 st.metric("Combined Execution Tokens", 
-                          f"{metrics_comb['tokens']['total']}")
-            
+                        f"{metrics_comb['tokens']['total']}")
+
             with col3:
+                st.markdown("""
+                <small>
+                <b>Token Efficiency</b><br>
+                Shows tokens saved with combined approach.
+                </small>
+                """, unsafe_allow_html=True)
+                
                 st.metric("Token Reduction", 
-                          f"{comparison['input_tokens_difference'] + comparison['output_tokens_difference']}")
+                        f"{comparison['input_tokens_difference'] + comparison['output_tokens_difference']}")
         
         # Horizontal line
         st.markdown("---")
