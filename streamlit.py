@@ -301,3 +301,59 @@ with col2:
 
 st.markdown("---")
 st.caption("Email Analysis Comparison Dashboard")
+
+
+email_tabs = st.tabs(["Corporate Email", "Organizational Email", "Marketing Email", "Conversation Email"])
+
+email_samples = {
+    "Corporate Email": test_email_1_html,
+    "Organizational Email": test_email_2_html if 'test_email_2_html' in locals() else "Sample not available",
+    "Marketing Email": test_email_3_html if 'test_email_3_html' in locals() else "Sample not available",
+    "Conversation Email": test_email_4_html if 'test_email_4_html' in locals() else "Sample not available"
+}
+
+def get_plain_text(html_content):
+    import re
+    
+    html_content = re.sub(r'<style>.*?</style>', '', html_content, flags=re.DOTALL)
+    
+    html_content = re.sub(r'<head>.*?</head>', '', html_content, flags=re.DOTALL)
+    
+    html_content = re.sub(r'<h[1-6][^>]*>(.*?)</h[1-6]>', r'\n\n\1\n', html_content)
+    html_content = re.sub(r'<p[^>]*>(.*?)</p>', r'\n\1\n', html_content)
+    html_content = re.sub(r'<br[^>]*>', '\n', html_content)
+    html_content = re.sub(r'<li[^>]*>(.*?)</li>', r'\n• \1', html_content)
+    html_content = re.sub(r'<ul[^>]*>|</ul>|<ol[^>]*>|</ol>', '\n', html_content)
+    
+    html_content = re.sub(r'<[^>]+>', '', html_content)
+    
+    html_content = html_content.replace('&nbsp;', ' ')
+    html_content = html_content.replace('&amp;', '&')
+    html_content = html_content.replace('&lt;', '<')
+    html_content = html_content.replace('&gt;', '>')
+    html_content = html_content.replace('&quot;', '"')
+    html_content = html_content.replace('&#39;', "'")
+    
+    html_content = re.sub(r'\n\s*\n', '\n\n', html_content)
+    html_content = re.sub(r' +', ' ', html_content)
+    
+    lines = html_content.split('\n')
+    lines = [line.strip() for line in lines]
+    html_content = '\n'.join(lines)
+    
+    return html_content.strip()
+
+for i, (tab_name, email_tab) in enumerate(zip(["Corporate Email", "Organizational Email", "Marketing Email", "Conversation Email"], email_tabs)):
+    with email_tab:
+        html_tab, text_tab = st.tabs(["HTML View", "Text View"])
+        
+        with html_tab:
+            st.markdown("### HTML Version")
+            st.components.v1.html(email_samples[tab_name], height=500, scrolling=True)
+        
+        with text_tab:
+            st.markdown("### Text Version")
+            if email_samples[tab_name] != "Sample not available":
+                st.text_area("Email Content", get_plain_text(email_samples[tab_name]), height=400)
+            else:
+                st.info("Sample not available")
