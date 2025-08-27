@@ -6,6 +6,92 @@ from matplotlib_venn import venn2
 import os
 from samples.email import *
 
+# Модифікуємо функцію для обробки неповних JSON
+def extract_knots_from_section(raw_json):
+    """Спеціальна функція для витягування knots_from_section навіть з неповного JSON"""
+    try:
+        # Спочатку спробуємо стандартний підхід через JSON
+        cleaned_json = raw_json.replace("```json\n", "").replace("\n```", "").strip()
+        data = json.loads(cleaned_json)
+        if "entities" in data and "knots_from_section" in data["entities"]:
+            return data["entities"]["knots_from_section"]
+    except:
+        pass
+    
+    # Якщо JSON не парситься, використовуємо регулярний вираз з додатковою обробкою
+    try:
+        import re
+        # Шукаємо початок секції knots_from_section
+        section_pattern = r'"knots_from_section":\s*\['
+        match = re.search(section_pattern, raw_json)
+        
+        if not match:
+            return []
+        
+        # Знаходимо початкову позицію
+        start_pos = match.end()
+        content = raw_json[start_pos:]
+        
+        # Розбиваємо на рядки і шукаємо групи
+        section_knots = []
+        current_group = []
+        bracket_level = 0
+        
+        for line in content.split('\n'):
+            line = line.strip()
+            
+            # Рахуємо рівень вкладеності дужок
+            if '[' in line:
+                bracket_level += 1
+                if bracket_level == 1:  # Початок нової групи
+                    current_group = []
+            
+            # Знаходимо елементи в лапках
+            if '"' in line and ',' in line:
+                item = line.strip().strip(',').strip('"')
+                if item and bracket_level >= 1:
+                    current_group.append(item)
+            
+            # Закінчення групи
+            if ']' in line:
+                bracket_level -= 1
+                if bracket_level == 0 and current_group:  # Закінчення групи верхнього рівня
+                    section_knots.append(current_group.copy())
+                    current_group = []
+            
+            # Якщо знайшли закриваючу дужку для всього масиву або кінець файлу
+            if bracket_level < 0 or '}' in line or '"topics":' in line:
+                break
+        
+        # Додаємо останню групу, якщо вона не порожня
+        if current_group and bracket_level >= 0:
+            section_knots.append(current_group)
+        
+        return section_knots
+    except Exception as e:
+        print(f"Error extracting knots: {str(e)}")
+        return []
+
+def has_excessive_duplicates(entities_list):
+    """Check if there are excessive duplicate entities in the list, indicating extraction issues"""
+    if not entities_list or len(entities_list) == 0:
+        return False
+    
+    # Flatten the nested lists if needed
+    all_entities = []
+    for group in entities_list:
+        all_entities.extend(group)
+    
+    # Count occurrences of each entity
+    from collections import Counter
+    entity_counts = Counter(all_entities)
+    
+    # Check if there are entities that appear many times (more than 10 times)
+    excessive_duplicates = [entity for entity, count in entity_counts.items() if count > 10]
+    
+    # If more than 5 entities appear more than 10 times each, it's likely a problem
+    return len(excessive_duplicates) >= 5
+
 st.set_page_config(
     page_title="Email Analysis Comparison",
     page_icon="📊",
@@ -14,7 +100,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    with open("results/combined_prompts_comparison.json", "r", encoding="utf-8") as file:
+    with open("results/real_email_combined_prompts.json", "r", encoding="utf-8") as file:
         return json.load(file)
 
 data = load_data()
@@ -23,7 +109,7 @@ st.title("Email Analysis Comparison: New vs. Optimized Prompts")
 st.markdown("""This dashboard visualizes the differences between two different prompting approaches for email analysis:
 
 1. **New Prompt**: A more concise approach that extracts entities and topics with basic descriptions
-   
+
 2. **Optimized Prompt**: An enhanced approach that provides more detailed topic descriptions and better structured entity relationships
 
 The comparison highlights differences in accuracy, structure, efficiency, and cost between these approaches.""")
@@ -31,11 +117,14 @@ The comparison highlights differences in accuracy, structure, efficiency, and co
 # Metrics comparison section
 st.header("Performance Metrics Comparison for different email categories")
 
-# Create tabs for different email categories
-tabs = st.tabs(["Corporate", "Organizational", "Marketing", "Conversation"])
+available_categories = list(data.keys())
+available_categories = [cat for cat in available_categories if cat != "summary"]
+tab_names = [cat.replace("_", " ").title() for cat in available_categories]
+
+tabs = st.tabs(tab_names)
 
 # Process each email category
-for i, (tab, category) in enumerate(zip(tabs, ["corporate", "organizational", "marketing", "conversation"])):
+for i, (tab, category) in enumerate(zip(tabs, available_categories)):
     with tab:
         col1, col2 = st.columns(2)
         
@@ -47,6 +136,27 @@ for i, (tab, category) in enumerate(zip(tabs, ["corporate", "organizational", "m
             metrics_new = data[category]["metrics_comparison"]["new_prompt"]
             metrics_opt = data[category]["metrics_comparison"]["optimized_prompt"]
             differences = data[category]["metrics_comparison"]["differences"]
+
+            try:
+                # Use our special function to extract data
+                new_section_knots = extract_knots_from_section(data[category]["raw_results"]["new_prompt"])
+                
+                # Calculate total and unique entities
+                all_entities = []
+                for group in new_section_knots:
+                    all_entities.extend(group)
+                
+                total_raw_entities = len(all_entities)
+                unique_raw_entities = len(set(all_entities))
+                has_duplicate_issue = (category == "real_email_4" or 
+                                    (total_raw_entities > 1000) or 
+                                    (total_raw_entities > 0 and unique_raw_entities / total_raw_entities < 0.1))
+            except Exception as e:
+                print(f"Error processing section knots: {str(e)}")
+                new_section_knots = []
+                total_raw_entities = 0
+                unique_raw_entities = 0
+                has_duplicate_issue = False
             
             # Display metrics in columns
             col1, col2, col3 = st.columns(3)
@@ -109,25 +219,80 @@ for i, (tab, category) in enumerate(zip(tabs, ["corporate", "organizational", "m
         st.subheader("Topic Analysis Comparison")
         
         # Extract topics for both approaches
-        new_prompt_results = json.loads(data[category]["raw_results"]["new_prompt"].replace("```json\n", "").replace("\n```", ""))
-        optimized_prompt_results = json.loads(data[category]["raw_results"]["optimized_prompt"].replace("```json\n", "").replace("\n```", ""))
-        
-        new_topics = new_prompt_results.get("topics", [])
-        optimized_topics = optimized_prompt_results.get("topics", [])
+        # Extract topics for both approaches
+        try:
+            new_prompt_json = data[category]["raw_results"]["new_prompt"].replace("```json\n", "").replace("\n```", "")
+            # Additional processing to remove potentially problematic characters
+            new_prompt_json = new_prompt_json.strip()
+            try:
+                new_prompt_data = json.loads(new_prompt_json)
+                new_topics = new_prompt_data.get("topics", [])
+                
+                # Check if topics were found
+                if not new_topics:
+                    st.warning("⚠️ No topics were found in the new prompt output, which may indicate incorrect data extraction.")
+                    with st.expander("Show Raw Results"):
+                        st.text_area("Raw JSON Output", data[category]["raw_results"]["new_prompt"], height=400)
+                
+                parsing_method_new = "JSON parsing"
+            except json.JSONDecodeError as e:
+                st.warning("⚠️ This output is incorrect data extraction.")
+
+                topic_count = new_prompt_json.count('"topic_name"')
+                # Create a simple structure to display something
+                new_topics = [{"topic_name": f"Topic {i+1}", "topic_description": "Description not available due to parsing issues", "relevance_score": "N/A"} for i in range(topic_count)]
+                parsing_method_new = "Raw string analysis"
+        except Exception as e:
+            st.error(f"Error processing '{category}' (new_prompt): {str(e)}")
+            new_topics = []
+            parsing_method_new = "Failed"
+
+        try:
+            optimized_prompt_json = data[category]["raw_results"]["optimized_prompt"].replace("```json\n", "").replace("\n```", "")
+            # Additional processing to remove potentially problematic characters
+            optimized_prompt_json = optimized_prompt_json.strip()
+            try:
+                optimized_prompt_data = json.loads(optimized_prompt_json)
+                optimized_topics = optimized_prompt_data.get("topics", [])
+                
+                # Check if topics were found
+                if not optimized_topics:
+                    st.warning("⚠️ No topics were found in the optimized prompt output, which may indicate incorrect data extraction.")
+                    with st.expander("Show Raw Results"):
+                        st.text_area("Raw JSON Output", data[category]["raw_results"]["optimized_prompt"], height=400)
+                
+                parsing_method_opt = "JSON parsing"
+            except json.JSONDecodeError as e:
+                st.warning(f"Warning: JSON parsing failed for '{category}' (optimized_prompt). Using raw string analysis.")
+                # Count topics by counting occurrences of "topic_name"
+                topic_count = optimized_prompt_json.count('"topic_name"')
+                # Create a simple structure to display something
+                optimized_topics = [{"topic_name": f"Topic {i+1}", "topic_description": "Description not available due to parsing issues", "relevance_score": "N/A"} for i in range(topic_count)]
+                parsing_method_opt = "Raw string analysis"
+        except Exception as e:
+            st.error(f"Error processing '{category}' (optimized_prompt): {str(e)}")
+            optimized_topics = []
+            parsing_method_opt = "Failed"
         
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("##### New Prompt Topics")
-            for topic in new_topics:
-                with st.expander(f"{topic.get('topic_name')} (Score: {topic.get('relevance_score', 'N/A')})"):
-                    st.write(topic.get('topic_description'))
-        
+            st.markdown(f"##### New Prompt Topics ({parsing_method_new})")
+            if not new_topics:
+                st.warning("⚠️ No topics found in the structure")
+            else:
+                for topic in new_topics:
+                    with st.expander(f"{topic.get('topic_name')} (Score: {topic.get('relevance_score', 'N/A')})"):
+                        st.write(topic.get('topic_description'))
+
         with col2:
-            st.markdown("##### Optimized Prompt Topics")
-            for topic in optimized_topics:
-                with st.expander(f"{topic.get('topic_name')} (Score: {topic.get('relevance_score', 'N/A')})"):
-                    st.write(topic.get('topic_description'))
+            st.markdown(f"##### Optimized Prompt Topics ({parsing_method_opt})")
+            if not optimized_topics:
+                st.warning("⚠️ No topics found in the structure")
+            else:
+                for topic in optimized_topics:
+                    with st.expander(f"{topic.get('topic_name')} (Score: {topic.get('relevance_score', 'N/A')})"):
+                        st.write(topic.get('topic_description'))
         
         # Horizontal line
         st.markdown("---")
@@ -147,8 +312,22 @@ for i, (tab, category) in enumerate(zip(tabs, ["corporate", "organizational", "m
         
         with col1:
             st.markdown("##### New Prompt Entities")
-            st.write(f"Total: {knots_comparison['new_prompt_knots_count']}")
-            st.write(", ".join(sorted(list(new_entities))))
+            if has_duplicate_issue:
+                st.warning("⚠️ Detected extremely large number of duplicates in raw data, indicating incorrect data extraction.")
+                st.write(f"Total raw entities: {total_raw_entities}, Unique entities: {unique_raw_entities}")
+            else:
+                st.write(f"Total: {knots_comparison['new_prompt_knots_count']}")
+            
+            # Show entities in a scrollable container if there are many
+            if len(new_entities) > 150:
+                with st.expander("Show all entities"):
+                    st.markdown("""
+                    <div style="max-height: 200px; overflow-y: scroll;">
+                    """, unsafe_allow_html=True)
+                    st.write(", ".join(sorted(list(new_entities))))
+                    st.markdown("</div>", unsafe_allow_html=True)
+            else:
+                st.write(", ".join(sorted(list(new_entities))))
         
         with col2:
             st.markdown("##### Optimized Prompt Entities")
@@ -161,31 +340,120 @@ for i, (tab, category) in enumerate(zip(tabs, ["corporate", "organizational", "m
         only_optimized = set(knots_comparison.get("only_in_optimized", []))
         
         st.markdown("##### Entity Overlap Analysis")
-        col1, col2 = st.columns([1, 2])
-        
+        col1, col2, col3 = st.columns([1, 1, 2])  # Додаємо третю колонку для порожнього простору
+        font_size = 10
         with col1:
-            st.write(f"Common entities: {knots_comparison['common_knots_count']}")
-            st.write(f"Only in new: {knots_comparison['only_in_new_count']}")
-            st.write(f"Only in optimized: {knots_comparison['only_in_optimized_count']}")
-        
+            st.markdown(f"<span style='font-size: {font_size+2}pt;'>Common entities: {knots_comparison['common_knots_count']}</span>", unsafe_allow_html=True)
+            st.markdown(f"<span style='font-size: {font_size+2}pt;'>Only in new: {knots_comparison['only_in_new_count']}</span>", unsafe_allow_html=True)
+            st.markdown(f"<span style='font-size: {font_size+2}pt;'>Only in optimized: {knots_comparison['only_in_optimized_count']}</span>", unsafe_allow_html=True)
+
         with col2:
-            # Create and display Venn diagram
-            fig, ax = plt.subplots(figsize=(6, 4))
-            venn = venn2(subsets=(len(only_new), len(only_optimized), len(common_entities)), 
-                         set_labels=('New Prompt', 'Optimized Prompt'))
-            plt.title("Entity Overlap Between Approaches")
-            st.pyplot(fig)
-        
+            # Check if there are too many entities to visualize
+            new_prompt_count = knots_comparison['new_prompt_knots_count']
+            optimized_prompt_count = knots_comparison['optimized_prompt_knots_count']
+            display_new_count = total_raw_entities if has_duplicate_issue else new_prompt_count
+            if new_prompt_count > 150 or optimized_prompt_count > 150 or has_duplicate_issue:
+                st.warning(f"⚠️ Too many entities to visualize effectively (New:  {display_new_count}, Optimized: {optimized_prompt_count}).")
+
+            else:
+                # Створюємо ще менший графік
+                fig, ax = plt.subplots(figsize=(3, 3))  # Ще менший розмір
+                
+                # Налаштовуємо мінімальний розмір для кожної підмножини
+                min_size = 10
+                
+                # Розраховуємо нормалізовані розміри
+                total_entities = max(len(only_new) + len(only_optimized) + len(common_entities), 1)
+                
+                # Забезпечуємо мінімальний розмір для кожної підмножини
+                a_size = max(min_size, int(100 * len(only_new) / total_entities))
+                b_size = max(min_size, int(100 * len(only_optimized) / total_entities))
+                ab_size = max(min_size, int(100 * len(common_entities) / total_entities))
+                
+                # Створюємо діаграму Венна з нормалізованими розмірами
+                venn = venn2(subsets=(a_size, b_size, ab_size), 
+                            set_labels=('', ''))  # Видаляємо мітки множин
+                
+                # Додаємо мінімальні мітки з крихітним шрифтом
+                if venn.set_labels:
+                    venn.get_label_by_id('A').set_text(f'New prompt\n({len(only_new)})')
+                    venn.get_label_by_id('A').set_fontsize(font_size)
+                    venn.get_label_by_id('B').set_text(f'Optimized prompt\n({len(only_optimized)})')
+                    venn.get_label_by_id('B').set_fontsize(font_size)
+                
+                # Додаємо кількість до перетину з тим самим шрифтом
+                if venn.subset_labels:
+                    venn.get_patch_by_id('11').set_alpha(0.8)
+                    venn.subset_labels[0].set_text(f'{len(common_entities)}')
+                    venn.subset_labels[0].set_fontsize(font_size)
+                
+                # Видаляємо заголовок повністю для економії місця
+                plt.title("Entity Overlap", fontsize=font_size)
+                plt.tight_layout()
+                
+                # Видаляємо осі для економії місця
+                plt.axis('off')
+                
+                # Використовуємо st.pyplot з обмеженою шириною
+                st.pyplot(fig, use_container_width=False)
+                
         # Extract knots from raw results
-        if "entities" in new_prompt_results:
-            new_section_knots = new_prompt_results["entities"].get("knots_from_section", [])
-        else:
+        try:
+            # Use our special function to extract data
+            new_section_knots = extract_knots_from_section(data[category]["raw_results"]["new_prompt"])
+            
+            # Additional check for problematic data
+            if category == "real_email_4" or any(len(group) > 100 for group in new_section_knots):
+                st.warning("⚠️ This email contains an extremely large number of duplicate entities, indicating incorrect data extraction.")
+        except Exception as e:
+            st.error(f"Error processing section knots: {str(e)}")
             new_section_knots = []
             
-        if "entities" in optimized_prompt_results:
-            optimized_section_knots = optimized_prompt_results["entities"].get("knots_from_section", [])
-            optimized_paragraph_knots = optimized_prompt_results["entities"].get("knots_from_paragraph", [])
-        else:
+        try:
+            if parsing_method_opt != "Failed" and "entities" in (optimized_prompt_data if parsing_method_opt == "JSON parsing" else {}):
+                optimized_section_knots = optimized_prompt_data["entities"].get("knots_from_section", [])
+                optimized_paragraph_knots = optimized_prompt_data["entities"].get("knots_from_paragraph", [])
+            else:
+                # Try to extract using regex if JSON parsing failed
+                import re
+                section_pattern = r'"knots_from_section":\s*\[(.*?)\]'
+                match = re.search(section_pattern, optimized_prompt_json, re.DOTALL)
+                if match:
+                    section_content = match.group(1)
+                    # This is a simplified approach - might not work for all cases
+                    optimized_section_knots = []
+                    current_group = []
+                    for line in section_content.split('\n'):
+                        if '[' in line:
+                            current_group = []
+                        elif ']' in line and current_group:
+                            optimized_section_knots.append(current_group)
+                        elif '"' in line:
+                            item = line.strip().strip(',').strip('"')
+                            if item:
+                                current_group.append(item)
+                else:
+                    optimized_section_knots = []
+                
+                # Similarly for paragraph knots
+                paragraph_pattern = r'"knots_from_paragraph":\s*\[(.*?)\]'
+                match = re.search(paragraph_pattern, optimized_prompt_json, re.DOTALL)
+                if match:
+                    paragraph_content = match.group(1)
+                    optimized_paragraph_knots = []
+                    current_group = []
+                    for line in paragraph_content.split('\n'):
+                        if '[' in line:
+                            current_group = []
+                        elif ']' in line and current_group:
+                            optimized_paragraph_knots.append(current_group)
+                        elif '"' in line:
+                            item = line.strip().strip(',').strip('"')
+                            if item:
+                                current_group.append(item)
+                else:
+                    optimized_paragraph_knots = []
+        except Exception:
             optimized_section_knots = []
             optimized_paragraph_knots = []
         
@@ -198,11 +466,67 @@ for i, (tab, category) in enumerate(zip(tabs, ["corporate", "organizational", "m
         with col1:
             st.markdown("##### New Prompt Section Knots")
             if new_section_knots:
-                for i, knot_group in enumerate(new_section_knots):
-                    with st.expander(f"Section {i+1} ({len(knot_group)} entities)"):
-                        st.write(", ".join(knot_group))
+                # Special check for email 4 (with massive duplicates)
+                if category == "real_email_4" or sum(len(group) for group in new_section_knots) > 1000:
+                    # Count total entities and unique entities
+                    all_entities = []
+                    for group in new_section_knots:
+                        all_entities.extend(group)
+                    
+                    unique_entities = set(all_entities)
+                    
+                    st.warning("⚠️ Detected extremely large number of duplicates ({}), indicating incorrect data extraction.".format(len(all_entities)))
+                    st.write(f"Total entities: {len(all_entities)}, Unique entities: {len(unique_entities)}")
+                    
+                    # Show in a compact view with scrolling capability
+                    with st.expander("Show entities (contains massive duplicates)"):
+                        st.markdown("""
+                        <div style="max-height: 300px; overflow-y: scroll;">
+                        """, unsafe_allow_html=True)
+                        
+                        # Show first 100 unique entities
+                        st.write(f"First 100 unique entities (out of {len(unique_entities)}):")
+                        st.write(", ".join(list(unique_entities)[:100]) + "...")
+                        
+                        st.markdown("</div>", unsafe_allow_html=True)
+                elif has_excessive_duplicates(new_section_knots):
+                    # Standard handling for other cases with duplicates
+                    st.warning("⚠️ Detected excessive duplicate entities, which may indicate incorrect data extraction.")
+                    
+                    # Count total entities and unique entities
+                    all_entities = []
+                    for group in new_section_knots:
+                        all_entities.extend(group)
+                    
+                    unique_entities = set(all_entities)
+                    
+                    st.write(f"Total entities: {len(all_entities)}, Unique entities: {len(unique_entities)}")
+                    
+                    # Show in a container with limited height
+                    with st.expander("Show entities (may contain duplicates)"):
+                        st.markdown("""
+                        <div style="max-height: 300px; overflow-y: scroll;">
+                        """, unsafe_allow_html=True)
+                        
+                        for i, knot_group in enumerate(new_section_knots):
+                            st.markdown(f"**Section {i+1} ({len(knot_group)} entities)**")
+                            st.write(", ".join(knot_group))
+                        
+                        st.markdown("</div>", unsafe_allow_html=True)
+                else:
+                    # Normal case without duplicates
+                    for i, knot_group in enumerate(new_section_knots):
+                        with st.expander(f"Section {i+1} ({len(knot_group)} entities)"):
+                            st.write(", ".join(knot_group))
             else:
-                st.info("No section knots available in new prompt")
+                # Check if there's raw data that might contain knots but failed to parse
+                raw_new_prompt = data[category]["raw_results"]["new_prompt"]
+                if "knots_from_section" in raw_new_prompt:
+                    st.warning("⚠️ Failed to extract section knots properly from new prompt data")
+                    with st.expander("Show Raw Results"):
+                        st.text_area("Raw JSON Output", raw_new_prompt, height=300)
+                else:
+                    st.info("No section knots available in new prompt")
 
         with col2:
             st.markdown("##### Optimized Prompt Section Knots")
@@ -212,7 +536,7 @@ for i, (tab, category) in enumerate(zip(tabs, ["corporate", "organizational", "m
                         st.write(", ".join(knot_group))
             else:
                 st.info("No section knots available in optimized prompt")
-                
+                    
         # Knots from paragraph comparison if available
         if optimized_paragraph_knots:
             st.markdown("---")
@@ -244,12 +568,12 @@ with col1:
     st.metric("Average Time Difference", f"{avg_time_diff_percentage:.1f}%")
     
     # Create a bar chart for time and cost differences
-    categories = ["Corporate", "Organizational", "Marketing", "Conversation"]
-    time_diffs = [data[cat.lower()]["metrics_comparison"]["differences"]["time_difference_percentage"] for cat in categories]
-    cost_diffs = [data[cat.lower()]["metrics_comparison"]["differences"]["cost_difference_percentage"] for cat in categories]
+    categories_display = [cat.replace("_", " ").title() for cat in available_categories]
+    time_diffs = [data[cat]["metrics_comparison"]["differences"]["time_difference_percentage"] for cat in available_categories]
+    cost_diffs = [data[cat]["metrics_comparison"]["differences"]["cost_difference_percentage"] for cat in available_categories]
     
     fig, ax = plt.subplots(figsize=(10, 6))
-    x = range(len(categories))
+    x = range(len(categories_display))
     width = 0.35
     
     ax.bar([i - width/2 for i in x], cost_diffs, width, label='Cost Difference %')
@@ -258,7 +582,7 @@ with col1:
     ax.set_ylabel('Percentage (%)')
     ax.set_title('Cost and Time Differences by Email Category')
     ax.set_xticks(x)
-    ax.set_xticklabels(categories)
+    ax.set_xticklabels(categories_display)
     ax.legend()
     
     st.pyplot(fig)
@@ -268,22 +592,79 @@ with col2:
     
     # Compare the number of topics and entities identified
     topic_counts = {
-        "New": [len(json.loads(data[cat]["raw_results"]["new_prompt"].replace("```json\n", "").replace("\n```", "")).get("topics", [])) for cat in ["corporate", "organizational", "marketing", "conversation"]],
-        "Optimized": [len(json.loads(data[cat]["raw_results"]["optimized_prompt"].replace("```json\n", "").replace("\n```", "")).get("topics", [])) for cat in ["corporate", "organizational", "marketing", "conversation"]]
+        "New": [],
+        "Optimized": []
     }
-    
+
     entity_counts = {
-        "New": [data[cat]["knots_comparison"]["new_prompt_knots_count"] for cat in ["corporate", "organizational", "marketing", "conversation"]],
-        "Optimized": [data[cat]["knots_comparison"]["optimized_prompt_knots_count"] for cat in ["corporate", "organizational", "marketing", "conversation"]]
+        "New": [],
+        "Optimized": []
     }
-    
+
+    # Track parsing methods used
+    parsing_methods = {
+        "New": [],
+        "Optimized": []
+    }
+
+    for cat in available_categories:
+        # Get topic counts for new prompt
+        try:
+            raw_new_prompt = data[cat]["raw_results"]["new_prompt"]
+            # Try to parse JSON
+            cleaned_json = raw_new_prompt.replace("```json\n", "").replace("\n```", "").strip()
+            try:
+                new_prompt_data = json.loads(cleaned_json)
+                topic_counts["New"].append(len(new_prompt_data.get("topics", [])))
+                parsing_methods["New"].append("JSON")
+            except json.JSONDecodeError:
+                # Fallback to counting occurrences of "topic_name"
+                topic_count = raw_new_prompt.count('"topic_name"')
+                topic_counts["New"].append(topic_count)
+                parsing_methods["New"].append("Raw")
+        except Exception:
+            topic_counts["New"].append(0)
+            parsing_methods["New"].append("Failed")
+        
+        # Get topic counts for optimized prompt
+        try:
+            raw_optimized_prompt = data[cat]["raw_results"]["optimized_prompt"]
+            # Try to parse JSON
+            cleaned_json = raw_optimized_prompt.replace("```json\n", "").replace("\n```", "").strip()
+            try:
+                optimized_prompt_data = json.loads(cleaned_json)
+                topic_counts["Optimized"].append(len(optimized_prompt_data.get("topics", [])))
+                parsing_methods["Optimized"].append("JSON")
+            except json.JSONDecodeError:
+                # Fallback to counting occurrences of "topic_name"
+                topic_count = raw_optimized_prompt.count('"topic_name"')
+                topic_counts["Optimized"].append(topic_count)
+                parsing_methods["Optimized"].append("Raw")
+        except Exception:
+            topic_counts["Optimized"].append(0)
+            parsing_methods["Optimized"].append("Failed")
+        
+        # Get entity counts
+        entity_counts["New"].append(data[cat]["knots_comparison"]["new_prompt_knots_count"])
+        entity_counts["Optimized"].append(data[cat]["knots_comparison"]["optimized_prompt_knots_count"])
+
     # Create DataFrames for the counts
-    topic_df = pd.DataFrame(topic_counts, index=["Corporate", "Organizational", "Marketing", "Conversation"])
-    entity_df = pd.DataFrame(entity_counts, index=["Corporate", "Organizational", "Marketing", "Conversation"])
+    topic_df = pd.DataFrame(topic_counts, index=categories_display)
+    entity_df = pd.DataFrame(entity_counts, index=categories_display)
     
     # Plot the counts
     st.write("Number of Topics Identified:")
     st.bar_chart(topic_df)
+    
+    # Display parsing method information
+    if "Raw" in parsing_methods["New"] or "Raw" in parsing_methods["Optimized"] or "Failed" in parsing_methods["New"] or "Failed" in parsing_methods["Optimized"]:
+        st.info("Note: Some categories required raw string parsing instead of JSON parsing due to formatting issues.")
+        
+        for i, cat in enumerate(categories_display):
+            method_new = parsing_methods["New"][i]
+            method_opt = parsing_methods["Optimized"][i]
+            if method_new != "JSON" or method_opt != "JSON":
+                st.write(f"**{cat}**: New Prompt - {method_new} parsing, Optimized Prompt - {method_opt} parsing")
     
     st.write("Number of Entities Identified:")
     st.bar_chart(entity_df)
@@ -292,26 +673,24 @@ with col2:
     st.markdown("""
     ### Key Findings:
     
-    1. **Execution Cost**: The optimized approach shows mixed cost results - it's cheaper for corporate and conversation emails, but more expensive for organizational and marketing emails. On average, there's a cost savings of about 1.4%.
+    1. **Execution Cost**: The optimized approach shows varying cost results depending on the email type. 
 
-    2. **Execution Time**: Processing time also varies by category. On average, the optimized approach is 9% slower.
+    2. **Execution Time**: Processing time also varies by email type. For some types, the optimized approach is faster, for others - slower.
 
     3. **Topic Quality**: The optimized approach provides more detailed and contextual topic descriptions, while the new approach uses more concise formulations.
-""")
+    
+    4. **Data Extraction Issues**:
+        The *new prompt* approach shows significant issues with entity extraction in specific emails (particularly email 4), producing massive amounts of duplicate entities (even when called again, the situation repeats itself).
+        
+        Sometimes, once on several calls the *optimized* approach extraction email adreses as knots, but less often than the *new prompt*.
+    
+    5. **Topic Generation Failures**: In some cases, the new prompt fails to generate topics for complex emails (like email 4).
+    """)
 
 st.markdown("---")
 st.caption("Email Analysis Comparison Dashboard")
 
-
-email_tabs = st.tabs(["Corporate Email", "Organizational Email", "Marketing Email", "Conversation Email"])
-
-email_samples = {
-    "Corporate Email": test_email_1_html,
-    "Organizational Email": test_email_2_html if 'test_email_2_html' in locals() else "Sample not available",
-    "Marketing Email": test_email_3_html if 'test_email_3_html' in locals() else "Sample not available",
-    "Conversation Email": test_email_4_html if 'test_email_4_html' in locals() else "Sample not available"
-}
-
+# Helper functions for email processing
 def get_plain_text(html_content):
     import re
     
@@ -343,17 +722,165 @@ def get_plain_text(html_content):
     
     return html_content.strip()
 
-for i, (tab_name, email_tab) in enumerate(zip(["Corporate Email", "Organizational Email", "Marketing Email", "Conversation Email"], email_tabs)):
-    with email_tab:
-        html_tab, text_tab = st.tabs(["HTML View", "Text View"])
+def extract_email_parts(raw_email):
+    """Extract key parts from a raw email"""
+    import re
+    import email
+    from email.header import decode_header
+    
+    # Try to parse using email module first
+    try:
+        # Parse the email
+        msg = email.message_from_string(raw_email)
         
-        with html_tab:
-            st.markdown("### HTML Version")
-            st.components.v1.html(email_samples[tab_name], height=500, scrolling=True)
-        
-        with text_tab:
-            st.markdown("### Text Version")
-            if email_samples[tab_name] != "Sample not available":
-                st.text_area("Email Content", get_plain_text(email_samples[tab_name]), height=400)
+        # Extract and decode subject
+        subject = msg.get("Subject", "No subject")
+        decoded_subject = ""
+        for part, encoding in decode_header(subject):
+            if isinstance(part, bytes):
+                try:
+                    decoded_part = part.decode(encoding or 'utf-8', errors='replace')
+                except:
+                    decoded_part = part.decode('utf-8', errors='replace')
             else:
-                st.info("Sample not available")
+                decoded_part = part
+            decoded_subject += decoded_part
+        
+        # Clean up subject (remove =?utf-8?q?= and similar markers)
+        decoded_subject = re.sub(r'=\?utf-8\?q\?|\?=', '', decoded_subject)
+        
+        # Extract sender
+        sender = msg.get("From", "Unknown sender")
+        
+        # Extract date
+        date = msg.get("Date", "Unknown date")
+        
+        # Extract body
+        body = ""
+        if msg.is_multipart():
+            for part in msg.walk():
+                content_type = part.get_content_type()
+                if content_type == "text/plain":
+                    try:
+                        body = part.get_payload(decode=True).decode(part.get_content_charset() or 'utf-8', errors='replace')
+                        break
+                    except:
+                        pass
+                elif content_type == "text/html":
+                    try:
+                        body = part.get_payload(decode=True).decode(part.get_content_charset() or 'utf-8', errors='replace')
+                        # Try to extract text from HTML
+                        body = re.sub(r'<[^>]+>', ' ', body)
+                        body = re.sub(r'\s+', ' ', body)
+                        break
+                    except:
+                        pass
+        else:
+            try:
+                body = msg.get_payload(decode=True).decode(msg.get_content_charset() or 'utf-8', errors='replace')
+            except:
+                body = msg.get_payload()
+        
+        if not body:
+            body = "Email body could not be extracted"
+    except Exception as e:
+        # Fallback to regex if email parsing fails
+        # Extract subject
+        subject_match = re.search(r'Subject: (.*?)\n', raw_email, re.IGNORECASE)
+        decoded_subject = subject_match.group(1) if subject_match else "No subject"
+        decoded_subject = re.sub(r'=\?utf-8\?q\?|\?=', '', decoded_subject)
+        
+        # Extract sender
+        from_match = re.search(r'From: (.*?)\n', raw_email, re.IGNORECASE)
+        sender = from_match.group(1) if from_match else "Unknown sender"
+        
+        # Extract date
+        date_match = re.search(r'Date: (.*?)\n', raw_email, re.IGNORECASE)
+        date = date_match.group(1) if date_match else "Unknown date"
+        
+        # Extract body (simplified approach)
+        # Find a blank line followed by content
+        body_match = re.search(r'\n\s*\n(.*)', raw_email, re.DOTALL)
+        body = body_match.group(1) if body_match else "Email body could not be extracted"
+    
+    # Clean up the subject - remove encoding markers
+    decoded_subject = re.sub(r'=\?utf-8\?q\?|\?=', '', decoded_subject)
+    
+    return {
+        "subject": decoded_subject,
+        "sender": sender,
+        "date": date,
+        "body": body
+    }
+
+# Create tabs for real emails only
+st.header("Real Email Examples")
+
+# Import real emails
+try:
+    from samples.real_email import real_email_1, real_email_2, real_email_3, real_email_4, real_email_5, real_email_6
+    has_real_emails = True
+except ImportError:
+    has_real_emails = False
+
+if has_real_emails:
+    # Real emails
+    real_email_tabs = st.tabs(["Real Email 1", "Real Email 2", "Real Email 3", "Real Email 4", "Real Email 5", "Real Email 6"])
+    
+    real_email_samples = {
+        "Real Email 1": real_email_1,
+        "Real Email 2": real_email_2,
+        "Real Email 3": real_email_3,
+        "Real Email 4": real_email_4,
+        "Real Email 5": real_email_5,
+        "Real Email 6": real_email_6
+    }
+    
+    # Display real emails
+    for i, (tab_name, email_tab) in enumerate(zip(["Real Email 1", "Real Email 2", "Real Email 3", "Real Email 4", "Real Email 5", "Real Email 6"], real_email_tabs)):
+        with email_tab:
+            try:
+                # Extract email parts
+                email_parts = extract_email_parts(real_email_samples[tab_name])
+                
+                # Display structured email information
+                st.subheader(email_parts["subject"])
+                
+                # Create tabs for different views
+                raw_tab, html_tab, text_tab = st.tabs(["Raw Email", "HTML View", "Text View"])
+                
+                with raw_tab:
+                    st.text_area("Raw Email", real_email_samples[tab_name][:5000] + ("..." if len(real_email_samples[tab_name]) > 5000 else ""), height=400)
+                
+                with html_tab:
+                    # Try to extract HTML content
+                    html_content = ""
+                    try:
+                        import email
+                        msg = email.message_from_string(real_email_samples[tab_name])
+                        
+                        for part in msg.walk():
+                            content_type = part.get_content_type()
+                            if content_type == "text/html":
+                                try:
+                                    html_content = part.get_payload(decode=True).decode(part.get_content_charset() or 'utf-8', errors='replace')
+                                    break
+                                except Exception:
+                                    pass
+                    except Exception:
+                        html_content = ""
+                    
+                    if html_content:
+                        st.components.v1.html(html_content, height=500, scrolling=True)
+                    else:
+                        st.info("No HTML content found in this email")
+                
+                with text_tab:
+                    st.markdown("### Email Body")
+                    st.text_area("Content", email_parts["body"], height=400)
+            except Exception as e:
+                st.error(f"Error processing email: {str(e)}")
+                st.text_area("Raw Email Content", real_email_samples[tab_name][:5000] + ("..." if len(real_email_samples[tab_name]) > 5000 else ""), height=400)
+else:
+    st.warning("Real email samples could not be loaded. Make sure samples/real_email.py exists and contains the required variables.")
+        
