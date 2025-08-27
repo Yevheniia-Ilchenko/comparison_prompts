@@ -1,0 +1,342 @@
+{
+  "corporate": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 5754,
+          "output": 566,
+          "total": 6320
+        },
+        "cost": 0.000802,
+        "execution_time": 2.6089494228363037
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 5954,
+          "output": 737,
+          "total": 6691
+        },
+        "cost": 0.00089,
+        "execution_time": 3.79414701461792
+      },
+      "differences": {
+        "input_tokens_difference": -200,
+        "output_tokens_difference": -171,
+        "total_tokens_difference": -371,
+        "cost_difference": -8.799999999999997e-05,
+        "cost_difference_percentage": -10.972568578553613,
+        "time_difference": -1.1851975917816162,
+        "time_difference_percentage": -45.4281551573022
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 15,
+      "optimized_prompt_knots_count": 30,
+      "common_knots_count": 13,
+      "only_in_new_count": 2,
+      "only_in_optimized_count": 17,
+      "common_knots": [
+        "jennifer williams",
+        "michael chen",
+        "technova solutions, inc.",
+        "san francisco",
+        "risk management team",
+        "chief product officer",
+        "david parker",
+        "international tech summit",
+        "sarah johnson",
+        "project aurora",
+        "project management office",
+        "robert thompson",
+        "jonathan blackwell"
+      ],
+      "only_in_new": [
+        "sharepoint",
+        "slack"
+      ],
+      "only_in_optimized": [
+        "project aurora slack channel",
+        "engineering team",
+        "marketing team",
+        "alpha testing",
+        "sales",
+        "technical architecture documentation",
+        "market research team",
+        "financial services sector",
+        "ui/ux prototypes",
+        "engineering director",
+        "marketing collateral finalization",
+        "sales enablement training",
+        "quality assurance team",
+        "beta customer program",
+        "product management team",
+        "marketing",
+        "principal solution architect"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"project aurora\"\n      ],\n      [\n        \"technova solutions, inc.\"\n      ],\n      [\n        \"jennifer williams\"\n      ],\n      [\n        \"michael chen\"\n      ],\n      [\n        \"sarah johnson\"\n      ],\n      [\n        \"robert thompson\"\n      ],\n      [\n        \"jonathan blackwell\"\n      ],\n      [\n        \"chief product officer\"\n      ],\n      [\n        \"international tech summit\"\n      ],\n      [\n        \"san francisco\"\n      ],\n      [\n        \"project management office\"\n      ],\n      [\n        \"slack\"\n      ],\n      [\n        \"sharepoint\"\n      ],\n      [\n        \"david parker\"\n      ],\n      [\n        \"risk management team\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#product-launch\",\n      \"topic_description\": \"tracks the strategic roadmap and implementation timeline for a new product.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#cloud-computing\",\n      \"topic_description\": \"focuses on the development of cloud-based enterprise solutions.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#financial-services\",\n      \"topic_description\": \"addresses the needs of clients in the financial services sector.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#enterprise-solutions\",\n      \"topic_description\": \"concerns the offering of integrated enterprise-level software.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#project-management\",\n      \"topic_description\": \"covers project milestones, deadlines, resource allocation, and communication protocols.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#risk-management\",\n      \"topic_description\": \"details identified risk factors and the development of mitigation plans.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#software-development-lifecycle\",\n      \"topic_description\": \"outlines the phases of a product development lifecycle from research to launch.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#ui-ux-design\",\n      \"topic_description\": \"mentions the creation of user interface and user experience prototypes.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#regulatory-compliance\",\n      \"topic_description\": \"addresses compliance requirements in specific markets.\",\n      \"relevance_score\": 0.6\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"project aurora\",\n        \"technova solutions, inc.\",\n        \"financial services sector\"\n      ],\n      [\n        \"jennifer williams\",\n        \"market research team\"\n      ],\n      [\n        \"michael chen\",\n        \"principal solution architect\",\n        \"ui/ux prototypes\",\n        \"technical architecture documentation\"\n      ],\n      [\n        \"sarah johnson\",\n        \"engineering director\"\n      ],\n      [\n        \"robert thompson\",\n        \"quality assurance team\",\n        \"alpha testing\",\n        \"beta customer program\"\n      ],\n      [\n        \"marketing\",\n        \"sales\",\n        \"sales enablement training\",\n        \"marketing collateral finalization\"\n      ],\n      [\n        \"international tech summit\",\n        \"san francisco\"\n      ],\n      [\n        \"project management office\"\n      ],\n      [\n        \"project aurora slack channel\"\n      ],\n      [\n        \"david parker\",\n        \"risk management team\"\n      ],\n      [\n        \"product management team\"\n      ],\n      [\n        \"engineering team\"\n      ],\n      [\n        \"marketing team\"\n      ],\n      [\n        \"jonathan blackwell\",\n        \"chief product officer\",\n        \"technova solutions, inc.\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#product-launch\",\n      \"topic_description\": \"Details the global product launch strategy and timeline for Project Aurora, a new product line by TechNova Solutions, Inc. It covers the critical phases from research and design to development, testing, and final preparation, highlighting key milestones and responsible teams. The launch is positioned to redefine the company's market position in the financial services sector.\",\n      \"relevance_score\": 0.95\n    },\n    {\n      \"topic_name\": \"#project-management\",\n      \"topic_description\": \"Outlines the comprehensive roadmap and implementation timeline for Project Aurora. This includes detailed phase breakdowns, resource allocation processes managed by the Project Management Office, and communication protocols via Slack and bi-weekly meetings. The document emphasizes structured execution and risk management by teams led by individuals like Michael Chen and Sarah Johnson.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#cloud-computing\",\n      \"topic_description\": \"Focuses on the development of a suite of cloud-based enterprise solutions as part of Project Aurora. These solutions are designed to integrate with TechNova Solutions, Inc.'s existing product ecosystem and cater to the needs of mid-market and enterprise clients, particularly within the financial services sector. The technical architecture and integration capabilities are key components.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#enterprise-solutions\",\n      \"topic_description\": \"Describes the nature of the products being developed under Project Aurora, which are specifically targeted towards mid-market and enterprise clients. The focus is on providing integrated cloud-based solutions that address the evolving needs of these client segments, especially within the financial services industry. This involves complex technical architecture and careful market positioning.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#risk-management\",\n      \"topic_description\": \"Addresses potential challenges and mitigation strategies for Project Aurora. Key risks identified include supply chain constraints for hardware, integration complexities with legacy systems, and regulatory compliance in European markets. David Parker from the Risk Management team is tasked with developing plans to address these factors, ensuring project success.\",\n      \"relevance_score\": 0.65\n    }\n  ]\n}\n```"
+    }
+  },
+  "organizational": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 5873,
+          "output": 821,
+          "total": 6694
+        },
+        "cost": 0.000916,
+        "execution_time": 62.20243549346924
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 6073,
+          "output": 617,
+          "total": 6690
+        },
+        "cost": 0.000854,
+        "execution_time": 2.68959379196167
+      },
+      "differences": {
+        "input_tokens_difference": -200,
+        "output_tokens_difference": 204,
+        "total_tokens_difference": 4,
+        "cost_difference": 6.199999999999999e-05,
+        "cost_difference_percentage": 6.768558951965065,
+        "time_difference": 59.51284170150757,
+        "time_difference_percentage": 95.67606353252188
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 28,
+      "optimized_prompt_knots_count": 20,
+      "common_knots_count": 16,
+      "only_in_new_count": 12,
+      "only_in_optimized_count": 4,
+      "common_knots": [
+        "sales cycle length",
+        "sofia bergman",
+        "professional services utilization",
+        "elizabeth chen",
+        "enterprise solutions",
+        "rebecca martinez",
+        "employee attrition",
+        "chief digital officer",
+        "svp of customer success",
+        "chief executive officer",
+        "dr. andrew wilson",
+        "quantum dynamics corporation",
+        "managed services",
+        "james peterson",
+        "david zhang",
+        "executive committee"
+      ],
+      "only_in_new": [
+        "q3",
+        "www.quantumdynamics.com",
+        "gross margin",
+        "customer retention rate",
+        "new customer acquisition",
+        "q4",
+        "office: (212) 555-8900",
+        "hr",
+        "professional services",
+        "total revenue",
+        "e.chen@quantumdynamics.com",
+        "average deal size"
+      ],
+      "only_in_optimized": [
+        "q3 town hall meeting",
+        "resource management system",
+        "work from anywhere policy",
+        "hr department"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"quantum dynamics corporation\"\n      ],\n      [\n        \"q3\"\n      ],\n      [\n        \"rebecca martinez\"\n      ],\n      [\n        \"svp of customer success\"\n      ],\n      [\n        \"dr. andrew wilson\"\n      ],\n      [\n        \"james peterson\"\n      ],\n      [\n        \"sofia bergman\"\n      ],\n      [\n        \"david zhang\"\n      ],\n      [\n        \"chief digital officer\"\n      ],\n      [\n        \"hr\"\n      ],\n      [\n        \"q3\"\n      ],\n      [\n        \"enterprise solutions\"\n      ],\n      [\n        \"managed services\"\n      ],\n      [\n        \"total revenue\"\n      ],\n      [\n        \"gross margin\"\n      ],\n      [\n        \"new customer acquisition\"\n      ],\n      [\n        \"customer retention rate\"\n      ],\n      [\n        \"average deal size\"\n      ],\n      [\n        \"professional services utilization\"\n      ],\n      [\n        \"sales cycle length\"\n      ],\n      [\n        \"employee attrition\"\n      ],\n      [\n        \"executive committee\"\n      ],\n      [\n        \"professional services\"\n      ],\n      [\n        \"q4\"\n      ],\n      [\n        \"elizabeth chen\"\n      ],\n      [\n        \"chief executive officer\"\n      ],\n      [\n        \"quantum dynamics corporation\"\n      ],\n      [\n        \"e.chen@quantumdynamics.com\"\n      ],\n      [\n        \"office: (212) 555-8900\"\n      ],\n      [\n        \"www.quantumdynamics.com\"\n      ],\n      [\n        \"quantum dynamics corporation\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#organizational-change\",\n      \"topic_description\": \"discusses significant restructuring and departmental mergers within the company.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#q3-performance\",\n      \"topic_description\": \"provides a detailed update on the company's third-quarter financial and operational metrics, highlighting both successes and challenges.\",\n      \"relevance_score\": 0.95\n    },\n    {\n      \"topic_name\": \"#revenue-growth\",\n      \"topic_description\": \"reports exceeding revenue targets by 7.2% in the third quarter.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#customer-success\",\n      \"topic_description\": \"details the creation of a new customer success division and its leadership.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#product-innovation\",\n      \"topic_description\": \"covers the consolidation of product development and innovation labs.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#sales-strategy\",\n      \"topic_description\": \"outlines the expansion of the regional sales structure and P&L responsibility for leaders.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#digital-transformation\",\n      \"topic_description\": \"announces the establishment of a digital transformation office and the search for a chief digital officer.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#operational-efficiency\",\n      \"topic_description\": \"addresses challenges such as professional services utilization and sales cycle length, with plans for improvement.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#employee-retention\",\n      \"topic_description\": \"discusses employee attrition rates and planned initiatives to improve satisfaction and retention.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#company-outlook\",\n      \"topic_description\": \"expresses confidence in future growth and innovation following organizational changes.\",\n      \"relevance_score\": 0.6\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"quantum dynamics corporation\",\n        \"rebecca martinez\",\n        \"svp of customer success\",\n        \"dr. andrew wilson\",\n        \"james peterson\",\n        \"sofia bergman\",\n        \"david zhang\",\n        \"chief digital officer\",\n        \"elizabeth chen\",\n        \"chief executive officer\"\n      ],\n      [\n        \"enterprise solutions\",\n        \"managed services\"\n      ],\n      [\n        \"professional services utilization\",\n        \"sales cycle length\",\n        \"employee attrition\"\n      ],\n      [\n        \"resource management system\",\n        \"work from anywhere policy\"\n      ],\n      [\n        \"q3 town hall meeting\",\n        \"hr department\",\n        \"executive committee\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#organizational-change\",\n      \"topic_description\": \"Details significant structural adjustments within Quantum Dynamics Corporation, including the creation of a new Customer Success division, the merger of Product Development and Innovation Labs, and the expansion of regional sales structures. These changes are aimed at streamlining operations, enhancing collaboration, and fostering accelerated growth. Key leadership appointments are highlighted as part of this restructuring.\",\n      \"relevance_score\": 0.95\n    },\n    {\n      \"topic_name\": \"#performance-update\",\n      \"topic_description\": \"Provides a comprehensive overview of Quantum Dynamics Corporation's third-quarter (Q3) performance, showcasing exceeding revenue targets with strong contributions from Enterprise Solutions and Managed Services. It also identifies specific challenge areas such as Professional Services utilization, sales cycle length, and employee attrition, outlining approved initiatives to address these gaps.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#digital-transformation\",\n      \"topic_description\": \"Focuses on Quantum Dynamics Corporation's internal technology modernization efforts through the establishment of a dedicated Digital Transformation Office, reporting directly to the CEO. This initiative underscores the company's commitment to updating its internal systems and processes to support future growth and efficiency.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#customer-success\",\n      \"topic_description\": \"Highlights the strategic importance of customer retention and client satisfaction by detailing the creation of a new Customer Success division at Quantum Dynamics Corporation. This division consolidates support, implementation, and account management functions, led by Rebecca Martinez, emphasizing its role in improving client retention rates.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#sales-strategy\",\n      \"topic_description\": \"Covers the recalibration of Quantum Dynamics Corporation's go-to-market approach through the expansion of its Regional Sales structure into North America, EMEA, and Asia-Pacific divisions. Each region is given P&L responsibility and autonomy to tailor strategies, aiming to improve market penetration and sales performance.\",\n      \"relevance_score\": 0.65\n    }\n  ]\n}\n```"
+    }
+  },
+  "marketing": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 5819,
+          "output": 952,
+          "total": 6771
+        },
+        "cost": 0.000963,
+        "execution_time": 3.4144845008850098
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 6019,
+          "output": 589,
+          "total": 6608
+        },
+        "cost": 0.000838,
+        "execution_time": 2.8499605655670166
+      },
+      "differences": {
+        "input_tokens_difference": -200,
+        "output_tokens_difference": 363,
+        "total_tokens_difference": 163,
+        "cost_difference": 0.000125,
+        "cost_difference_percentage": 12.980269989615783,
+        "time_difference": 0.5645239353179932,
+        "time_difference_percentage": 16.53321124086733
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 73,
+      "optimized_prompt_knots_count": 23,
+      "common_knots_count": 22,
+      "only_in_new_count": 51,
+      "only_in_optimized_count": 1,
+      "common_knots": [
+        "enterprise-scale operations",
+        "michael rodriguez",
+        "innovatech",
+        "enterprise plus",
+        "predictive modeling",
+        "enterprise basic",
+        "soc 2 type ii",
+        "cloudsync enterprise edition",
+        "cto",
+        "ca",
+        "enterprise ultimate",
+        "global infrastructure",
+        "distributed architecture",
+        "innovatech solutions",
+        "custom connector framework",
+        "global financial services inc.",
+        "api library",
+        "anomaly detection",
+        "david anderson",
+        "san jose",
+        "ai-powered analytics dashboard",
+        "vp of enterprise solutions"
+      ],
+      "only_in_new": [
+        "multi-cloud strategy",
+        "dedicated support",
+        "priority support",
+        "launch offer",
+        "security",
+        "transactions",
+        "system reliability",
+        "december 31, 2023",
+        "architecture",
+        "cloud operations",
+        "cloud resources",
+        "plan",
+        "connector framework",
+        "features",
+        "enterprise@innovatech.com",
+        "webinar",
+        "pricing",
+        "twitter",
+        "multi-factor authentication",
+        "encryption",
+        "support",
+        "innovation",
+        "end-to-end encryption",
+        "ai",
+        "roi",
+        "operational costs",
+        "youtube",
+        "integration",
+        "detection",
+        "storage",
+        "dashboard",
+        "performance",
+        "linkedin",
+        "2023",
+        "analytics",
+        "account manager",
+        "product experts",
+        "audit logging",
+        "facebook",
+        "regular price",
+        "enterprise solutions team",
+        "business",
+        "users",
+        "cloud integration",
+        "authentication",
+        "modeling",
+        "certification",
+        "implementation",
+        "cloud efficiency",
+        "cloud integration platform",
+        "api"
+      ],
+      "only_in_optimized": [
+        "industry leaders"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"innovatech\",\n        \"cloudsync enterprise edition\",\n        \"cloud integration\",\n        \"distributed architecture\",\n        \"soc 2 type ii\",\n        \"end-to-end encryption\",\n        \"multi-factor authentication\",\n        \"audit logging\",\n        \"api library\",\n        \"custom connector framework\",\n        \"ai-powered analytics dashboard\",\n        \"predictive modeling\",\n        \"anomaly detection\",\n        \"michael rodriguez\",\n        \"global financial services inc.\",\n        \"enterprise basic\",\n        \"enterprise plus\",\n        \"enterprise ultimate\",\n        \"december 31, 2023\",\n        \"cloud operations\",\n        \"david anderson\",\n        \"vp of enterprise solutions\",\n        \"innovatech solutions\",\n        \"linkedin\",\n        \"twitter\",\n        \"facebook\",\n        \"youtube\",\n        \"san jose\",\n        \"ca\",\n        \"2023\"\n      ],\n      [\n        \"cloudsync enterprise edition\",\n        \"cloud integration platform\",\n        \"enterprise-scale operations\",\n        \"business\",\n        \"cloud resources\",\n        \"transactions\",\n        \"architecture\",\n        \"performance\",\n        \"security\",\n        \"certification\",\n        \"encryption\",\n        \"authentication\",\n        \"audit logging\",\n        \"integration\",\n        \"api\",\n        \"connector framework\",\n        \"analytics\",\n        \"ai\",\n        \"dashboard\",\n        \"modeling\",\n        \"detection\",\n        \"michael rodriguez\",\n        \"cto\",\n        \"global financial services inc.\",\n        \"multi-cloud strategy\",\n        \"operational costs\",\n        \"system reliability\",\n        \"global infrastructure\",\n        \"pricing\",\n        \"plan\",\n        \"features\",\n        \"regular price\",\n        \"launch offer\",\n        \"enterprise basic\",\n        \"users\",\n        \"storage\",\n        \"support\",\n        \"enterprise plus\",\n        \"enterprise ultimate\",\n        \"priority support\",\n        \"dedicated support\",\n        \"december 31, 2023\",\n        \"webinar\",\n        \"product experts\",\n        \"cloudsync enterprise edition\",\n        \"cloud operations\",\n        \"roi\",\n        \"implementation\",\n        \"enterprise solutions team\",\n        \"account manager\",\n        \"enterprise@innovatech.com\",\n        \"cloud efficiency\",\n        \"innovation\",\n        \"david anderson\",\n        \"vp of enterprise solutions\",\n        \"innovatech solutions\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#cloud-integration\",\n      \"topic_description\": \"discusses the platform's role in connecting and managing cloud resources.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#enterprise-software\",\n      \"topic_description\": \"focuses on the software designed for large-scale business operations.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#digital-transformation\",\n      \"topic_description\": \"highlights how the product can revolutionize business operations and cloud strategy.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#performance-enhancement\",\n      \"topic_description\": \"mentions improvements in transaction processing speed and system reliability.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#security-compliance\",\n      \"topic_description\": \"covers security features like SOC 2 Type II certification and encryption.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#ai-analytics\",\n      \"topic_description\": \"details the use of AI for predictive modeling and anomaly detection within analytics.\",\n      \"relevance_score\": 0.65\n    },\n    {\n      \"topic_name\": \"#cost-optimization\",\n      \"topic_description\": \"indicates how the solution helps reduce operational costs.\",\n      \"relevance_score\": 0.6\n    },\n    {\n      \"topic_name\": \"#api-integration\",\n      \"topic_description\": \"refers to the platform's capability to connect with various applications through APIs.\",\n      \"relevance_score\": 0.55\n    },\n    {\n      \"topic_name\": \"#roi-maximization\",\n      \"topic_description\": \"discusses the potential for achieving a return on investment within a specified timeframe.\",\n      \"relevance_score\": 0.5\n    },\n    {\n      \"topic_name\": \"#cloud-strategy\",\n      \"topic_description\": \"addresses the impact of the product on an organization's multi-cloud approach.\",\n      \"relevance_score\": 0.45\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"innovatech\",\n        \"cloudsync enterprise edition\",\n        \"enterprise-scale operations\",\n        \"industry leaders\",\n        \"global infrastructure\",\n        \"michael rodriguez\",\n        \"cto\",\n        \"global financial services inc.\",\n        \"enterprise basic\",\n        \"enterprise plus\",\n        \"enterprise ultimate\",\n        \"david anderson\",\n        \"vp of enterprise solutions\",\n        \"innovatech solutions\",\n        \"san jose\",\n        \"ca\"\n      ],\n      [\n        \"cloudsync enterprise edition\",\n        \"distributed architecture\",\n        \"soc 2 type ii\",\n        \"api library\",\n        \"custom connector framework\",\n        \"ai-powered analytics dashboard\",\n        \"predictive modeling\",\n        \"anomaly detection\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#cloud-integration\",\n      \"topic_description\": \"This topic focuses on the integration capabilities of CloudSync Enterprise Edition, highlighting its role in managing cloud resources for enterprise businesses. It emphasizes the platform's ability to connect with numerous applications through an expanded API library and custom connectors, facilitating seamless data flow and operational efficiency across different cloud environments.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#product-launch\",\n      \"topic_description\": \"Details the introduction of CloudSync Enterprise Edition, a new cloud integration platform developed over two years. The launch includes special pricing, a dedicated webinar, and emphasizes the product's advanced features designed to revolutionize business operations and cloud strategies for enterprise clients.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#enterprise-solutions\",\n      \"topic_description\": \"Pertains to the specialized cloud integration services and products offered to large-scale enterprises. The document specifically promotes CloudSync Enterprise Edition as a solution tailored to meet the complex needs of businesses, focusing on performance, security, and integration with existing enterprise applications.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#digital-transformation\",\n      \"topic_description\": \"Explores how CloudSync Enterprise Edition contributes to business transformation by enhancing cloud operations and reducing costs. The product's ability to improve system reliability and deliver actionable insights through advanced analytics supports organizations in their journey to modernize and optimize their IT infrastructure.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#performance-optimization\",\n      \"topic_description\": \"Highlights the performance improvements in CloudSync Enterprise Edition, noting a distributed architecture that allows for significantly faster transaction processing. This focus on enhanced performance aims to improve system reliability and operational efficiency for enterprise clients managing large-scale cloud environments.\",\n      \"relevance_score\": 0.7\n    }\n  ]\n}\n```"
+    }
+  },
+  "conversation": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 4212,
+          "output": 226,
+          "total": 4438
+        },
+        "cost": 0.000512,
+        "execution_time": 1.5293083190917969
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 4412,
+          "output": 363,
+          "total": 4775
+        },
+        "cost": 0.000586,
+        "execution_time": 2.0013957023620605
+      },
+      "differences": {
+        "input_tokens_difference": -200,
+        "output_tokens_difference": -137,
+        "total_tokens_difference": -337,
+        "cost_difference": -7.400000000000006e-05,
+        "cost_difference_percentage": -14.453125000000014,
+        "time_difference": -0.47208738327026367,
+        "time_difference_percentage": -30.86933990855552
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 2,
+      "optimized_prompt_knots_count": 5,
+      "common_knots_count": 2,
+      "only_in_new_count": 0,
+      "only_in_optimized_count": 3,
+      "common_knots": [
+        "sarah",
+        "acme corporation"
+      ],
+      "only_in_new": [],
+      "only_in_optimized": [
+        "legacy system integration",
+        "technical requirements document",
+        "product roadmap presentation"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"acme corporation\"\n      ],\n      [\n        \"sarah\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#client-meetings\",\n      \"topic_description\": \"discusses follow-up action items from a client meeting.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#product-roadmaps\",\n      \"topic_description\": \"involves the creation and review of a product roadmap presentation.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#technical-requirements\",\n      \"topic_description\": \"covers the gathering and updating of technical requirements, including legacy system integration.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#pricing-proposals\",\n      \"topic_description\": \"mentions the need to revise pricing proposals based on scope expansion.\",\n      \"relevance_score\": 0.7\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"acme corporation\",\n        \"product roadmap presentation\",\n        \"sarah\",\n        \"technical requirements document\",\n        \"legacy system integration\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#product-roadmap\",\n      \"topic_description\": \"This topic covers the development and presentation of the product roadmap, including the creation of presentation slides and client review processes. It highlights the collaborative effort involving Sarah for review before client submission, emphasizing the importance of detailed planning and client communication for product strategy.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#technical-requirements\",\n      \"topic_description\": \"This topic focuses on gathering and documenting technical requirements, specifically related to integrating with legacy systems. It underscores the need for detailed documentation and updates to shared project files to ensure successful system integration and client satisfaction.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#client-management\",\n      \"topic_description\": \"This topic addresses client interactions and managing client expectations, particularly in follow-up to meetings. It involves presenting project updates, sharing revised proposals, and ensuring clear communication channels with the client, exemplified by the discussion with Acme Corporation.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#project-management\",\n      \"topic_description\": \"This topic encompasses the management of action items and project tasks derived from client meetings. It involves assigning responsibilities, setting deadlines, and ensuring that project deliverables like presentations and documentation are on track and meet client needs.\",\n      \"relevance_score\": 0.6\n    }\n  ]\n}\n```"
+    }
+  },
+  "summary": {
+    "avg_cost_diff_percentage": -1.419216159243195,
+    "avg_time_diff_percentage": 8.977944926882873,
+    "avg_new_knots_count": 16.25,
+    "avg_optimized_knots_count": 6.25
+  }
+}
