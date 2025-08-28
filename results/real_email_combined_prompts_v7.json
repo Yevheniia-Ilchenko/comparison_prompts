@@ -1,0 +1,673 @@
+{
+  "real_email_1": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 14285,
+          "output": 263,
+          "total": 14548
+        },
+        "cost": 0.001534,
+        "execution_time": 1.7271089553833008
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 15171,
+          "output": 371,
+          "total": 15542
+        },
+        "cost": 0.001666,
+        "execution_time": 1.866840124130249
+      },
+      "differences": {
+        "input_tokens_difference": -886,
+        "output_tokens_difference": -108,
+        "total_tokens_difference": -994,
+        "cost_difference": -0.00013199999999999996,
+        "cost_difference_percentage": -8.60495436766623,
+        "time_difference": -0.13973116874694824,
+        "time_difference_percentage": -8.090466343273487
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 6,
+      "optimized_prompt_knots_count": 10,
+      "common_knots_count": 4,
+      "only_in_new_count": 2,
+      "only_in_optimized_count": 6,
+      "common_knots": [
+        "deepseek-v3.1",
+        "deepseek",
+        "deepseek api",
+        "pricing adjustment"
+      ],
+      "only_in_new": [
+        "deepseek team",
+        "deepseek api upgrade"
+      ],
+      "only_in_optimized": [
+        "pricing information",
+        "the deepseek team",
+        "input tokens",
+        "effective date",
+        "off-peak discount",
+        "output tokens"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"deepseek\",\n        \"deepseek api upgrade\",\n        \"deepseek-v3.1\"\n      ],\n      [\n        \"deepseek api\",\n        \"deepseek-v3.1\",\n        \"pricing adjustment\"\n      ],\n      [\n        \"deepseek team\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#api-pricing\",\n      \"topic_description\": \"This topic covers changes and corrections related to api pricing structures.\",\n      \"relevance_score\": 1.0\n    },\n    {\n      \"topic_name\": \"#api-updates\",\n      \"topic_description\": \"This topic pertains to updates and version changes for application programming interfaces.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#pricing-corrections\",\n      \"topic_description\": \"This topic addresses inaccuracies and subsequent corrections in pricing information.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#service-resources\",\n      \"topic_description\": \"This topic relates to the scaling and availability of service resources.\",\n      \"relevance_score\": 0.5\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"deepseek\",\n        \"deepseek api\",\n        \"deepseek-v3.1\"\n      ],\n      [\n        \"pricing information\",\n        \"pricing adjustment\",\n        \"effective date\",\n        \"output tokens\",\n        \"input tokens\",\n        \"off-peak discount\"\n      ],\n      [\n        \"the deepseek team\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#api-pricing\",\n      \"topic_description\": \"This topic covers the revised pricing structure for the DeepSeek API, specifically addressing changes to input and output token costs and the removal of off-peak discounts. It details the effective date of these adjustments and provides a link for further pricing information. The core issue is correcting previous misinformation about these financial aspects of the API usage.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#api-upgrade\",\n      \"topic_description\": \"This topic focuses on the upgrade of the DeepSeek API to version DeepSeek-V3.1. It also mentions the scaling up of service resources to better meet developer needs and encourages usage. The upgrade signifies a development in the API's capabilities and infrastructure.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#customer-communication\",\n      \"topic_description\": \"This topic concerns the communication strategy employed by DeepSeek to inform its developers about critical updates and corrections. It highlights an apology for inaccuracies in a previous email, emphasizing transparency and the importance of clear messaging regarding API changes and pricing. The goal is to maintain trust and provide accurate information to the user base.\",\n      \"relevance_score\": 0.6\n    }\n  ]\n}\n```"
+    }
+  },
+  "real_email_2": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 21002,
+          "output": 332,
+          "total": 21334
+        },
+        "cost": 0.002233,
+        "execution_time": 1.4926364421844482
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 21888,
+          "output": 350,
+          "total": 22238
+        },
+        "cost": 0.002329,
+        "execution_time": 2.489213228225708
+      },
+      "differences": {
+        "input_tokens_difference": -886,
+        "output_tokens_difference": -18,
+        "total_tokens_difference": -904,
+        "cost_difference": -9.599999999999973e-05,
+        "cost_difference_percentage": -4.299149126735322,
+        "time_difference": -0.9965767860412598,
+        "time_difference_percentage": -66.76621030254269
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 8,
+      "optimized_prompt_knots_count": 4,
+      "common_knots_count": 3,
+      "only_in_new_count": 5,
+      "only_in_optimized_count": 1,
+      "common_knots": [
+        "upwork",
+        "toby fox-mason",
+        "ashgrove ai"
+      ],
+      "only_in_new": [
+        "12pm kyiv",
+        "5pm bali",
+        "gigradar.io",
+        "aug 28",
+        "5am est"
+      ],
+      "only_in_optimized": [
+        "gigradar"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"gigradar.io\",\n        \"toby fox-mason\",\n        \"ashgrove ai\",\n        \"upwork\",\n        \"aug 28\",\n        \"12pm kyiv\",\n        \"5pm bali\",\n        \"5am est\"\n      ],\n      [\n        \"gigradar.io\",\n        \"upwork\",\n        \"toby fox-mason\",\n        \"ashgrove ai\",\n        \"aug 28\",\n        \"12pm kyiv\",\n        \"5pm bali\",\n        \"5am est\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#freelancing-platforms\",\n      \"topic_description\": \"discusses strategies and tips for succeeding on freelance platforms like Upwork.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#agency-growth\",\n      \"topic_description\": \"focuses on how agencies can scale and break through on freelance platforms.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#online-business-strategy\",\n      \"topic_description\": \"covers advice and playbooks for agency owners to achieve success in their online business.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#event-promotion\",\n      \"topic_description\": \"involves promoting an upcoming online event with a speaker sharing their success story.\",\n      \"relevance_score\": 0.75\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"gigradar\",\n        \"toby fox-mason\",\n        \"ashgrove ai\",\n        \"upwork\"\n      ],\n      [\n        \"gigradar\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#freelancing-platforms\",\n      \"topic_description\": \"This topic focuses on the Upwork platform, a prominent online marketplace for freelancers and clients. The document details strategies and tips for agencies to achieve success and scale their operations on Upwork, highlighting a specific event featuring an agency owner who has accomplished this. It covers challenges faced and proven methods for growth within this ecosystem.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#event-promotion\",\n      \"topic_description\": \"This topic covers the marketing and promotion of an online event designed to share insights on succeeding on the Upwork platform. It includes details about the speaker, the event agenda, and calls to action for joining or adding the event to calendars. The promotion aims to drive attendance and engagement for valuable content delivery.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#agency-growth\",\n      \"topic_description\": \"This topic addresses the strategies and challenges associated with growing an agency, specifically within the context of freelancing platforms like Upwork. It highlights a real-world case study of an agency owner who has successfully scaled their business and will share their playbook. The discussion centers on overcoming obstacles and implementing effective growth tactics.\",\n      \"relevance_score\": 0.7\n    }\n  ]\n}\n```"
+    }
+  },
+  "real_email_3": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 54472,
+          "output": 1128,
+          "total": 55600
+        },
+        "cost": 0.005898,
+        "execution_time": 4.023015975952148
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 55358,
+          "output": 748,
+          "total": 56106
+        },
+        "cost": 0.005835,
+        "execution_time": 3.502729892730713
+      },
+      "differences": {
+        "input_tokens_difference": -886,
+        "output_tokens_difference": 380,
+        "total_tokens_difference": -506,
+        "cost_difference": 6.299999999999969e-05,
+        "cost_difference_percentage": 1.0681586978636775,
+        "time_difference": 0.5202860832214355,
+        "time_difference_percentage": 12.93273718850437
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 58,
+      "optimized_prompt_knots_count": 40,
+      "common_knots_count": 0,
+      "only_in_new_count": 58,
+      "only_in_optimized_count": 40,
+      "common_knots": [],
+      "only_in_new": [
+        "Soviet Union",
+        "France",
+        "Australia",
+        "Bst",
+        "AI",
+        "Friedrich Merz",
+        "Elon Musk",
+        "CrowdStrike",
+        "Abdulkadir Uraloglu",
+        "Emmanuel Macron",
+        "Donald Tusk",
+        "Caitlin Simmers",
+        "Communist Manifesto",
+        "European Union",
+        "Russia",
+        "Cloudbreak",
+        "CNBC",
+        "Recep Tayyip Erdogan",
+        "Howard Lutnick",
+        "NASDAQ CTA Cyber-security Index",
+        "Lockheed Martin",
+        "Molly Picklum",
+        "Caroline Marks",
+        "Donald Trump",
+        "Israel Defence Forces",
+        "Fiji",
+        "Yorkville Acquisition",
+        "FBI",
+        "Ukraine",
+        "India",
+        "Joshua Spencer",
+        "Moldova",
+        "World Surf League",
+        "SpaceX",
+        "Gaza",
+        "The Economist",
+        "Lisa Cook",
+        "Federal Reserve",
+        "Yago Dora",
+        "Karl Marx",
+        "Intel",
+        "Starship",
+        "Pakistan",
+        "Punjab",
+        "Blackwell",
+        "UN",
+        "Turkey",
+        "Brazil",
+        "Trump Media and Technology Group",
+        "Nvidia",
+        "Crypto.com",
+        "Poland",
+        "Friedrich Engels",
+        "Germany",
+        "Maia Sandu",
+        "China",
+        "Italo Ferreira",
+        "CRO"
+      ],
+      "only_in_optimized": [
+        "fiji",
+        "abdulkadir uraloglu",
+        "caitlin simmers",
+        "federal reserve",
+        "theodore dreiser",
+        "lockheed martin",
+        "gaza",
+        "communist manifesto",
+        "yago dora",
+        "lisa cook",
+        "pakistan",
+        "cro",
+        "molly picklum",
+        "intel",
+        "punjab region",
+        "yorkville acquisition",
+        "friedrich engels",
+        "crowdstrike",
+        "crypto.com",
+        "karl marx",
+        "the economist",
+        "howard lutnick",
+        "israel defence forces",
+        "world surf league",
+        "italo ferreira",
+        "spacex",
+        "turkey",
+        "donald trump",
+        "nasdaq cta cyber-security index",
+        "caroline marks",
+        "starship",
+        "trump media and technology group",
+        "hamas",
+        "fbi",
+        "recep Tayyip erdogan",
+        "cloudbreak",
+        "bobby goldsboro",
+        "nasser hospital",
+        "elon musk",
+        "un"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"The Economist\",\n        \"Joshua Spencer\",\n        \"Israel Defence Forces\",\n        \"Gaza\",\n        \"UN\",\n        \"Donald Trump\",\n        \"Lisa Cook\",\n        \"Federal Reserve\",\n        \"SpaceX\",\n        \"Starship\",\n        \"Elon Musk\",\n        \"Pakistan\",\n        \"Punjab\",\n        \"India\",\n        \"Howard Lutnick\",\n        \"Lockheed Martin\",\n        \"CNBC\",\n        \"Intel\",\n        \"Trump Media and Technology Group\",\n        \"Crypto.com\",\n        \"Yorkville Acquisition\",\n        \"CRO\",\n        \"Turkey\",\n        \"Abdulkadir Uraloglu\",\n        \"Recep Tayyip Erdogan\",\n        \"Bst\",\n        \"Nvidia\",\n        \"Blackwell\",\n        \"China\",\n        \"FBI\",\n        \"CrowdStrike\",\n        \"NASDAQ CTA Cyber-security Index\",\n        \"AI\",\n        \"Moldova\",\n        \"Soviet Union\",\n        \"France\",\n        \"Germany\",\n        \"Poland\",\n        \"Maia Sandu\",\n        \"Russia\",\n        \"Emmanuel Macron\",\n        \"Friedrich Merz\",\n        \"Donald Tusk\",\n        \"Ukraine\",\n        \"European Union\",\n        \"World Surf League\",\n        \"Cloudbreak\",\n        \"Fiji\",\n        \"Australia\",\n        \"Molly Picklum\",\n        \"Caroline Marks\",\n        \"Caitlin Simmers\",\n        \"Brazil\",\n        \"Yago Dora\",\n        \"Italo Ferreira\",\n        \"Karl Marx\",\n        \"Friedrich Engels\",\n        \"Communist Manifesto\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#international\u2011relations\",\n      \"topic_description\": \"The text discusses international relations, specifically the support of European nations for Moldova against Russian influence and the border flooding issue between India and Pakistan.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#geopolitics\",\n      \"topic_description\": \"Geopolitical events are covered, including the conflict in Gaza, the situation in Moldova regarding Russian influence, and trade relations between the US and China concerning technology.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#technology\u2011and\u2011innovation\",\n      \"topic_description\": \"The text highlights advancements and challenges in technology, such as SpaceX's Starship rocket, Nvidia's AI chips, CrowdStrike's cybersecurity solutions driven by AI, and the use of AI in cybercrime.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#defense\u2011industry\",\n      \"topic_description\": \"The article touches upon the defense industry, mentioning Lockheed Martin and the US government's potential stake in defense companies.\",\n      \"relevance_score\": 0.5\n    },\n    {\n      \"topic_name\": \"#finance\u2011and\u2011economics\",\n      \"topic_description\": \"Financial and economic topics are present, including Donald Trump's views on the Federal Reserve, Intel's financial situation, Trump Media and Technology Group's financial plans, and global cybersecurity spending.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#cybersecurity\",\n      \"topic_description\": \"The text discusses the cybersecurity sector, particularly the growth in spending and the impact of AI on both defensive and offensive cyber operations.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#sports\u2011and\u2011entertainment\",\n      \"topic_description\": \"The world of sports is mentioned through the context of the World Surf League championships.\",\n      \"relevance_score\": 0.4\n    },\n    {\n      \"topic_name\": \"#artificial\u2011intelligence\",\n      \"topic_description\": \"Artificial intelligence is identified as a key driver in technology, influencing cybersecurity and potentially other sectors.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#legal\u2011and\u2011regulatory\u2011affairs\",\n      \"topic_description\": \"Legal and regulatory issues are present, such as the US government's export controls on technology and potential legal challenges regarding presidential appointments.\",\n      \"relevance_score\": 0.6\n    },\n    {\n      \"topic_name\": \"#space\u2011exploration\",\n      \"topic_description\": \"Space exploration is mentioned with the successful test flight of SpaceX's Starship.\",\n      \"relevance_score\": 0.5\n    },\n    {\n      \"topic_name\": \"#crime\u2011and\u2011law\u2011enforcement\",\n      \"topic_description\": \"The text mentions internet crime losses and the FBI's statistics on the matter.\",\n      \"relevance_score\": 0.45\n    },\n    {\n      \"topic_name\": \"#government\u2011and\u2011politics\",\n      \"topic_description\": \"The article covers various political events and statements, including actions and opinions of Donald Trump regarding the Federal Reserve and technology sales to China, as well as political developments in Moldova and Turkey.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#global\u2011affairs\",\n      \"topic_description\": \"The newsletter provides a brief overview of significant global events, from conflicts to economic and technological developments.\",\n      \"relevance_score\": 0.95\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"the economist\",\n        \"israel defence forces\",\n        \"nasser hospital\",\n        \"gaza\",\n        \"hamas\",\n        \"un\"\n      ],\n      [\n        \"donald trump\",\n        \"lisa cook\",\n        \"federal reserve\"\n      ],\n      [\n        \"spacex\",\n        \"starship\",\n        \"elon musk\"\n      ],\n      [\n        \"pakistan\",\n        \"punjab region\"\n      ],\n      [\n        \"howard lutnick\",\n        \"lockheed martin\",\n        \"intel\"\n      ],\n      [\n        \"trump media and technology group\",\n        \"crypto.com\",\n        \"yorkville acquisition\",\n        \"cro\"\n      ],\n      [\n        \"abdulkadir uraloglu\",\n        \"turkey\",\n        \"recep Tayyip erdogan\"\n      ],\n      [\n        \"crowdstrike\",\n        \"nasdaq cta cyber-security index\",\n        \"fbi\"\n      ],\n      [\n        \"world surf league\",\n        \"cloudbreak\",\n        \"fiji\",\n        \"molly picklum\",\n        \"caroline marks\",\n        \"caitlin simmers\",\n        \"yago dora\",\n        \"italo ferreira\"\n      ],\n      [\n        \"bobby goldsboro\"\n      ],\n      [\n        \"karl marx\",\n        \"friedrich engels\",\n        \"communist manifesto\"\n      ],\n      [\n        \"theodore dreiser\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#geopolitics\",\n      \"topic_description\": \"Discusses international relations, conflicts, and political events. The text highlights the conflict in Gaza, the relationship between Pakistan and India, and Europe's support for Moldova against Russian influence. It also touches upon the political maneuvering of Donald Trump regarding the Federal Reserve and US foreign policy impacting tech companies.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#business-and-finance\",\n      \"topic_description\": \"Covers corporate earnings, market trends, and financial strategies. The text mentions Nvidia's strong earnings, CrowdStrike's performance driven by AI, and SpaceX's successful test flight impacting Elon Musk's ventures. It also touches upon investment in defense companies and the digital asset market with Trump Media and Technology Group.\",\n      \"relevance_score\": 0.80\n    },\n    {\n      \"topic_name\": \"#technology\",\n      \"topic_description\": \"Focuses on advancements and applications in technology, particularly artificial intelligence and space exploration. The text highlights Nvidia's AI chips, CrowdStrike's use of AI in cybersecurity, and SpaceX's Starship rocket test flight, showcasing innovation in these sectors.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#cybersecurity\",\n      \"topic_description\": \"Addresses the growing importance and investment in digital defenses. The text specifically mentions CrowdStrike's strong performance, driven by AI's role in improving threat detection and the increasing losses due to internet crime, illustrating the critical nature of cybersecurity in the current digital landscape.\",\n      \"relevance_score\": 0.70\n    },\n    {\n      \"topic_name\": \"#sports\",\n      \"topic_description\": \"Focuses on the competitive aspects of sports, specifically professional surfing. The text details the opening of the World Surf League finals, the competition format, and key athletes participating, providing insight into the world of competitive surfing.\",\n      \"relevance_score\": 0.50\n    }\n  ]\n}\n```"
+    }
+  },
+  "real_email_4": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 67651,
+          "output": 1353,
+          "total": 69004
+        },
+        "cost": 0.007306,
+        "execution_time": 3.3111069202423096
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 68537,
+          "output": 1491,
+          "total": 70028
+        },
+        "cost": 0.00745,
+        "execution_time": 4.67010235786438
+      },
+      "differences": {
+        "input_tokens_difference": -886,
+        "output_tokens_difference": -138,
+        "total_tokens_difference": -1024,
+        "cost_difference": -0.00014400000000000003,
+        "cost_difference_percentage": -1.9709827539009037,
+        "time_difference": -1.3589954376220703,
+        "time_difference_percentage": -41.04353831988663
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 114,
+      "optimized_prompt_knots_count": 148,
+      "common_knots_count": 19,
+      "only_in_new_count": 95,
+      "only_in_optimized_count": 129,
+      "common_knots": [
+        "industrial policy",
+        "supersonic planes",
+        "energy",
+        "induction stove",
+        "lithium-ion batteries",
+        "a16z",
+        "action",
+        "flying cars",
+        "intelligence",
+        "robots",
+        "substack",
+        "batteries",
+        "heat pump",
+        "cancer",
+        "drones",
+        "electromagnets",
+        "microcontrollers",
+        "electric planes",
+        "neodymium magnets"
+      ],
+      "only_in_new": [
+        "EVs",
+        "Base Chapter 2",
+        "Sumitomo",
+        "Electric Motors",
+        "electricity",
+        "Electric Stack",
+        "Electric Era",
+        "neo magnets division",
+        "BYD",
+        "insulated gate bipolar transistors (IGBT)",
+        "Texas Instruments",
+        "electric technology",
+        "Electric Slide",
+        "NVIDIA",
+        "DJI",
+        "Pentagon",
+        "DJI Mavic 3 drone",
+        "Joel Spolsky",
+        "variable frequency drives (VFD)",
+        "Moore\u2019s Law",
+        "solar energy",
+        "Elon Musk",
+        "LFP",
+        "Magnets and Electric Motors",
+        "electric vehicles",
+        "humanoid robots",
+        "Huawei",
+        "Tesla Model 3",
+        "IEA",
+        "microcontrollers (MCUs)",
+        "MP Materials",
+        "Conrad Bastable",
+        "America",
+        "Law of Conservation of Attractive Profits",
+        "American AI",
+        "electricity generation",
+        "Lake Austin",
+        "Hyperlegible",
+        "GM",
+        "bill of materials (BOM)",
+        "China",
+        "Matic",
+        "DSPs",
+        "ArcSport",
+        "AI",
+        "MRI machines",
+        "NCA",
+        "LEGO blocks",
+        "Clayton Christensen",
+        "Astro Mechanica",
+        "Embedded Compute",
+        "hard-disk drive motors",
+        "digital signal processors (DSPs)",
+        "Electric Platform",
+        "Bitter Lesson",
+        "EMEA",
+        "Arc",
+        "Magnequench",
+        "Lithium-Ion Batteries",
+        "scaling laws in AI",
+        "The Century of Semiconductors",
+        "Wanxiang",
+        "Forsaking Industrialism",
+        "Electromagnetism",
+        "Tesla",
+        "Semiconductors",
+        "Power Electronics and Control Systems",
+        "Vertical Integrators",
+        "Power Electronics",
+        "electric products",
+        "OpenAI",
+        "Zipline",
+        "Isaiah Taylor",
+        "RISC-V",
+        "solar panel cost curves",
+        "electromagnetic actuation",
+        "WSJ",
+        "Claude",
+        "SpaceX",
+        "Electric Stack technologies",
+        "Taiwan",
+        "ARM",
+        "rare earth magnet production",
+        "A123 Systems",
+        "electric bikes",
+        "COVID chip shortage",
+        "Valar Atomics",
+        "B. Jayant Baliga",
+        "Sony",
+        "NMC",
+        "CATL",
+        "ChatGPT",
+        "million instructions per second (DMIPS)",
+        "Lithium Iron Phosphate (LFP) battery",
+        "Base Power Company"
+      ],
+      "only_in_optimized": [
+        "astro mechanic",
+        "impulse labs",
+        "tesla",
+        "iso 27001",
+        "not boring",
+        "taiwan",
+        "control systems",
+        "servomotors",
+        "openai",
+        "soc 2",
+        "free market magic",
+        "catalogs",
+        "valar atomics",
+        "vfd",
+        "european union",
+        "appliances",
+        "iea",
+        "huawei",
+        "catl",
+        "ryan mcentush",
+        "law of conservation of attractive profits",
+        "united states",
+        "federal trade commission act",
+        "clayton christensen",
+        "america",
+        "calulators",
+        "sumitomo",
+        "nca",
+        "electric era",
+        "solar panel",
+        "gm",
+        "american demand",
+        "arm",
+        "european commission",
+        "nissan",
+        "base power company",
+        "lake austin",
+        "cloud",
+        "eastern manufacturing",
+        "semiconductor manufacturing",
+        "boats",
+        "evs",
+        "deepseek",
+        "semiconductor manufacturing company",
+        "industrial companies",
+        "power electronics",
+        "california",
+        "risc-v",
+        "government reports",
+        "destilabs",
+        "nidec",
+        "china",
+        "igbt",
+        "a123 systems",
+        "spacex",
+        "mcus",
+        "rich sutton",
+        "byd",
+        "grid",
+        "chatgpt",
+        "consumer demand",
+        "department of defense",
+        "mri machines",
+        "b. jayant baliga",
+        "covid chip shortage",
+        "nvidia",
+        "youtube",
+        "matic",
+        "european semiconductor manufacturing company",
+        "sam d'amico",
+        "european semiconductors",
+        "kids toys",
+        "joel spolsky",
+        "polestar",
+        "united kingdom",
+        "base chapter 2",
+        "semiconductors",
+        "claude",
+        "conrad bastable",
+        "ashlee vance",
+        "wm motor",
+        "electric motors",
+        "intellectual property",
+        "dsps",
+        "lordstown motors",
+        "gmail",
+        "steel-toed foot",
+        "ev motor",
+        "million instructions per second",
+        "biotech",
+        "elon musk",
+        "dji mavic 3",
+        "niu",
+        "semiconductor industry",
+        "mganequench",
+        "xiaopeng",
+        "moore's law",
+        "arcsport",
+        "hyperlegible",
+        "lithium iron phosphate",
+        "tesla model 3",
+        "electromagnetism",
+        "arc",
+        "zipline",
+        "hipaa",
+        "bitter lesson",
+        "western science",
+        "insulated gate bipolar transistors",
+        "sony",
+        "semiconductor council",
+        "ncm",
+        "wanxiang",
+        "magnequench",
+        "mips",
+        "isaiah taylor",
+        "dji",
+        "variable frequency drives",
+        "lfp",
+        "ai",
+        "vfd inverters",
+        "federal trade commission",
+        "digital signal processors",
+        "department of energy",
+        "surgical robots",
+        "compute",
+        "texas instruments",
+        "humanoids",
+        "the electric slide",
+        "vanta"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"substack\",\n        \"a16z\",\n        \"AI\",\n        \"Electric Stack\",\n        \"Electric Slide\",\n        \"American AI\",\n        \"China\",\n        \"Isaiah Taylor\",\n        \"Valar Atomics\",\n        \"energy\",\n        \"intelligence\",\n        \"action\",\n        \"Joel Spolsky\",\n        \"America\",\n        \"electricity generation\",\n        \"Electric Stack technologies\",\n        \"EVs\",\n        \"drones\",\n        \"robots\",\n        \"Lithium-Ion Batteries\",\n        \"Magnets and Electric Motors\",\n        \"Power Electronics\",\n        \"Embedded Compute\",\n        \"neodymium magnets\",\n        \"electric vehicles\",\n        \"electric products\",\n        \"electric technology\",\n        \"Moore\u2019s Law\",\n        \"scaling laws in AI\",\n        \"Bitter Lesson\",\n        \"solar panel cost curves\",\n        \"solar energy\",\n        \"electricity\",\n        \"LEGO blocks\",\n        \"batteries\",\n        \"Sony\",\n        \"lithium-ion batteries\",\n        \"hard-disk drive motors\",\n        \"Magnequench\",\n        \"Sumitomo\",\n        \"electromagnetic actuation\",\n        \"variable frequency drives (VFD)\",\n        \"B. Jayant Baliga\",\n        \"insulated gate bipolar transistors (IGBT)\",\n        \"Texas Instruments\",\n        \"microcontrollers (MCUs)\",\n        \"digital signal processors (DSPs)\",\n        \"million instructions per second (DMIPS)\",\n        \"bill of materials (BOM)\",\n        \"Tesla Model 3\",\n        \"DJI Mavic 3 drone\",\n        \"GM\",\n        \"neo magnets division\",\n        \"A123 Systems\",\n        \"Lithium Iron Phosphate (LFP) battery\",\n        \"Wanxiang\",\n        \"industrial policy\",\n        \"BYD\",\n        \"DJI\",\n        \"Huawei\",\n        \"EVs\",\n        \"drones\",\n        \"electric bikes\",\n        \"robots\",\n        \"Electric Platform\",\n        \"Conrad Bastable\",\n        \"Forsaking Industrialism\",\n        \"Hyperlegible\",\n        \"Vertical Integrators\",\n        \"IEA\",\n        \"Base Chapter 2\",\n        \"Electric Era\",\n        \"Taiwan\",\n        \"NVIDIA\",\n        \"OpenAI\",\n        \"Clayton Christensen\",\n        \"Law of Conservation of Attractive Profits\",\n        \"Arc\",\n        \"ArcSport\",\n        \"Lake Austin\",\n        \"Zipline\",\n        \"MRI machines\",\n        \"cancer\",\n        \"electromagnets\",\n        \"Base Power Company\",\n        \"Matic\",\n        \"Astro Mechanica\",\n        \"supersonic planes\",\n        \"electric planes\",\n        \"flying cars\",\n        \"humanoid robots\",\n        \"WSJ\",\n        \"rare earth magnet production\",\n        \"Claude\",\n        \"ChatGPT\",\n        \"Elon Musk\",\n        \"Tesla\",\n        \"SpaceX\",\n        \"COVID chip shortage\",\n        \"EMEA\",\n        \"NMC\",\n        \"NCA\",\n        \"CATL\",\n        \"Semiconductors\",\n        \"Power Electronics and Control Systems\",\n        \"Embedded Compute\",\n        \"DSPs\",\n        \"ARM\",\n        \"RISC-V\",\n        \"MP Materials\",\n        \"Pentagon\",\n        \"heat pump\",\n        \"induction stove\",\n        \"Electromagnetism\",\n        \"Electric Motors\",\n        \"Lithium-Ion Batteries\",\n        \"NMC\",\n        \"NCA\",\n        \"Tesla\",\n        \"BYD\",\n        \"CATL\",\n        \"LFP\",\n        \"Magnets and Electric Motors\",\n        \"neodymium magnets\",\n        \"The Century of Semiconductors\",\n        \"Power Electronics and Control Systems\",\n        \"Embedded Compute\",\n        \"microcontrollers\",\n        \"DSPs\",\n        \"ARM\",\n        \"RISC-V\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#electric-vehicles\",\n      \"topic_description\": \"discussion on the growing importance and market share of electric vehicles and the supply chains that support them.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#ai-development\",\n      \"topic_description\": \"analysis of the contrasting approaches to AI model development, particularly between closed-weight and open-weight models, and the strategic implications.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#manufacturing-innovation\",\n      \"topic_description\": \"exploration of how advancements in manufacturing and industrial policy influence technological development and economic competitiveness, especially concerning the 'Electric Stack'.\",\n      \"relevance_score\": 0.95\n    },\n    {\n      \"topic_name\": \"#supply-chain-dominance\",\n      \"topic_description\": \"examination of how control over key components and manufacturing processes within the 'Electric Stack' leads to global dominance in emerging technology sectors.\",\n      \"relevance_score\": 0.95\n    },\n    {\n      \"topic_name\": \"#technological-progress\",\n      \"topic_description\": \"discussion on the concept of learning curves and cost declines in technology, exemplified by the 'Electric Stack', and their role in driving future innovation.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#geopolitical-competition\",\n      \"topic_description\": \"analysis of the technological race between nations, particularly the US and China, in critical sectors like AI and electrification, and the role of industrial strategy.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#industrial-strategy\",\n      \"topic_description\": \"discussion on the necessity of comprehensive industrial policies, including government support and consumer demand, to foster domestic manufacturing and regain technological leadership.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#electrification-trend\",\n      \"topic_description\": \"overview of the pervasive trend of electrification across various industries and products, driven by cost reductions and performance improvements in the 'Electric Stack'.\",\n      \"relevance_score\": 0.95\n    },\n    {\n      \"topic_name\": \"#semiconductor-technology\",\n      \"topic_description\": \"consideration of the role of semiconductors and embedded compute within the 'Electric Stack' and their impact on product performance and innovation.\",\n      \"relevance_score\": 0.75\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"destilabs\",\n        \"gmail\",\n        \"not boring\",\n        \"substack\",\n        \"impulse labs\",\n        \"ryan mcentush\",\n        \"a16z\",\n        \"sam d'amico\",\n        \"vanta\",\n        \"soc 2\",\n        \"iso 27001\",\n        \"hipaa\",\n        \"the electric slide\",\n        \"china\",\n        \"america\",\n        \"ai\",\n        \"isaiah taylor\",\n        \"valar atomics\",\n        \"energy\",\n        \"intelligence\",\n        \"action\",\n        \"joel spolsky\",\n        \"tesla\",\n        \"evs\",\n        \"dji\",\n        \"huawei\",\n        \"byd\",\n        \"nissan\",\n        \"catl\",\n        \"nidec\",\n        \"wm motor\",\n        \"niu\",\n        \"xiaopeng\",\n        \"polestar\",\n        \"lordstown motors\",\n        \"tesla model 3\",\n        \"dji\"\n      ],\n      [\n        \"moore's law\",\n        \"rich sutton\",\n        \"bitter lesson\",\n        \"solar panel\",\n        \"sony\",\n        \"lithium-ion batteries\",\n        \"magnequench\",\n        \"sumitomo\",\n        \"neodymium magnets\",\n        \"catalogs\",\n        \"youtube\",\n        \"government reports\",\n        \"ev motor\",\n        \"claude\",\n        \"chatgpt\",\n        \"industrial companies\",\n        \"variable frequency drives\",\n        \"vfd\",\n        \"b. jayant baliga\",\n        \"insulated gate bipolar transistors\",\n        \"igbt\",\n        \"vfd inverters\",\n        \"texas instruments\",\n        \"microcontrollers\",\n        \"mcus\",\n        \"digital signal processors\",\n        \"dsps\",\n        \"calulators\",\n        \"kids toys\",\n        \"million instructions per second\",\n        \"mips\",\n        \"nvidia\",\n        \"tesla model 3\",\n        \"dji mavic 3\",\n        \"gm\",\n        \"mganequench\",\n        \"a123 systems\",\n        \"lithium iron phosphate\",\n        \"lfp\",\n        \"wanxiang\",\n        \"conrad bastable\",\n        \"hyperlegible\",\n        \"european union\",\n        \"united kingdom\",\n        \"iea\",\n        \"base chapter 2\",\n        \"electric era\",\n        \"robots\",\n        \"flying cars\",\n        \"drones\",\n        \"appliances\",\n        \"boats\",\n        \"arc\",\n        \"arcsport\",\n        \"lake austin\",\n        \"zipline\",\n        \"california\",\n        \"electric motors\",\n        \"power electronics\",\n        \"mri machines\",\n        \"cancer\",\n        \"electromagnets\",\n        \"base power company\",\n        \"grid\",\n        \"surgical robots\",\n        \"matic\",\n        \"humanoids\",\n        \"servomotors\",\n        \"astro mechanic\",\n        \"supersonic planes\",\n        \"electric planes\",\n        \"batteries\",\n        \"cloud\",\n        \"deepseek\",\n        \"openai\",\n        \"ashlee vance\",\n        \"elon musk\",\n        \"spacex\",\n        \"tesla\",\n        \"covid chip shortage\",\n        \"clayton christensen\",\n        \"law of conservation of attractive profits\",\n        \"intellectual property\",\n        \"biotech\",\n        \"taiwan\",\n        \"industrial policy\",\n        \"consumer demand\",\n        \"free market magic\",\n        \"steel-toed foot\",\n        \"heat pump\",\n        \"induction stove\",\n        \"american demand\",\n        \"electromagnetism\",\n        \"electric motors\",\n        \"ncm\",\n        \"nca\",\n        \"semiconductors\",\n        \"compute\",\n        \"control systems\",\n        \"arm\",\n        \"risc-v\",\n        \"western science\",\n        \"eastern manufacturing\",\n        \"european commission\",\n        \"federal trade commission\",\n        \"federal trade commission act\",\n        \"department of energy\",\n        \"department of defense\",\n        \"european semiconductor manufacturing company\",\n        \"european semiconductors\",\n        \"semiconductor manufacturing company\",\n        \"semiconductor manufacturing\",\n        \"semiconductor industry\",\n        \"semiconductor council\",\n        \"united states\",\n        \"semiconductor manufacturing company\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#electric-stack\",\n      \"topic_description\": \"This topic covers the fundamental technologies that enable electric products, including batteries, motors, power electronics, and embedded compute. It details the historical development, cost curves, and manufacturing dominance of these components, highlighting China's significant role in controlling these layers. The importance of the Electric Stack is emphasized for the future of AI and physical products, with a call for the West to rebuild its manufacturing capabilities in this domain.\",\n      \"relevance_score\": 0.95\n    },\n    {\n      \"topic_name\": \"#ai-and-intelligence\",\n      \"topic_description\": \"This topic discusses the strategic implications of artificial intelligence (AI) and its role in future economic and military dominance. It contrasts the American focus on closed-weight AI models with China's approach to open-weight models. The text argues that while intelligence is crucial, its true value is amplified when combined with energy and action, suggesting that controlling the physical infrastructure (the Electric Stack) is a more critical long-term bet than solely advancing AI.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#manufacturing-and-industrial-policy\",\n      \"topic_description\": \"This topic addresses the critical importance of manufacturing capabilities and industrial policy in achieving technological leadership. It criticizes the Western tendency to offload manufacturing to other countries, arguing that design and manufacturing are inextricably linked. The text highlights China's success through strategic industrial policies and contrasts it with perceived shortcomings in the West. It calls for a resurgence of domestic manufacturing and vertical integration to compete in the Electric Era.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#cost-curves-and-scaling\",\n      \"topic_description\": \"This topic focuses on the concept of learning curves and how they drive down costs and improve performance in technological development. It draws parallels between scaling laws in digital technologies like AI and Moore's Law, and the physical world, using solar panel cost reductions as an example. The text details similar cost declines for various components of the Electric Stack, emphasizing that these curves are key to understanding technological progress and market dynamics.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#electrification-and-energy\",\n      \"topic_description\": \"This topic centers on the broader trend of electrification across various industries and the fundamental role of energy. It argues that 'anything that can go electric will,' driven by the superior performance of electric products. The text also touches on the importance of electricity generation and the politicization of electrification in America, advocating for policies that encourage the adoption of electric technologies to bolster domestic industry.\",\n      \"relevance_score\": 0.7\n    }\n  ]\n}\n```"
+    }
+  },
+  "real_email_5": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 25938,
+          "output": 324,
+          "total": 26262
+        },
+        "cost": 0.002723,
+        "execution_time": 1.8264586925506592
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 26824,
+          "output": 521,
+          "total": 27345
+        },
+        "cost": 0.002891,
+        "execution_time": 2.4641475677490234
+      },
+      "differences": {
+        "input_tokens_difference": -886,
+        "output_tokens_difference": -197,
+        "total_tokens_difference": -1083,
+        "cost_difference": -0.00016799999999999975,
+        "cost_difference_percentage": -6.169665809768627,
+        "time_difference": -0.6376888751983643,
+        "time_difference_percentage": -34.913950027954286
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 9,
+      "optimized_prompt_knots_count": 11,
+      "common_knots_count": 8,
+      "only_in_new_count": 1,
+      "only_in_optimized_count": 3,
+      "common_knots": [
+        "google workspace",
+        "david torgerson",
+        "lucid",
+        "zoom",
+        "google chat",
+        "process accelerator",
+        "jira",
+        "airfocus"
+      ],
+      "only_in_new": [
+        "bpmn"
+      ],
+      "only_in_optimized": [
+        "destilabs",
+        "mykhaylo kushnir",
+        "lucid enterprise plan"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"lucid\",\n        \"airfocus\",\n        \"google chat\",\n        \"google workspace\",\n        \"jira\",\n        \"process accelerator\",\n        \"bpmn\",\n        \"david torgerson\",\n        \"zoom\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#collaboration-tools\",\n      \"topic_description\": \"discusses tools that facilitate collaboration between teams and across applications.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#workflow-automation\",\n      \"topic_description\": \"highlights features and integrations that streamline and improve work processes.\",\n      \"relevance_score\": 0.7\n    },\n    {\n      \"topic_name\": \"#product-management\",\n      \"topic_description\": \"focuses on how tools like Lucid and airfocus aid product teams in managing workflows and product lifecycles.\",\n      \"relevance_score\": 0.6\n    },\n    {\n      \"topic_name\": \"#integration-strategy\",\n      \"topic_description\": \"explores the benefits and implementation of integrating different software platforms to enhance functionality and efficiency.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#data-driven-decision-making\",\n      \"topic_description\": \"emphasizes the importance of data in making informed decisions, particularly in prioritization within IT.\",\n      \"relevance_score\": 0.5\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"destilabs\",\n        \"lucid\",\n        \"google chat\",\n        \"jira\",\n        \"airfocus\",\n        \"zoom\",\n        \"google workspace\",\n        \"process accelerator\"\n      ],\n      [\n        \"mykhaylo kushnir\",\n        \"lucid\",\n        \"google chat\",\n        \"jira\",\n        \"airfocus\",\n        \"zoom\",\n        \"google workspace\",\n        \"process accelerator\",\n        \"david torgerson\",\n        \"lucid\",\n        \"lucid enterprise plan\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#collaboration-tools\",\n      \"topic_description\": \"This topic covers software and platforms designed to enhance teamwork and communication. It highlights how Lucid integrates with various applications such as Google Chat, Jira, and Zoom to streamline workflows and improve collaboration. The content emphasizes the benefits of using these tools together for increased efficiency and better project management.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#product-integration\",\n      \"topic_description\": \"This topic focuses on the ability of Lucid to connect with other software and platforms to create a more integrated and efficient user experience. It details integrations with Google Workspace, Jira, and airfocus, showcasing how these connections act as a 'force multiplier' for tech stacks. The content also mentions new capabilities like Process Accelerator and BPMN import, which further enhance integration possibilities.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#workflow-automation\",\n      \"topic_description\": \"This topic addresses the streamlining of business processes through technology. Lucid's features, such as the Process Accelerator and integrations with tools like Jira and Google Chat, aim to automate and standardize documentation, publishing, and storage of processes. The goal is to simplify complex workflows and improve overall operational efficiency.\",\n      \"relevance_score\": 0.75\n    },\n    {\n      \"topic_name\": \"#data-driven-decisions\",\n      \"topic_description\": \"This topic highlights the importance of having reliable data to make informed decisions, as emphasized by David Torgerson's quote. It suggests that Lucid integrations can provide the necessary data to prioritize requests and tasks effectively, moving away from guesswork towards strategic decision-making.\",\n      \"relevance_score\": 0.6\n    }\n  ]\n}\n```"
+    }
+  },
+  "real_email_6": {
+    "metrics_comparison": {
+      "new_prompt": {
+        "tokens": {
+          "input": 9255,
+          "output": 192,
+          "total": 9447
+        },
+        "cost": 0.001002,
+        "execution_time": 1.1489627361297607
+      },
+      "optimized_prompt": {
+        "tokens": {
+          "input": 10141,
+          "output": 340,
+          "total": 10481
+        },
+        "cost": 0.00115,
+        "execution_time": 13.3925518989563
+      },
+      "differences": {
+        "input_tokens_difference": -886,
+        "output_tokens_difference": -148,
+        "total_tokens_difference": -1034,
+        "cost_difference": -0.0001479999999999999,
+        "cost_difference_percentage": -14.770459081836318,
+        "time_difference": -12.24358916282654,
+        "time_difference_percentage": -1065.62
+      }
+    },
+    "knots_comparison": {
+      "new_prompt_knots_count": 3,
+      "optimized_prompt_knots_count": 5,
+      "common_knots_count": 3,
+      "only_in_new_count": 0,
+      "only_in_optimized_count": 2,
+      "common_knots": [
+        "amazon.com, inc.",
+        "amazon.com",
+        "amazon web services"
+      ],
+      "only_in_new": [],
+      "only_in_optimized": [
+        "aws",
+        "aws customer service"
+      ]
+    },
+    "raw_results": {
+      "new_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"amazon web services\",\n        \"amazon.com, inc.\",\n        \"amazon.com\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#billing-and-payments\",\n      \"topic_description\": \"deals with issues related to account billing and payment failures.\",\n      \"relevance_score\": 0.9\n    },\n    {\n      \"topic_name\": \"#cloud-services-management\",\n      \"topic_description\": \"relates to the operational aspects of managing cloud service accounts, including payments and potential suspension.\",\n      \"relevance_score\": 0.8\n    },\n    {\n      \"topic_name\": \"#customer-support\",\n      \"topic_description\": \"refers to the interaction with customer service for resolving billing inquiries and payment issues.\",\n      \"relevance_score\": 0.7\n    }\n  ]\n}\n```",
+      "optimized_prompt": "```json\n{\n  \"entities\": {\n    \"knots_from_section\": [\n      [\n        \"amazon web services\",\n        \"aws\"\n      ],\n      [\n        \"amazon.com, inc.\"\n      ],\n      [\n        \"amazon.com\"\n      ],\n      [\n        \"aws customer service\"\n      ]\n    ]\n  },\n  \"topics\": [\n    {\n      \"topic_name\": \"#billing-and-payments\",\n      \"topic_description\": \"Addresses the critical issue of past-due balances on an AWS account, emphasizing the need for immediate payment to avoid service suspension. It guides users on how to make payments, update payment methods, and contact support for billing inquiries. This topic highlights the importance of timely financial management for cloud service continuity.\",\n      \"relevance_score\": 0.95\n    },\n    {\n      \"topic_name\": \"#cloud-services-management\",\n      \"topic_description\": \"Discusses the operational aspects of managing an AWS account, specifically focusing on payment processing failures and their consequences. It provides users with actionable steps to resolve payment issues and maintain uninterrupted access to cloud resources. The email serves as a crucial notification for account holders regarding service availability.\",\n      \"relevance_score\": 0.85\n    },\n    {\n      \"topic_name\": \"#account-security\",\n      \"topic_description\": \"Informs users about potential account suspension due to unresolved billing issues, underscoring the importance of maintaining accurate and up-to-date payment information. It guides users on security best practices related to their AWS account's financial status and access. This topic is vital for ensuring the integrity and availability of cloud resources.\",\n      \"relevance_score\": 0.75\n    }\n  ]\n}\n```"
+    }
+  },
+  "summary": {
+    "avg_cost_diff_percentage": -5.791175407007287,
+    "avg_time_diff_percentage": -490.7005006141322,
+    "avg_new_knots_count": 26.833333333333332,
+    "avg_optimized_knots_count": 30.166666666666668
+  }
+}

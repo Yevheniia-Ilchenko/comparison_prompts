@@ -86,11 +86,14 @@ def has_excessive_duplicates(entities_list):
     from collections import Counter
     entity_counts = Counter(all_entities)
     
-    # Check if there are entities that appear many times (more than 10 times)
-    excessive_duplicates = [entity for entity, count in entity_counts.items() if count > 10]
+    # Count total duplicates
+    total_entities = len(all_entities)
+    unique_entities = len(set(all_entities))
+    duplicate_count = total_entities - unique_entities
+    duplicate_percentage = 1 - (unique_entities / total_entities) if total_entities > 0 else 0
     
-    # If more than 5 entities appear more than 10 times each, it's likely a problem
-    return len(excessive_duplicates) >= 5
+    # Return true if there are significant duplicates (more than 10 and more than 20%)
+    return duplicate_count > 10 and duplicate_percentage > 0.2
 
 st.set_page_config(
     page_title="Email Analysis Comparison",
@@ -100,7 +103,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    with open("results/real_email_combined_prompts_v1.json", "r", encoding="utf-8") as file:
+    with open("results/real_email_combined_prompts_v9.json", "r", encoding="utf-8") as file:
         return json.load(file)
 
 data = load_data()
@@ -148,9 +151,12 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                 
                 total_raw_entities = len(all_entities)
                 unique_raw_entities = len(set(all_entities))
-                has_duplicate_issue = (category == "real_email_4" or 
+                duplicate_count = total_raw_entities - unique_raw_entities
+                duplicate_percentage = 1 - (unique_raw_entities / total_raw_entities) if total_raw_entities > 0 else 0
+
+                has_duplicate_issue = (
                                     (total_raw_entities > 1000) or 
-                                    (total_raw_entities > 0 and unique_raw_entities / total_raw_entities < 0.1))
+                                    (duplicate_count > 10 and duplicate_percentage > 0.2))            
             except Exception as e:
                 print(f"Error processing section knots: {str(e)}")
                 new_section_knots = []
@@ -319,7 +325,7 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                 st.write(f"Total: {knots_comparison['new_prompt_knots_count']}")
             
             # Show entities in a scrollable container if there are many
-            if len(new_entities) >= 100:
+            if len(new_entities) >= 150:
                 with st.expander("Show unique entities"):
                     st.markdown("""
                     <div style="max-height: 200px; overflow-y: scroll;">
@@ -386,15 +392,17 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                 # Налаштовуємо кольори та прозорість
                 if venn:
                     # Налаштовуємо кольори для кращого вигляду
-                    venn.get_patch_by_id('10').set_color('#ff9999')  # Тільки A (світло-червоний)
-                    venn.get_patch_by_id('01').set_color('#99cc99')  # Тільки B (світло-зелений)
-                    venn.get_patch_by_id('11').set_color('#cc8866')  # Перетин (коричневий)
-                    
-                    # Встановлюємо прозорість
-                    venn.get_patch_by_id('10').set_alpha(0.7)
-                    venn.get_patch_by_id('01').set_alpha(0.7)
-                    venn.get_patch_by_id('11').set_alpha(0.7)
-                    
+                    for patch_id in ['10', '01', '11']:
+                        patch = venn.get_patch_by_id(patch_id)
+                        if patch:
+                            if patch_id == '10':
+                                patch.set_color('#ff9999')  # Тільки A (світло-червоний)
+                            elif patch_id == '01':
+                                patch.set_color('#99cc99')  # Тільки B (світло-зелений)
+                            elif patch_id == '11':
+                                patch.set_color('#cc8866')  # Перетин (коричневий)
+                            patch.set_alpha(0.7)
+    
                     # Додаємо контури для кращого вигляду
                     venn2_circles(subsets=(
                         knots_comparison["only_in_new_count"],
@@ -403,26 +411,30 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                     ), linestyle='solid', linewidth=0.5, color='gray')
                     
                     # Додаємо підписи для множин
-                    if venn.set_labels:
-                        venn.get_label_by_id('A').set_text(f'New prompt\n({knots_comparison["only_in_new_count"] + knots_comparison["common_knots_count"]})')
-                        venn.get_label_by_id('A').set_fontsize(font_size)
-                        venn.get_label_by_id('B').set_text(f'Optimized prompt\n({knots_comparison["only_in_optimized_count"] + knots_comparison["common_knots_count"]})')
-                        venn.get_label_by_id('B').set_fontsize(font_size)
+                    if hasattr(venn, 'set_labels') and venn.set_labels:
+                        label_a = venn.get_label_by_id('A')
+                        label_b = venn.get_label_by_id('B')
+                        
+                        if label_a:
+                            label_a.set_text(f'New prompt\n({knots_comparison["only_in_new_count"] + knots_comparison["common_knots_count"]})')
+                            label_a.set_fontsize(font_size)
+                        
+                        if label_b:
+                            label_b.set_text(f'Optimized prompt\n({knots_comparison["only_in_optimized_count"] + knots_comparison["common_knots_count"]})')
+                            label_b.set_fontsize(font_size)
                     
                     # Встановлюємо підписи для кожної області з правильними значеннями
-                    if venn.subset_labels:
-                        if len(venn.subset_labels) >= 3:
-
-                            
-                            venn.subset_labels[0].set_text(f'{knots_comparison["only_in_new_count"]}')  # Тільки в New
-                            venn.subset_labels[0].set_fontsize(font_size)
-
-                            venn.subset_labels[2].set_text(f'{knots_comparison["common_knots_count"]}')  # Перетин
-                            venn.subset_labels[2].set_fontsize(font_size)
-                            
-                            venn.subset_labels[1].set_text(f'{knots_comparison["only_in_optimized_count"]}')  # Тільки в Optimized
-                            venn.subset_labels[1].set_fontsize(font_size)
-
+                    if hasattr(venn, 'subset_labels') and venn.subset_labels and len(venn.subset_labels) >= 3:
+                        for i, label in enumerate(venn.subset_labels):
+                            if label:
+                                if i == 0:  # Тільки в New
+                                    label.set_text(f'{knots_comparison["only_in_new_count"]}')
+                                elif i == 1:  # Тільки в Optimized
+                                    label.set_text(f'{knots_comparison["only_in_optimized_count"]}')
+                                elif i == 2:  # Перетин
+                                    label.set_text(f'{knots_comparison["common_knots_count"]}')
+                                label.set_fontsize(font_size)
+                    
                     # Налаштовуємо заголовок та вигляд
                     plt.title("Entity Overlap", fontsize=font_size)
                     plt.tight_layout()
@@ -437,8 +449,18 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
             new_section_knots = extract_knots_from_section(data[category]["raw_results"]["new_prompt"])
             
             # Additional check for problematic data
-            if category == "real_email_4" or any(len(group) > 100 for group in new_section_knots):
-                st.warning("⚠️ This email contains an large number of duplicate entities, indicating incorrect data extraction.")
+            # Count total and unique entities across all groups
+            all_entities = []
+            for group in new_section_knots:
+                all_entities.extend(group)
+
+            total_entities = len(all_entities)
+            unique_entities = len(set(all_entities))
+            duplicate_count = total_entities - unique_entities
+            duplicate_percentage = 1 - (unique_entities / total_entities) if total_entities > 0 else 0
+
+            if total_entities > 1000 or (duplicate_count > 10 and duplicate_percentage > 0.2):
+                st.warning("⚠️ Detected large number of duplicates, indicating incorrect data extraction.")
         except Exception as e:
             st.error(f"Error processing section knots: {str(e)}")
             new_section_knots = []
@@ -500,17 +522,22 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
         with col1:
             st.markdown("##### New Prompt Section Knots")
             if new_section_knots:
-                # Special check for email 4 (with massive duplicates)
-                if category == "real_email_4" or sum(len(group) for group in new_section_knots) > 1000:
-                    # Count total entities and unique entities
-                    all_entities = []
-                    for group in new_section_knots:
-                        all_entities.extend(group)
-                    
-                    unique_entities = set(all_entities)
-                    
-                    st.warning("⚠️ Detected large number of duplicates, indicating incorrect data extraction.".format(len(all_entities)))
-                    st.write(f"Total entities: {len(all_entities)}, Unique entities: {len(unique_entities)}")
+                all_entities = []
+                for group in new_section_knots:
+                    all_entities.extend(group)
+
+                all_entities = []
+                for group in new_section_knots:
+                    all_entities.extend(group)
+
+                total_entities = len(all_entities)
+                unique_entities = len(set(all_entities))
+                duplicate_count = total_entities - unique_entities
+                duplicate_percentage = 1 - (unique_entities / total_entities) if total_entities > 0 else 0
+
+                if (total_entities > 1000) or (duplicate_count > 10 and duplicate_percentage > 0.2):
+                    st.warning("⚠️ This email contains a large number of duplicate entities, indicating incorrect data extraction.")
+                    st.write(f"Total entities: {total_entities}, Unique entities: {unique_entities}")
                     
                     # Show in a compact view with scrolling capability
                     with st.expander("Show entities (contains massive duplicates)"):
@@ -719,6 +746,8 @@ with col2:
         Occasionally, on some calls, the optimized approach extracts email addresses as knots, though less often than the *new prompt*.
     
     5. **Topic Generation Failures**: In some cases, the new prompt fails to generate topics for complex emails (like email 4).
+                
+    6. **Result Stability**: Both prompting approaches show inconsistent results between runs, especially with complex and information-rich emails (the most difficult to process are: 3 and 4 email). The *optimized prompt* showed itself to be more stable.
     """)
 
 st.markdown("---")
