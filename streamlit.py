@@ -100,7 +100,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    with open("results/real_email_combined_prompts.json", "r", encoding="utf-8") as file:
+    with open("results/real_email_combined_prompts_v1.json", "r", encoding="utf-8") as file:
         return json.load(file)
 
 data = load_data()
@@ -313,14 +313,14 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
         with col1:
             st.markdown("##### New Prompt Entities")
             if has_duplicate_issue:
-                st.warning("⚠️ Detected extremely large number of duplicates in raw data, indicating incorrect data extraction.")
-                st.write(f"Total raw entities: {total_raw_entities}, Unique entities: {unique_raw_entities}")
+                st.warning("⚠️ Detected large number of duplicates in raw data, indicating incorrect data extraction.")
+                st.write(f"Total raw entities: {total_raw_entities}, Unique entities (without duplicates): {unique_raw_entities}. ")
             else:
                 st.write(f"Total: {knots_comparison['new_prompt_knots_count']}")
             
             # Show entities in a scrollable container if there are many
-            if len(new_entities) > 150:
-                with st.expander("Show all entities"):
+            if len(new_entities) >= 100:
+                with st.expander("Show unique entities"):
                     st.markdown("""
                     <div style="max-height: 200px; overflow-y: scroll;">
                     """, unsafe_allow_html=True)
@@ -438,7 +438,7 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
             
             # Additional check for problematic data
             if category == "real_email_4" or any(len(group) > 100 for group in new_section_knots):
-                st.warning("⚠️ This email contains an extremely large number of duplicate entities, indicating incorrect data extraction.")
+                st.warning("⚠️ This email contains an large number of duplicate entities, indicating incorrect data extraction.")
         except Exception as e:
             st.error(f"Error processing section knots: {str(e)}")
             new_section_knots = []
@@ -509,7 +509,7 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                     
                     unique_entities = set(all_entities)
                     
-                    st.warning("⚠️ Detected extremely large number of duplicates ({}), indicating incorrect data extraction.".format(len(all_entities)))
+                    st.warning("⚠️ Detected large number of duplicates, indicating incorrect data extraction.".format(len(all_entities)))
                     st.write(f"Total entities: {len(all_entities)}, Unique entities: {len(unique_entities)}")
                     
                     # Show in a compact view with scrolling capability
@@ -519,8 +519,8 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                         """, unsafe_allow_html=True)
                         
                         # Show first 100 unique entities
-                        st.write(f"First 100 unique entities (out of {len(unique_entities)}):")
-                        st.write(", ".join(list(unique_entities)[:100]) + "...")
+                        st.write(f"First 100 all_entities (out of {len(all_entities)}):")
+                        st.write(", ".join(list(all_entities)[:100]) + "...")
                         
                         st.markdown("</div>", unsafe_allow_html=True)
                 elif has_excessive_duplicates(new_section_knots):
@@ -534,7 +534,7 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                     
                     unique_entities = set(all_entities)
                     
-                    st.write(f"Total entities: {len(all_entities)}, Unique entities: {len(unique_entities)}")
+                    st.write(f"Total raw entities: {len(all_entities)}, Unique entities (without duplicates): {len(unique_entities)}")
                     
                     # Show in a container with limited height
                     with st.expander("Show entities (may contain duplicates)"):
