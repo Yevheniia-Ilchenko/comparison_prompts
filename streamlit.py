@@ -371,31 +371,63 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                 b_size = max(min_size, int(100 * knots_comparison["only_in_optimized_count"] / total_entities))
                 ab_size = max(min_size, int(100 * knots_comparison["common_knots_count"] / total_entities))
                 
-                # Створюємо діаграму Венна з нормалізованими розмірами
-                venn = venn2(subsets=(knots_comparison["only_in_new_count"], knots_comparison["only_in_optimized_count"], knots_comparison["common_knots_count"]), 
-            set_labels=('', ''))
-                
-                # Додаємо мінімальні мітки з крихітним шрифтом
-                if venn.set_labels:
-                    venn.get_label_by_id('A').set_text(f'New prompt\n({knots_comparison["only_in_new_count"]})')
-                    venn.get_label_by_id('A').set_fontsize(font_size)
-                    venn.get_label_by_id('B').set_text(f'Optimized prompt\n({knots_comparison["only_in_optimized_count"]})')
-                    venn.get_label_by_id('B').set_fontsize(font_size)
+                # Змінюємо рядки 374-412 на цей код
+                # Створюємо діаграму Венна з точним контролем над розмірами та підписами
+                from matplotlib_venn import venn2_circles
 
-                
-                # Додаємо кількість до перетину з тим самим шрифтом
-                if venn.subset_labels:
-                    venn.get_patch_by_id('11').set_alpha(0.8)
-                    venn.subset_labels[0].set_text(f'{knots_comparison["common_knots_count"]}')
-                    venn.subset_labels[0].set_fontsize(font_size)
-                
-                # Видаляємо заголовок повністю для економії місця
-                plt.title("Entity Overlap", fontsize=font_size)
-                plt.tight_layout()
-                
-                # Видаляємо осі для економії місця
-                plt.axis('off')
-                
+                # Створюємо діаграму з правильними розмірами множин
+                # Використовуємо другий формат: (Aonly, Bonly, AB)
+                venn = venn2(subsets=(
+                    knots_comparison["only_in_new_count"],  # Тільки в A (без перетину)
+                    knots_comparison["only_in_optimized_count"],  # Тільки в B (без перетину)
+                    knots_comparison["common_knots_count"]  # Перетин A і B
+                ), set_labels=('New', 'Opt'))
+
+                # Налаштовуємо кольори та прозорість
+                if venn:
+                    # Налаштовуємо кольори для кращого вигляду
+                    venn.get_patch_by_id('10').set_color('#ff9999')  # Тільки A (світло-червоний)
+                    venn.get_patch_by_id('01').set_color('#99cc99')  # Тільки B (світло-зелений)
+                    venn.get_patch_by_id('11').set_color('#cc8866')  # Перетин (коричневий)
+                    
+                    # Встановлюємо прозорість
+                    venn.get_patch_by_id('10').set_alpha(0.7)
+                    venn.get_patch_by_id('01').set_alpha(0.7)
+                    venn.get_patch_by_id('11').set_alpha(0.7)
+                    
+                    # Додаємо контури для кращого вигляду
+                    venn2_circles(subsets=(
+                        knots_comparison["only_in_new_count"],
+                        knots_comparison["only_in_optimized_count"],
+                        knots_comparison["common_knots_count"]
+                    ), linestyle='solid', linewidth=0.5, color='gray')
+                    
+                    # Додаємо підписи для множин
+                    if venn.set_labels:
+                        venn.get_label_by_id('A').set_text(f'New prompt\n({knots_comparison["only_in_new_count"] + knots_comparison["common_knots_count"]})')
+                        venn.get_label_by_id('A').set_fontsize(font_size)
+                        venn.get_label_by_id('B').set_text(f'Optimized prompt\n({knots_comparison["only_in_optimized_count"] + knots_comparison["common_knots_count"]})')
+                        venn.get_label_by_id('B').set_fontsize(font_size)
+                    
+                    # Встановлюємо підписи для кожної області з правильними значеннями
+                    if venn.subset_labels:
+                        if len(venn.subset_labels) >= 3:
+
+                            
+                            venn.subset_labels[0].set_text(f'{knots_comparison["only_in_new_count"]}')  # Тільки в New
+                            venn.subset_labels[0].set_fontsize(font_size)
+
+                            venn.subset_labels[2].set_text(f'{knots_comparison["common_knots_count"]}')  # Перетин
+                            venn.subset_labels[2].set_fontsize(font_size)
+                            
+                            venn.subset_labels[1].set_text(f'{knots_comparison["only_in_optimized_count"]}')  # Тільки в Optimized
+                            venn.subset_labels[1].set_fontsize(font_size)
+
+                    # Налаштовуємо заголовок та вигляд
+                    plt.title("Entity Overlap", fontsize=font_size)
+                    plt.tight_layout()
+                    plt.axis('off')
+
                 # Використовуємо st.pyplot з обмеженою шириною
                 st.pyplot(fig, use_container_width=False)
                 
