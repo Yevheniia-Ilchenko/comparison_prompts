@@ -236,7 +236,7 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                 
                 parsing_method_new = "JSON parsing"
             except json.JSONDecodeError as e:
-                st.warning("⚠️ This output is incorrect data extraction.")
+                st.warning("⚠️ This output contains incorrect data extraction.")
 
                 topic_count = new_prompt_json.count('"topic_name"')
                 # Create a simple structure to display something
@@ -363,28 +363,30 @@ for i, (tab, category) in enumerate(zip(tabs, available_categories)):
                 min_size = 10
                 
                 # Розраховуємо нормалізовані розміри
-                total_entities = max(len(only_new) + len(only_optimized) + len(common_entities), 1)
+                # Розраховуємо нормалізовані розміри на основі фактичних даних
+                total_entities = max(knots_comparison["only_in_new_count"] + knots_comparison["only_in_optimized_count"] + knots_comparison["common_knots_count"], 1)
                 
                 # Забезпечуємо мінімальний розмір для кожної підмножини
-                a_size = max(min_size, int(100 * len(only_new) / total_entities))
-                b_size = max(min_size, int(100 * len(only_optimized) / total_entities))
-                ab_size = max(min_size, int(100 * len(common_entities) / total_entities))
+                a_size = max(min_size, int(100 * knots_comparison["only_in_new_count"] / total_entities))
+                b_size = max(min_size, int(100 * knots_comparison["only_in_optimized_count"] / total_entities))
+                ab_size = max(min_size, int(100 * knots_comparison["common_knots_count"] / total_entities))
                 
                 # Створюємо діаграму Венна з нормалізованими розмірами
-                venn = venn2(subsets=(a_size, b_size, ab_size), 
-                            set_labels=('', ''))  # Видаляємо мітки множин
+                venn = venn2(subsets=(knots_comparison["only_in_new_count"], knots_comparison["only_in_optimized_count"], knots_comparison["common_knots_count"]), 
+            set_labels=('', ''))
                 
                 # Додаємо мінімальні мітки з крихітним шрифтом
                 if venn.set_labels:
-                    venn.get_label_by_id('A').set_text(f'New prompt\n({len(only_new)})')
+                    venn.get_label_by_id('A').set_text(f'New prompt\n({knots_comparison["only_in_new_count"]})')
                     venn.get_label_by_id('A').set_fontsize(font_size)
-                    venn.get_label_by_id('B').set_text(f'Optimized prompt\n({len(only_optimized)})')
+                    venn.get_label_by_id('B').set_text(f'Optimized prompt\n({knots_comparison["only_in_optimized_count"]})')
                     venn.get_label_by_id('B').set_fontsize(font_size)
+
                 
                 # Додаємо кількість до перетину з тим самим шрифтом
                 if venn.subset_labels:
                     venn.get_patch_by_id('11').set_alpha(0.8)
-                    venn.subset_labels[0].set_text(f'{len(common_entities)}')
+                    venn.subset_labels[0].set_text(f'{knots_comparison["common_knots_count"]}')
                     venn.subset_labels[0].set_fontsize(font_size)
                 
                 # Видаляємо заголовок повністю для економії місця
@@ -682,7 +684,7 @@ with col2:
     4. **Data Extraction Issues**:
         The *new prompt* approach shows significant issues with entity extraction in specific emails (particularly email 4), producing massive amounts of duplicate entities (even when called again, the situation repeats itself).
         
-        Sometimes, once on several calls the *optimized* approach extraction email adreses as knots, but less often than the *new prompt*.
+        Occasionally, on some calls, the optimized approach extracts email addresses as knots, though less often than the *new prompt*.
     
     5. **Topic Generation Failures**: In some cases, the new prompt fails to generate topics for complex emails (like email 4).
     """)
