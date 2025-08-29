@@ -747,7 +747,7 @@ with col2:
     
     5. **Topic Generation Failures**: In some cases, the new prompt fails to generate topics for complex emails (like email 4).
                 
-    6. **Result Stability**: Both prompting approaches show inconsistent results between runs, especially with complex and information-rich emails (the most difficult to process are: 3 and 4 email). The *optimized prompt* showed itself to be more stable.
+    6. **Result Stability**: Both prompting approaches show inconsistent results across runs, especially with complex and information-rich emails (the most difficult to process are 3d and 4th emails). However, the *optimized prompt* proved to be more stable.
     """)
 
 st.markdown("---")
