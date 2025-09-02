@@ -1,0 +1,325 @@
+# Engineering Playbook — Extended Narrative Edition (EN)
+
+This file is a long but readable collection of advice and practices for data and platform engineering.
+The text is written in a narrative style with short, practical paragraphs. Each section emphasizes
+trade-offs, production reality, and the small decisions that compound into reliability.
+
+---
+
+## 1. Caching: practical notes
+
+Caching is a performance tool and a cost lever. It masks slowness, reduces load, and can soften
+provider outages, but it also introduces staleness and consistency questions. Start with a
+profiling pass to find the highest-latency or most frequent calls. Cache what is expensive to
+compute and cheap to store. Keep invalidation simple: time-based first, then event-based when
+you have a reliable signal. When you miss a cache, record the reason (cold start, TTL expiry,
+eviction) so you can tune sizes and TTLs over time. Idempotency is essential in retry-heavy
+paths; a cache can accidentally multiply side effects.
+
+Plan the blast radius. Keep caches per service or per domain to avoid global coupling. Don’t
+treat your cache like a database: if you need strong consistency, read your database. For
+shared caches (e.g., Redis), isolate with logical databases, prefixes, and eviction policies
+that match workload shape. Every cache key should have an explicit TTL and a documented
+recompute strategy. Measure hit ratio, latency distribution, and error rate; alert on a sharp
+drop in hit ratio or a surge in evictions.
+
+---
+
+## 2. Streaming: practical notes
+
+Streaming lets you react to events quickly, keep systems loosely coupled, and build near-real-time
+features. The core questions: how out-of-date is acceptable (latency SLO), how often are events
+replayed (exactly-once vs at-least-once), and what happens on partial failure. Keep messages
+small and schema-validated; evolve schemas with clear versioning and deprecation windows. Use
+consumer groups for horizontal scale; track consumer lag and alert when it grows. If you derive
+state from streams, make your state reconstruction reproducible from the log plus checkpoints.
+
+Back-pressure is a design constraint, not a bug. When a consumer slows, upstream should either
+buffer, shed, or degrade gracefully. Provide operators with simple knobs: pause a consumer, bump
+batch size, increase parallelism, or advance the watermark manually after validation.
+
+---
+
+## 3. Performance: practical notes
+
+Measure before optimizing. Start with p95/p99 latency, CPU hotspots, and top N endpoints by cost.
+First fixes are usually architectural: avoid chatty calls, reduce N+1 queries, move cold data off
+the critical path, and batch when correctness allows. Micro-optimizations come last. Every
+critical path should have a budget (e.g., 200 ms total): allocate sub-budgets per dependency
+and enforce with tests. Synthetic checks are your early warning; tracing tells the story when
+latency climbs. Keep a one-pager with the top five known bottlenecks and the viable mitigations.
+
+---
+
+## 4. Batch vs Streaming: practical notes
+
+Batch shines for heavy computation, complex joins, and reprocessing. Streaming shines when
+freshness drives value or side-effects must happen soon after an event. Most mature systems do
+both: a streaming layer for quick reactions (e.g., fraud flags) and a nightly batch for
+corrections and aggregates. Document the source of truth and the reconciliation schedule. When
+results conflict, decide who wins and why. Use the same schema contracts so code can be shared.
+Your users should be able to answer, “When will I see this change?” without reading the code.
+
+---
+
+## 5. Disaster Recovery & Backups: practical notes
+
+Backups are useless unless you restore them regularly. Test restores on a schedule and measure
+time-to-recover and data currency. Keep restore runbooks short and laminated: who, where, how,
+and when to escalate. Separate RTO (how fast) and RPO (how fresh) targets by tier. Encrypt at
+rest and in transit; rotate keys and verify you can still read old backups after rotation.
+Store at least one copy off-site. For stateful services, practice regional evacuation and
+document the “minimum viable platform” you need to bring the business back online.
+
+---
+
+## 6. Monoliths: practical notes
+
+A modular monolith is often the fastest way to market: one process, one deploy, strong
+refactoring tools, and low operational overhead. Keep module boundaries clean and resist
+cross-cutting imports. You can still have contracts: public interfaces, internal packages,
+and dependency rules enforced in CI. Once the monolith groans—teams blocking each other, long
+builds, hot spots you can’t scale independently—carve by seams that already exist (bounded
+contexts, data ownership). The exit plan should include strangler facades and progressive
+rollouts to limit risk.
+
+---
+
+## 7. Microservices: practical notes
+
+Use microservices to isolate failure domains, scale hotspots independently, and enable team
+autonomy. The cost is complexity: more network calls, more contracts, and a bigger need for
+observability. Each service should be small enough to comprehend, big enough to own an outcome,
+and stable enough that you won’t rebuild it every quarter. Standardize the boring parts:
+logging, metrics, traces, health checks, circuit breakers, retries, and config. Agree on
+protocols and error shapes to cut integration time. Provide a paved road: templates, CI/CD,
+and golden dashboards.
+
+---
+
+## 8. SLA/SLO: practical notes
+
+Promise externally with SLAs; steer internally with SLOs. Choose user-visible metrics: request
+success rate, latency at p95, freshness of data, and scheduled job completion. Track error
+budget burn; when you overspend, pause risky launches and focus on reliability. Keep SLOs
+realistic and revisited each quarter. Tie alerts to symptoms (what users feel) not causes
+(what servers do). Page humans only on urgent, actionable issues; everything else should be a
+ticket or a dashboard.
+
+---
+
+## 9. Machine Learning: practical notes
+
+There are two systems: the model and everything around it. Data quality usually dominates model
+quality; invest in lineage, validation, and monitoring for drift and skew. Start with simple,
+well-regularized models and strong baselines. Record features, training code, data versions, and
+hyperparameters so you can reproduce a run. Inference paths must be idempotent and traceable.
+Put a human in the loop for high-risk decisions and keep override tools sharp. Define
+degradation modes when the model is unavailable or confidence is low.
+
+---
+
+## 10. Runbooks: practical notes
+
+Runbooks should be short, current, and tested. Use checklists with clear decision points and
+copy-paste-ready commands. Include a “What could go wrong” appendix with known sharp edges and
+undo steps. Tag runbooks to alerts so responders land on the right page. After incidents,
+update the runbook first, then file the improvement tickets. Make it easy to practice on a
+sandbox: chaos drills and game days build calm muscle memory.
+
+---
+
+## 11. Feature Stores: practical notes
+
+Treat features like APIs. Define contracts: name, data type, allowed null rate, update cadence,
+and owner. Backfill and online serving must match semantics—no “train on one thing, serve
+another.” Cache hot features near inference. Version features and keep training sets
+reconstructable from logged feature values. Monitor freshness, distribution drift, and
+availability. Time travel queries are a gift for debugging: invest early.
+
+---
+
+## 12. APIs: practical notes
+
+An API is a promise. Prefer explicit, typed contracts and consistent error shapes. Version
+predictably; don’t break existing clients without a migration plan and a deprecation window.
+Keep payloads small and stable. Document examples for success and failure. Rate-limit politely
+and return retry hints. For internal APIs, add golden tests that exercise the most common
+flows end to end. For external APIs, publish a changelog and provide a sandbox environment.
+
+---
+
+## 13. Compliance: practical notes
+
+Compliance is a constraint that keeps the system operable in the real world. Map regulations to
+controls, and controls to tests. Automate evidence where you can: IaC plans, CI logs, policy-as-code.
+Minimize personal data, classify it, and enforce data retention. Make “break glass” rare and
+audited. Treat privacy incidents like security incidents: rehearsed response, quick
+containment, and clear user communication.
+
+---
+
+## 14. Contract Testing: practical notes
+
+Consumer-driven contracts reduce integration friction. For each provider, publish contract tests
+that consumers can run locally. For each consumer, publish expectations that providers must keep.
+Run contract tests in CI before deploy. Keep compatibility matrices for major versions. Remember:
+contracts are about behavior, not just schema—order of operations, idempotency, and error
+mapping are part of the contract.
+
+---
+
+## 15. KMS & mTLS: practical notes
+
+Keys and identities are the nervous system of your platform. Centralize key generation, storage,
+and rotation in a KMS. Prefer short-lived, automatically rotated credentials. Use mTLS for
+service-to-service auth where network boundaries are weak. Pin CA roots, automate certificate
+renewal, and alert early. Never log secrets; add automated scanners to CI and repositories.
+Document “how to rotate” as a 5-minute recipe, then test it.
+
+---
+
+## 16. Pagination: practical notes
+
+Pagination isn’t just UI; it protects memory, latency, and cost. Prefer cursor-based pagination
+for stability under concurrent writes. Bound page sizes with sensible defaults and enforce upper
+limits. Return “next” tokens and total approximations where cheap. Document sort order and
+stability guarantees. For analytics queries, consider chunked exports over pagination to reduce
+tail latency and memory spikes.
+
+---
+
+## 17. Infrastructure as Code (IaC): practical notes
+
+IaC turns environments into reviewed artifacts. Keep modules small and composable; version them
+and pin dependencies. Run a security and cost linter before apply. Use workspaces or folders to
+separate environments and prevent accidental cross-region drift. For risky changes, create a
+“canary stack” where you apply first. Tag everything with owner, purpose, cost center, and TTL.
+Drift detection plus a weekly cleanup saves real money.
+
+---
+
+## 18. Reliability: practical notes
+
+Reliability is a feature. Build failure into the design: timeouts, retries with jitter, circuit
+breakers, bulkheads, and load-shedding. Protect downstreams with queues and rate limits. Keep
+dashboards simple and focused on the golden signals: latency, traffic, errors, saturation.
+Define “steady state” and watch for deviations. When incidents happen, stabilize first, explain
+later. Blameless postmortems produce learning; action items with owners produce change.
+
+---
+
+## 19. Architecture Patterns: practical notes
+
+Choose patterns based on constraints, not fashion. Event-driven for loose coupling; request/response
+for simple synchronous flows; CQRS when read and write scalability diverge; outbox for reliable
+state change publication. Document trade-offs in an ADR (Architecture Decision Record): the
+problem, options considered, the decision, and the consequences. Revisit ADRs when constraints
+change—what was right then might not be right now.
+
+---
+
+## 20. Natural Language Processing (NLP): practical notes
+
+Text is messy. Normalize encodings, tokenize consistently, and keep language-specific quirks in
+mind (case, morphology, punctuation). Start with simple baselines—bag-of-words, regularized
+logistic regression—and only graduate to large models when the gain is clear. For generation,
+constrain with prompts, system instructions, or post-filters. For retrieval, invest in good
+indexes and hybrid search (lexical + vector). Always keep a human-override path for sensitive
+use cases.
+
+---
+
+## 21. Recommenders: practical notes
+
+Define the objective clearly: click, dwell, purchase, or long-term satisfaction. Capture
+feedback loops and guard against popularity bias. Explore simple candidates (nearest neighbors)
+and re-rankers before deep models. Keep features interpretable where possible. Build evaluation
+pipelines: offline metrics, online A/B tests, and fairness checks. Explainability builds trust
+with stakeholders and helps debug regressions.
+
+---
+
+## 22. Testing: practical notes
+
+Test the contract and the behavior users care about. Unit tests protect logic; integration tests
+verify wiring; end-to-end tests check the happy path; chaos tests prove the unhappy paths are
+tolerable. Keep flaky tests out of CI—either fix or quarantine them with an expiry date. Treat
+fixtures and test data as first-class code. For data pipelines, add data-quality tests: schema,
+freshness, completeness, and distribution checks.
+
+---
+
+## 23. Security: practical notes
+
+Security is everyone’s job, but ownership must be clear. Threat-model new features. Minimize
+attack surface; disable what you don’t use. Patch quickly and automate dependency updates with
+guardrails. Enforce least privilege; review IAM policies in code. Add WAF rules for the
+obvious. Train engineers with short, scenario-based modules. Incident drills should include
+security-specific playbooks: credential leak, data exfiltration, and supply chain compromise.
+
+---
+
+## 24. Integrations: practical notes
+
+Integrations fail at the edges: auth flows, rate limits, and version mismatches. Isolate third-
+party failures with bulkheads and graceful degradation. Cache capability discovery to reduce
+chattiness. Keep a “compatibility dashboard” that shows provider versions, rate limits, and
+current status. Build a stubbed sandbox for local dev so teams don’t block on external systems.
+
+---
+
+## 25. Domain-Driven Design: practical notes
+
+Language creates clarity. Define bounded contexts with ubiquitous language and align teams to
+contexts. Entities own identity; value objects carry meaning without identity. Domain events
+tell the story of change; publish them at the boundaries. Anti-corruption layers protect your
+domain from external quirks. Use DDD to decide service seams, not as a religion.
+
+---
+
+## 26. On-call Practices: practical notes
+
+On-call should be sustainable. Keep rotations small enough to build context and large enough to
+share load. Provide shadow weeks before primary duty. Set paging thresholds so responders wake
+up only for urgent, user-visible issues. After each week, collect top annoyances and fix at
+least one. Celebrate “boring on-call” as a success metric.
+
+---
+
+## 27. Observability: practical notes
+
+Logs, metrics, and traces should tell a consistent story. Sample generously in non-critical
+paths and retain unsampled traces for known-problem endpoints. Adopt semantic conventions so
+teams can reuse dashboards. Provide request IDs everywhere. Store exemplars of slow traces and
+link alerts directly to relevant views. Observability is a product: keep its UX fast, relevant,
+and searchable.
+
+---
+
+## 28. Platform Economics: practical notes
+
+Costs need owners, budgets, and alerting. Tag resources. Roll up dashboards per product and per
+environment. Compare “actual” vs “forecast” weekly and root-cause deltas: volume, config, or
+supplier price changes. Bake a cost review into ADRs. A good platform makes the cheapest thing
+the easiest thing.
+
+---
+
+## Appendix A. Incident Primer
+
+- Stabilize the service (mitigation) before hunting root cause.
+- Communicate early and regularly—internal channel + status page if user-visible.
+- Assign roles: incident commander, comms, scribes, subject matter leads.
+- Keep a rolling timeline. The postmortem writes itself if you record while you work.
+- Close with three buckets: prevent (design change), detect (alert/observe), respond (runbook/tooling).
+
+## Appendix B. Golden Checklists
+
+**Before a risky deploy**: observability in place, feature-flag on, rollback plan tested, error budget healthy, pager staffed.
+**Before a schema change**: backward-compatible migration staged, dual-writes verified, read-path tolerant, rollback script tested.
+**Before a new external integration**: sandbox tested, rate limits known, error shapes mapped, retry/backoff/jitter implemented, circuit breaker configured.
+
+---
+
+*Last updated: 2025-09-01*
