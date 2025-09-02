@@ -32,7 +32,7 @@ The file comparison tabs show results for different context window sizes (16K an
 
 # Define available comparison files
 comparison_files = {
-    "File Comparison 1 (16k tokens)": "results/file_comparison_1_v16.json",
+    "File Comparison 1 (16k tokens)": "results/file_comparison_1_v16_.json",
     "File Comparison 1 (32k tokens)": "results/file_comparison_1_v32.json",
     "File Comparison 2": "results/file_comparison_2_.json",
     "File Comparison 3(16k tokens)": "results/file_comparison_3_v16.json",
@@ -42,11 +42,15 @@ comparison_files = {
 # Create data structures to store aggregated information from all files
 all_separate_metrics = {}
 all_combined_metrics = {}
-all_separate_entities_dict = {}  # Словник для підрахунку кількості входжень кожної сутності
+all_separate_entities_dict = {}  # Словник для підрахунку кількості входжень кожної сутності (ключ - сутність в нижньому регістрі, значення - [кількість, [оригінальні варіанти]])
 all_combined_entities_dict = {} 
 all_separate_topics = []
 all_combined_topics = []
 all_common_entities_dict = {}
+
+# Словники для відстеження сутностей за файлами (ключ - сутність в нижньому регістрі, значення - набір файлів, де вона зустрічається)
+separate_entities_by_file = {}  # {entity_lower: {file1, file2, ...}}
+combined_entities_by_file = {}  # {entity_lower: {file1, file2, ...}}
 
 # Create a selector for comparison files
 comparison_tabs = st.tabs(list(comparison_files.keys()))
@@ -91,18 +95,36 @@ for tab_name, tab in zip(comparison_files.keys(), comparison_tabs):
             all_separate_metrics[tab_name] = separate_metrics
             all_combined_metrics[tab_name] = combined_metrics
             
-            # Додаємо унікальні сутності з поточного файлу до загальних словників
+            # Додаємо унікальні сутності з поточного файлу до загальних словників (case-insensitive)
             for entity in separate_entities:
-                if entity in all_separate_entities_dict:
-                    all_separate_entities_dict[entity] += 1
+                entity_lower = entity.lower()
+                if entity_lower in all_separate_entities_dict:
+                    all_separate_entities_dict[entity_lower][0] += 1
+                    # Додаємо оригінальну сутність до списку варіантів написання
+                    if entity not in all_separate_entities_dict[entity_lower][1]:
+                        all_separate_entities_dict[entity_lower][1].append(entity)
                 else:
-                    all_separate_entities_dict[entity] = 1
+                    all_separate_entities_dict[entity_lower] = [1, [entity]]  # [кількість, [оригінальні варіанти]]
+                
+                # Відстежуємо, в яких файлах зустрічається ця сутність
+                if entity_lower not in separate_entities_by_file:
+                    separate_entities_by_file[entity_lower] = set()
+                separate_entities_by_file[entity_lower].add(tab_name)
             
             for entity in combined_entities:
-                if entity in all_combined_entities_dict:
-                    all_combined_entities_dict[entity] += 1
+                entity_lower = entity.lower()
+                if entity_lower in all_combined_entities_dict:
+                    all_combined_entities_dict[entity_lower][0] += 1
+                    # Додаємо оригінальну сутність до списку варіантів написання
+                    if entity not in all_combined_entities_dict[entity_lower][1]:
+                        all_combined_entities_dict[entity_lower][1].append(entity)
                 else:
-                    all_combined_entities_dict[entity] = 1
+                    all_combined_entities_dict[entity_lower] = [1, [entity]]  # [кількість, [оригінальні варіанти]]
+                
+                # Відстежуємо, в яких файлах зустрічається ця сутність
+                if entity_lower not in combined_entities_by_file:
+                    combined_entities_by_file[entity_lower] = set()
+                combined_entities_by_file[entity_lower].add(tab_name)
             
 
 
@@ -213,10 +235,21 @@ for tab_name, tab in zip(comparison_files.keys(), comparison_tabs):
                 else:
                     st.write(", ".join(sorted(list(combined_entities))))
 
-            # Створюємо діаграму Венна для перекриття сутностей
-            common_entities = separate_entities.intersection(combined_entities)
-            only_separate = separate_entities - combined_entities
-            only_combined = combined_entities - separate_entities
+
+            # Створюємо case-insensitive набори
+            separate_entities_lower = {entity.lower() for entity in separate_entities}
+            combined_entities_lower = {entity.lower() for entity in combined_entities}
+
+            # Знаходимо спільні та унікальні сутності (case-insensitive)
+            common_entities_lower_set = separate_entities_lower.intersection(combined_entities_lower)
+            only_separate_lower_set = separate_entities_lower - combined_entities_lower
+            only_combined_lower_set = combined_entities_lower - separate_entities_lower
+
+            # Зберігаємо оригінальні сутності для відображення
+            common_entities = {entity for entity in separate_entities if entity.lower() in common_entities_lower_set}
+            common_entities.update({entity for entity in combined_entities if entity.lower() in common_entities_lower_set})
+            only_separate = {entity for entity in separate_entities if entity.lower() in only_separate_lower_set}
+            only_combined = {entity for entity in combined_entities if entity.lower() in only_combined_lower_set}
             
             for entity in common_entities:
                 if entity in all_common_entities_dict:
@@ -224,57 +257,50 @@ for tab_name, tab in zip(comparison_files.keys(), comparison_tabs):
             else:
                 all_common_entities_dict[entity] = 1
 
-            st.markdown("##### Entity Overlap Analysis")
-            col1, col2, col3 = st.columns([1, 1, 2])
-            font_size = 10
-
-            with col1:
-                st.markdown(f"<span style='font-size: {font_size+2}pt;'>Common entities: {len(common_entities)}</span>", unsafe_allow_html=True)
-                st.markdown(f"<span style='font-size: {font_size+2}pt;'>Only in separate: {len(only_separate)}</span>", unsafe_allow_html=True)
-                st.markdown(f"<span style='font-size: {font_size+2}pt;'>Only in combined: {len(only_combined)}</span>", unsafe_allow_html=True)
-
-            # Показуємо спільні та унікальні сутності
             st.subheader("Entity Lists")
+
+            # Використовуємо сутності тільки з поточного файлу
+            # Створюємо case-insensitive набори для поточного файлу
+            separate_entities_lower = {entity.lower() for entity in separate_entities}
+            combined_entities_lower = {entity.lower() for entity in combined_entities}
+
+            # Знаходимо спільні та унікальні сутності (case-insensitive) для поточного файлу
+            common_entities_lower = separate_entities_lower.intersection(combined_entities_lower)
+            only_separate_lower = separate_entities_lower - combined_entities_lower
+            only_combined_lower = combined_entities_lower - separate_entities_lower
+
 
             col1, col2, col3 = st.columns(3)
 
             with col1:
-                st.markdown("##### Common Entities")
-                if common_entities:
-                    with st.expander(f"Show common entities ({len(common_entities)})"):
-                        st.markdown("""
-                        <div style="max-height: 300px; overflow-y: scroll;">
-                        """, unsafe_allow_html=True)
-                        st.write(", ".join(sorted(list(common_entities))))
-                        st.markdown("</div>", unsafe_allow_html=True)
-                else:
-                    st.info("No common entities found.")
+                st.markdown("##### Common Entities (case-insensitive) - Current File")
+                with st.expander(f"Show common entities ({len(common_entities_lower)})"):
+                    st.markdown("""
+                    <div style="max-height: 300px; overflow-y: scroll;">
+                    """, unsafe_allow_html=True)
+                    st.write(", ".join(sorted(list(common_entities_lower))))
+                    st.markdown("</div>", unsafe_allow_html=True)
 
             with col2:
-                st.markdown("##### Only in Separate Approach")
-                if only_separate:
-                    with st.expander(f"Show unique entities ({len(only_separate)})"):
-                        st.markdown("""
-                        <div style="max-height: 300px; overflow-y: scroll;">
-                        """, unsafe_allow_html=True)
-                        st.write(", ".join(sorted(list(only_separate))))
-                        st.markdown("</div>", unsafe_allow_html=True)
-                else:
-                    st.info("No unique entities in Separate Approach.")
+                st.markdown("##### Only in Separate Approach - Current File")
+                with st.expander(f"Show unique entities ({len(only_separate_lower)})"):
+                    st.markdown("""
+                    <div style="max-height: 300px; overflow-y: scroll;">
+                    """, unsafe_allow_html=True)
+                    st.write(", ".join(sorted(list(only_separate_lower))))
+                    st.markdown("</div>", unsafe_allow_html=True)
 
             with col3:
-                st.markdown("##### Only in Combined Approach")
-                if only_combined:
-                    with st.expander(f"Show unique entities ({len(only_combined)})"):
-                        st.markdown("""
-                        <div style="max-height: 300px; overflow-y: scroll;">
-                        """, unsafe_allow_html=True)
-                        st.write(", ".join(sorted(list(only_combined))))
-                        st.markdown("</div>", unsafe_allow_html=True)
-                else:
-                    st.info("No unique entities in Combined Approach.")
+                st.markdown("##### Only in Combined Approach - Current File")
+                with st.expander(f"Show unique entities ({len(only_combined_lower)})"):
+                    st.markdown("""
+                    <div style="max-height: 300px; overflow-y: scroll;">
+                    """, unsafe_allow_html=True)
+                    st.write(", ".join(sorted(list(only_combined_lower))))
+                    st.markdown("</div>", unsafe_allow_html=True)
 
             st.subheader("Topics Analysis")
+            font_size = 10
 
             # Функція для витягування тем з raw_json
             def extract_topics(raw_json):
@@ -627,15 +653,28 @@ with col1:
 with col2:
     st.subheader("Analysis Quality Comparison Across All Files")
     
+    # Всі ключі вже в нижньому регістрі, оскільки ми змінили спосіб додавання сутностей
     all_separate_entities = set(all_separate_entities_dict.keys())
     all_combined_entities = set(all_combined_entities_dict.keys())
-    only_separate = all_separate_entities - all_combined_entities
-    only_combined = all_combined_entities - all_separate_entities
-    common_all_files = all_separate_entities.intersection(all_combined_entities)
+    
+    # Знаходимо сутності, які зустрічаються в обох підходах В ОДНОМУ І ТОМУ Ж ФАЙЛІ
+    true_common_entities = set()
+    for entity_lower in all_separate_entities.intersection(all_combined_entities):
+        # Перевіряємо, чи є спільні файли, де ця сутність зустрічається в обох підходах
+        common_files = separate_entities_by_file.get(entity_lower, set()).intersection(
+            combined_entities_by_file.get(entity_lower, set())
+        )
+        if common_files:  # Якщо є хоча б один спільний файл
+            true_common_entities.add(entity_lower)
+    
+    # Оновлюємо набори для унікальних сутностей
+    only_separate = all_separate_entities - true_common_entities
+    only_combined = all_combined_entities - true_common_entities
+    common_all_files = true_common_entities
     
     # Підраховуємо загальну кількість унікальних сутностей з урахуванням дублікатів між файлами
-    total_separate_entities = sum(all_separate_entities_dict.values())
-    total_combined_entities = sum(all_combined_entities_dict.values())
+    total_separate_entities = sum(count[0] for count in all_separate_entities_dict.values())
+    total_combined_entities = sum(count[0] for count in all_combined_entities_dict.values())
     
     # Створюємо DataFrame для порівняння кількості сутностей і тем
     quality_df = pd.DataFrame({
@@ -654,8 +693,7 @@ with col2:
     with col1:
         st.markdown(f"Common entities: {len(common_all_files)}")
         st.markdown(f"Only in separate: {len(only_separate)}")
-        st.markdown(f"Only in combined: {len(only_combined)}")
-    
+        st.markdown(f"Only in combined: {len(only_combined)}")  
     with col2:
         try:
             venn = venn2(subsets=(
@@ -690,7 +728,7 @@ with col2:
     
     2. **Execution Time**: Processing time is reduced with the combined approach.
     
-    3. **Entity Coverage**: The analysis shows differences in entity extraction between approaches. In most cases, the combined approach extracts more entities and identifies more sections
+    3. **Entity Coverage**: The analysis shows differences in entity extraction between approaches. In most cases, the combined approach extracts more entities and identifies more sections. The combined approach rarely generates entities with proper capitalization (first letter capitalized)
     """)
 
 st.markdown("---")
