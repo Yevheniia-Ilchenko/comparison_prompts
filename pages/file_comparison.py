@@ -16,10 +16,10 @@ st.title("File Chunks Comparison")
 st.markdown("""
 This dashboard visualizes the analysis of file chunks, showing entities and topics extracted from different parts of the document.
 
-**Separate Approach**: Processes the document using multiple prompts sequentially (legacy approach). Each chunk is analyzed independently with limited context awareness.
+**Separate Approach**: Processes the document using multiple prompts sequentially (legacy approach). Each chunk is analyzed independently with limited context awareness. This approach did not utilize topics extraction
 
 **Combined Approach**: Processes the entire document using a single comprehensive prompt, maintaining full context and relationships between different parts of the document.
-This approach did not utilize topics extraction
+
             
 The file comparison tabs show results for different context window sizes (16K and 32K tokens), allowing comparison of how increasing context affects analysis quality and performance.
 
@@ -639,9 +639,9 @@ with col2:
     
     # Створюємо DataFrame для порівняння кількості сутностей і тем
     quality_df = pd.DataFrame({
-        "Metric": ["Unique Entities", "Total Entities (with duplicates)", "Topics"],
-        "All Separate": [len(all_separate_entities), total_separate_entities, len(all_separate_topics)],
-        "All Combined": [len(all_combined_entities), total_combined_entities, len(all_combined_topics)]
+        "Metric": [ "Total Entities", "Topics"],
+        "All Separate": [ total_separate_entities, len(all_separate_topics)],
+        "All Combined": [ total_combined_entities, len(all_combined_topics)]
     })
     
     
