@@ -1,0 +1,45 @@
+{
+  "original_approach": {
+    "file_category": "LEGAL_GOVERNMENT",
+    "category_metrics": {
+      "input_tokens": 466,
+      "output_tokens": 4,
+      "execution_time": 0.5273749828338623,
+      "cost": 4.8e-05
+    },
+    "knots_metrics": {
+      "input_tokens": 918,
+      "output_tokens": 266,
+      "execution_time": 1.5672328472137451,
+      "cost": 0.000198
+    },
+    "total_metrics": {
+      "input_tokens": 1384,
+      "output_tokens": 270,
+      "total_tokens": 1654,
+      "cost": 0.000246,
+      "execution_time": 2.099902629852295
+    },
+    "category_result": "LEGAL_GOVERNMENT",
+    "knots_result": "{\n    \"category\": \"legal_and_government\",\n    \"extracted_data\": {\n        \"title_legal_jurisdiction\": {\n            \"title\": \"Test contract legal terms and conditions\",\n            \"jurisdiction\": null\n        },\n        \"legal_provisions_regulations\": {\n            \"rules\": [],\n            \"policies\": [],\n            \"enforcement_measures\": []\n        },\n        \"case_background_rulings\": {\n            \"legal_arguments\": [],\n            \"judges_opinion\": null,\n            \"verdict\": null\n        },\n        \"compliance_requirements\": {\n            \"penalties\": [],\n            \"obligations\": [],\n            \"permits_licenses\": []\n        },\n        \"official_notices_reports\": {\n            \"policy_statements\": [],\n            \"analysis\": [],\n            \"public_impact\": []\n        },\n        \"key_dates_timelines\": {\n            \"effective_dates_of_laws_policies\": [],\n            \"court_case_dates\": {\n                \"filing_date\": null,\n                \"ruling_date\": null\n            },\n            \"permit_license_dates\": {\n                \"issuance_date\": null,\n                \"expiration_date\": null\n            },\n            \"public_policy_dates\": {\n                \"implementation_date\": null,\n                \"review_date\": null\n            }\n        }\n    }\n}"
+  },
+  "combined_approach": {
+    "metrics": {
+      "tokens": {
+        "input": 5008,
+        "output": 268,
+        "total": 5276
+      },
+      "cost": 0.000608,
+      "execution_time": 1.2671329975128174
+    },
+    "result": "{\n    \"category\": \"legal_and_government\",\n    \"extracted_data\": {\n        \"title_legal_jurisdiction\": {\n            \"title\": \"Test contract legal terms and conditions\",\n            \"jurisdiction\": null\n        },\n        \"legal_provisions_regulations\": {\n            \"rules\": [],\n            \"policies\": [],\n            \"enforcement_measures\": []\n        },\n        \"case_background_rulings\": {\n            \"legal_arguments\": [],\n            \"judges_opinion\": null,\n            \"verdict\": null\n        },\n        \"compliance_requirements\": {\n            \"penalties\": [],\n            \"obligations\": [],\n            \"permits_licenses\": []\n        },\n        \"official_notices_reports\": {\n            \"policy_statements\": [],\n            \"analysis\": null,\n            \"public_impact\": null\n        },\n        \"key_dates_timelines\": {\n            \"effective_dates_of_laws_policies\": [],\n            \"court_case_dates\": {\n                \"filing_date\": null,\n                \"ruling_date\": null\n            },\n            \"permit_license_dates\": {\n                \"issuance_date\": null,\n                \"expiration_date\": null\n            },\n            \"public_policy_dates\": {\n                \"implementation_date\": null,\n                \"review_date\": null\n            }\n        }\n    }\n}"
+  },
+  "comparison": {
+    "token_difference": -3622,
+    "cost_difference": -0.000362,
+    "cost_savings_percentage": -147.15447154471545,
+    "time_difference": 0.8327696323394775,
+    "time_savings_percentage": 39.65753556859223
+  }
+}

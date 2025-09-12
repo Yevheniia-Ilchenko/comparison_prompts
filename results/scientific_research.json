@@ -1,0 +1,45 @@
+{
+  "original_approach": {
+    "file_category": "SCIENTIFIC_RESEARCH",
+    "category_metrics": {
+      "input_tokens": 540,
+      "output_tokens": 5,
+      "execution_time": 0.6105611324310303,
+      "cost": 5.6e-05
+    },
+    "knots_metrics": {
+      "input_tokens": 875,
+      "output_tokens": 317,
+      "execution_time": 1.1155085563659668,
+      "cost": 0.000214
+    },
+    "total_metrics": {
+      "input_tokens": 1415,
+      "output_tokens": 322,
+      "total_tokens": 1737,
+      "cost": 0.00027,
+      "execution_time": 1.7330129146575928
+    },
+    "category_result": "SCIENTIFIC_RESEARCH",
+    "knots_result": "{\n    \"category\": \"scientific_and_research\",\n    \"extracted_data\": {\n        \"study_title_author_info\": {\n            \"title\": \"The Impact of Climate Change on Arctic Wildlife\",\n            \"authors\": [\n                \"Dr. Jane Doe\",\n                \"Dr. Alan Smith\",\n                \"University of Environmental Sciences\"\n            ]\n        },\n        \"hypothesis_goals\": {\n            \"hypothesis\": \"food scarcity is directly linked to climate-driven habitat loss\",\n            \"research_goals\": [\n                \"explores the effects of rising temperatures on polar bear populations\"\n            ]\n        },\n        \"experiment_setup_data\": {\n            \"experiment_description\": null,\n            \"data_collection_method\": \"satellite tracking, biometric data, and comparative analysis with previous decades\",\n            \"tools_techniques\": null\n        },\n        \"statistical_analysis_results\": {\n            \"methods\": [\n                \"comparative analysis\"\n            ],\n            \"results\": [\n                \"The findings support the hypothesis that food scarcity is directly linked to climate-driven habitat loss.\"\n            ]\n        },\n        \"peer_review_references\": {\n            \"peer_review\": null,\n            \"references\": []\n        },\n        \"environmental_climate_studies\": {\n            \"impact_assessment\": \"rising temperatures on polar bear populations\",\n            \"conservation_strategies\": null\n        },\n        \"key_dates_timelines\": {\n            \"research_study_period\": null,\n            \"data_collection_dates\": null,\n            \"experiment_validation_dates\": null,\n            \"publication_dates\": null\n        }\n    }\n}"
+  },
+  "combined_approach": {
+    "metrics": {
+      "tokens": {
+        "input": 5082,
+        "output": 339,
+        "total": 5421
+      },
+      "cost": 0.000644,
+      "execution_time": 1.7017207145690918
+    },
+    "result": "```json\n{\n    \"category\": \"scientific_and_research\",\n    \"extracted_data\": {\n        \"study_title_author_info\": {\n            \"title\": \"The Impact of Climate Change on Arctic Wildlife\",\n            \"authors\": [\n                \"Dr. Jane Doe, University of Environmental Sciences\",\n                \"Dr. Alan Smith, University of Environmental Sciences\"\n            ]\n        },\n        \"hypothesis_goals\": {\n            \"hypothesis\": \"Food scarcity is directly linked to climate-driven habitat loss.\",\n            \"research_goals\": [\n                \"Explore the effects of rising temperatures on polar bear populations.\"\n            ]\n        },\n        \"experiment_setup_data\": {\n            \"experiment_description\": null,\n            \"data_collection_method\": [\n                \"satellite tracking\",\n                \"biometric data\",\n                \"comparative analysis with previous decades\"\n            ],\n            \"tools_techniques\": null\n        },\n        \"statistical_analysis_results\": {\n            \"methods\": [\n                \"comparative analysis\"\n            ],\n            \"results\": [\n                \"Findings support the hypothesis that food scarcity is directly linked to climate-driven habitat loss.\"\n            ]\n        },\n        \"peer_review_references\": {\n            \"peer_review\": null,\n            \"references\": null\n        },\n        \"environmental_climate_studies\": {\n            \"impact_assessment\": \"Impact of climate change on Arctic wildlife, specifically polar bear populations.\",\n            \"conservation_strategies\": null\n        },\n        \"key_dates_timelines\": {\n            \"research_study_period\": null,\n            \"data_collection_dates\": null,\n            \"experiment_validation_dates\": null,\n            \"publication_dates\": null\n        }\n    }\n}\n```"
+  },
+  "comparison": {
+    "token_difference": -3684,
+    "cost_difference": -0.00037400000000000004,
+    "cost_savings_percentage": -138.51851851851853,
+    "time_difference": 0.01752638816833496,
+    "time_savings_percentage": 1.0113247293253904
+  }
+}

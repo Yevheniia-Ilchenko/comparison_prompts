@@ -1,0 +1,163 @@
+Internal Technical Document – Project “Nimbus 4.2.1”
+Prepared by Engineering Ops | Last updated: March 2025
+
+Overview
+This document contains internal technical reference material for the Nimbus platform, version 4.2.1 — a cloud-native SaaS orchestration tool used for service mesh management, workload scheduling, and enterprise-grade policy enforcement.
+
+Software Name & Version
+
+Product Name: Nimbus
+
+Version: 4.2.1 (Codename “Tempest”)
+
+Release Type: Minor with patch improvements
+
+Previous Stable: 4.1.7
+
+Upcoming Beta: 4.3.0-beta (ETA: June 2025)
+
+Installation & Configuration
+Nimbus supports installation across Ubuntu 20.04+, Amazon Linux 2, and RedHat 8.
+
+Steps:
+
+curl -sSL https://nimbus.sh/install.sh | bash
+
+Run post-install verification: nimbus check --all
+
+Generate config scaffold: nimbus init
+
+Edit nimbus.yaml for cluster-specific params
+
+Use nimbus deploy to roll out the control plane
+
+Environment Variables:
+
+NIMBUS_ENV=production
+
+NIMBUS_ENABLE_TLS=true
+
+NIMBUS_API_KEY=[token]
+
+Dependencies:
+
+Docker 23+
+
+Python 3.10+
+
+Postgres 14 (for internal logging)
+
+ User Interface & Features
+The Nimbus web UI is accessible at https://dashboard.nimbus.internal (VPN required). Supported browsers: Chrome 118+, Firefox ESR.
+
+Core Features:
+
+Drag-and-drop service dependency mapping
+
+Live mesh traffic inspection
+
+Alerting & autoscaling rules
+
+Inline YAML editor for resource definitions
+
+Native integrations: GitHub, Datadog, PagerDuty
+
+Shortcuts:
+
+Ctrl+Shift+F – Toggle dark mode
+
+Cmd+/ – Command palette
+
+Esc – Collapse side navigation
+
+/logs – Direct log stream via web
+
+Compatibility:
+
+Kubernetes 1.24–1.28
+
+Istio 1.17+
+
+Terraform integration supported via plugin
+
+ API Documentation
+
+Base URL: https://api.nimbus.sh/v1/
+Authentication: OAuth2 with Bearer tokens or API key header (X-Nimbus-Token)
+
+Endpoints:
+
+GET /clusters/ – List registered clusters
+
+POST /deployments/ – Create new deployment
+
+GET /services/{id} – Get service metadata
+
+DELETE /nodes/{id} – Evict node from pool
+
+Code Example (Python):
+
+python
+Copy
+Edit
+import requests
+
+headers = {"X-Nimbus-Token": "your_token_here"}
+response = requests.get("https://api.nimbus.sh/v1/clusters/", headers=headers)
+print(response.json())
+Security & Encryption Guidelines
+
+TLS v1.3 enforced across all internal and external endpoints
+
+Passwords hashed with Argon2id
+
+JWT sessions expire every 12h; token refresh available
+
+All logs shipped securely via Fluent Bit over gRPC
+
+Encrypted volumes for audit logs (AES-256)
+
+Admin privileges are scoped with RBAC + time-limited elevation (just-in-time access via Vault)
+
+Secure Coding Standards:
+
+All PRs undergo static analysis (SonarCloud, Bandit)
+
+No hardcoded credentials; use secret mounts
+
+Audit logs retained for 18 months in cold storage
+
+ Bug Fixes & Updates
+
+Changelog 4.2.1:
+
+[Fixed] Intermittent dashboard crash on bulk service imports
+
+[Fixed] Incorrect latency display in metrics explorer
+
+[Improved] Deployments now rollback automatically on failure
+
+[Added] Optional OpenTelemetry tracing configuration
+
+Known Issues:
+
+Safari users may experience delayed chart rendering
+
+Token refresh fails silently in rare edge cases (fix in 4.2.2)
+
+nimbus plan CLI command underperforms on large YAML diffs
+
+Key Dates & Timelines
+
+Event	Date
+4.2.0 Stable Release	January 15, 2025
+4.2.1 Patch Deployment	March 1, 2025
+4.3.0 Beta Freeze	May 10, 2025
+4.3.0 Beta Release	June 1, 2025
+Next LTS (v5.0.0) Roadmap Draft	July 2025
+v2 API Deprecation Deadline	August 1, 2025
+Q2 Cybersecurity Patch	April 10, 2025
+For more details or internal access to documentation, visit [Confluence → Nimbus Engineering].
+
+Confidential — Internal Use Only
+

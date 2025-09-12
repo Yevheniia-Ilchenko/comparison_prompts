@@ -1,0 +1,45 @@
+{
+  "original_approach": {
+    "file_category": "BUSINESS_CORPORATE",
+    "category_metrics": {
+      "input_tokens": 697,
+      "output_tokens": 5,
+      "execution_time": 0.4665701389312744,
+      "cost": 7.2e-05
+    },
+    "knots_metrics": {
+      "input_tokens": 1232,
+      "output_tokens": 476,
+      "execution_time": 1.9954848289489746,
+      "cost": 0.000314
+    },
+    "total_metrics": {
+      "input_tokens": 1929,
+      "output_tokens": 481,
+      "total_tokens": 2410,
+      "cost": 0.000386,
+      "execution_time": 2.469485282897949
+    },
+    "category_result": "BUSINESS_CORPORATE",
+    "knots_result": "{\n    \"category\": \"business_and_corporate\",\n    \"extracted_data\": {\n        \"company_details\": {\n            \"name\": \"Ramirez, Strickland and Washington\",\n            \"address\": \"43455 Devon Fort Suite 231 Russellside, MT 08662\",\n            \"industry\": \"architect next-generation architectures\",\n            \"stakeholders\": \"Lauren Dominguez, Pamela James\"\n        },\n        \"executive_summary\": {\n            \"overview\": \"Fear hope through structure Mrs same. Major event magazine home protect. Right subject try wonder move trade. North agree poor career left anyone here deep. Front they everything week instead strong.\",\n            \"mission\": \"Extended maximized standardization\",\n            \"key_objectives\": \"Cold parent security boy standard who. Official up office traditional.\"\n        },\n        \"financial_data\": {\n            \"balance_sheets\": \"Revenue - $4777071, Expenses - $5608078\",\n            \"income_statements\": \"Item gun through least. Itself safe whole establish. Simple let stay or focus early various.\",\n            \"cash_flow\": \"Positive trend noted in Q1 and Q2.\"\n        },\n        \"contracts_agreements\": {\n            \"terms\": \"Might course drop. Major serve real position make society. Family identify during professional.\",\n            \"conditions\": null,\n            \"legal_clauses\": null\n        },\n        \"marketing_strategy\": {\n            \"branding\": null,\n            \"customer_testimonials\": null,\n            \"case_studies\": null\n        },\n        \"compliance_regulations\": {\n            \"corporate_policies\": null,\n            \"legal_disclosures\": \"In adherence with ISO 9001 and GDPR.\"\n        },\n        \"key_dates_timelines\": {\n            \"financial_reporting_periods\": null,\n            \"contract_dates\": {\n                \"start_date\": null,\n                \"renewal_date\": null,\n                \"termination_date\": null\n            },\n            \"product_launch_marketing_campaigns\": {\n                \"launch_dates\": null,\n                \"campaign_dates\": null\n            },\n            \"business_milestones\": {\n                \"founding_date\": \"2009-08-17\",\n                \"mergers_acquisitions\": null\n            },\n            \"shareholder_meeting_dates\": \"2020-11-08\"\n        }\n    }\n}"
+  },
+  "combined_approach": {
+    "metrics": {
+      "tokens": {
+        "input": 5239,
+        "output": 462,
+        "total": 5701
+      },
+      "cost": 0.000709,
+      "execution_time": 1.996565580368042
+    },
+    "result": "```json\n{\n    \"category\": \"BUSINESS_CORPORATE\",\n    \"extracted_data\": {\n        \"company_details\": {\n            \"name\": \"Ramirez, Strickland and Washington\",\n            \"address\": \"43455 Devon Fort Suite 231\\nRussellside, MT 08662\",\n            \"industry\": \"architect next-generation architectures\",\n            \"stakeholders\": \"Lauren Dominguez, Pamela James\"\n        },\n        \"executive_summary\": {\n            \"overview\": \"Fear hope through structure Mrs same.\\nMajor event magazine home protect. Right subject try wonder move trade. North agree poor career left anyone here deep. Front they everything week instead strong.\",\n            \"mission\": \"Extended maximized standardization\",\n            \"key_objectives\": \"Cold parent security boy standard who. Official up office traditional.\"\n        },\n        \"financial_data\": {\n            \"balance_sheets\": \"Revenue - $4777071, Expenses - $5608078\",\n            \"income_statements\": \"Item gun through least. Itself safe whole establish. Simple let stay or focus early various.\",\n            \"cash_flow\": \"Positive trend noted in Q1 and Q2.\"\n        },\n        \"contracts_agreements\": {\n            \"terms\": \"Might course drop. Major serve real position make society. Family identify during professional.\",\n            \"conditions\": null,\n            \"legal_clauses\": null\n        },\n        \"marketing_strategy\": {\n            \"branding\": null,\n            \"customer_testimonials\": null,\n            \"case_studies\": null\n        },\n        \"compliance_regulations\": {\n            \"corporate_policies\": null,\n            \"legal_disclosures\": \"In adherence with ISO 9001 and GDPR.\"\n        },\n        \"key_dates_timelines\": {\n            \"financial_reporting_periods\": null,\n            \"contract_dates\": null,\n            \"product_launch_marketing_campaigns\": {\n                \"launch_dates\": null,\n                \"campaign_dates\": \"Q3\"\n            },\n            \"business_milestones\": {\n                \"founding_date\": \"2009-08-17\",\n                \"mergers_acquisitions\": null\n            },\n            \"shareholder_meeting_dates\": \"2020-11-08\"\n        }\n    }\n}\n```"
+  },
+  "comparison": {
+    "token_difference": -3291,
+    "cost_difference": -0.000323,
+    "cost_savings_percentage": -83.67875647668393,
+    "time_difference": 0.444608211517334,
+    "time_savings_percentage": 18.004084276039286
+  }
+}

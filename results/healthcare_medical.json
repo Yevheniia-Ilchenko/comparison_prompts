@@ -1,0 +1,45 @@
+{
+  "original_approach": {
+    "file_category": "HEALTHCARE_MEDICAL",
+    "category_metrics": {
+      "input_tokens": 1409,
+      "output_tokens": 6,
+      "execution_time": 0.32849669456481934,
+      "cost": 0.000143
+    },
+    "knots_metrics": {
+      "input_tokens": 2309,
+      "output_tokens": 505,
+      "execution_time": 1.901703119277954,
+      "cost": 0.000433
+    },
+    "total_metrics": {
+      "input_tokens": 3718,
+      "output_tokens": 511,
+      "total_tokens": 4229,
+      "cost": 0.000576,
+      "execution_time": 2.245516300201416
+    },
+    "category_result": "HEALTHCARE_MEDICAL",
+    "knots_result": "{\n    \"category\": \"healthcare_and_medical\",\n    \"extracted_data\": {\n        \"patient_info\": {\n            \"name\": \"Maria Delgado\",\n            \"ID\": null,\n            \"medical_history\": \"Late-stage ovarian cancer, hypertension, borderline type 2 diabetes managed with medication and lifestyle changes.\"\n        },\n        \"diagnosis_treatment\": {\n            \"prescriptions\": \"Targeted immunotherapy agents, traditional chemotherapy, medication for hypertension and diabetes.\",\n            \"procedures\": \"Genomic sequencing of tumor cells, bi-weekly imaging and bloodwork.\",\n            \"therapy\": \"Personalized medicine, experimental therapy based on genetic profiling, AI-driven therapy alterations.\"\n        },\n        \"clinical_trial_data\": {\n            \"participants\": \"16,700 patients across 38 countries.\",\n            \"control_groups\": \"Followed standard care procedures.\",\n            \"results\": \"Tumor size reduced by 65% within five months of initiating treatment. Preliminary results to be published in The Journal of Precision Oncology by the end of Q4 2025.\"\n        },\n        \"healthcare_regulations\": {\n            \"medical_compliance\": \"HIPAA guidelines, other healthcare data regulations, FDA and international clinical standards.\",\n            \"ethical_considerations\": \"Informed consent, data privacy, ethical board continuous reviews of patient data usage, AI model recommendations for therapy alterations.\"\n        },\n        \"pharmaceutical_docs\": {\n            \"drug_composition\": \"Combination of immune checkpoint inhibitors and microtubule-stabilizing agents (preliminary research).\",\n            \"side_effects\": \"Fatigue, nausea, mild neuropathy (observed in some patients).\",\n            \"warnings\": \"Drug awaiting full FDA approval, projected decision expected in early 2026.\"\n        },\n        \"key_dates_timelines\": {\n            \"medical_consultation_admission_discharge_dates\": \"Initial consultation: January 9, 2024; Diagnosis confirmed: February 2, 2024; Enrollment in trial: March 1, 2024; Tumor regression reached 65%: August 15, 2024.\",\n            \"clinical_trial_dates\": {\n                \"start_date\": \"March 1, 2024\",\n                \"completion_date\": \"Expected to continue monitoring through 2025.\"\n            },\n            \"drug_approval_patent_expiry_dates\": \"Projected FDA decision: early 2026; Anticipated patent expiry: 2041.\"\n        }\n    }\n}"
+  },
+  "combined_approach": {
+    "metrics": {
+      "tokens": {
+        "input": 6507,
+        "output": 638,
+        "total": 7145
+      },
+      "cost": 0.000906,
+      "execution_time": 2.8435757160186768
+    },
+    "result": "{\n    \"category\": \"healthcare_and_medical\",\n    \"extracted_data\": {\n        \"patient_info\": {\n            \"name\": \"Maria Delgado\",\n            \"ID\": null,\n            \"medical_history\": \"Hypertension and borderline type 2 diabetes, managed with medication and lifestyle changes for several years.\"\n        },\n        \"diagnosis_treatment\": {\n            \"prescriptions\": null,\n            \"procedures\": \"Genomic sequencing of tumor cells, adjusted treatment protocol to target BRCA1 and TP53 mutations, traditional chemotherapy combined with targeted immunotherapy agents.\",\n            \"therapy\": null\n        },\n        \"clinical_trial_data\": {\n            \"participants\": \"16,700 patients enrolled in clinical research initiatives; 4,100 patients in a multi-center Alzheimer\u2019s treatment trial; 700 patient participants in a genome-editing therapy trial; over 1,000 children in pediatric asthma research.\",\n            \"control_groups\": \"Control groups followed standard care procedures.\",\n            \"results\": \"Tumor size reduced by 65% within five months; 88% of cancer patients enrolled in MedNova\u2019s precision oncology programs reported enhanced quality of life within six months; Diabetic patients using MedNova\u2019s wearable glucose monitoring tools showed a 32% reduction in hypo- and hyperglycemic events compared to standard treatment groups; 30-day readmission rates for cardiovascular patients declined to 7.1%.\"\n        },\n        \"healthcare_regulations\": {\n            \"medical_compliance\": \"FDA and international clinical standards, HIPAA guidelines and other healthcare data regulations.\",\n            \"ethical_considerations\": \"Informed consent, data privacy, continuous reviews of patient data usage by the ethical board, especially as AI models played a role in recommending therapy alterations.\"\n        },\n        \"pharmaceutical_docs\": {\n            \"drug_composition\": \"Preliminary research suggests a combination of immune checkpoint inhibitors and microtubule-stabilizing agents.\",\n            \"side_effects\": \"Fatigue, nausea, and mild neuropathy.\",\n            \"warnings\": null\n        },\n        \"key_dates_timelines\": {\n            \"medical_consultation_admission_discharge_dates\": \"Maria's initial consultation occurred on January 9, 2024, with the diagnosis confirmed by February 2. Her enrollment in the trial began on March 1, and by August 15, tumor regression had reached 65%.\",\n            \"clinical_trial_dates\": {\n                \"start_date\": \"March 1, 2024 (for Maria's trial enrollment); Multi-center Alzheimer\u2019s treatment trial (ongoing); Genome-editing therapy for inherited blood disorders (Phase II, ongoing); Pediatric asthma research (ongoing).\",\n                \"completion_date\": \"Expected to continue monitoring Maria through 2025; Preliminary results from the trial will be published in The Journal of Precision Oncology by the end of Q4 2025.\"\n            },\n            \"drug_approval_patent_expiry_dates\": \"Drug is still awaiting full FDA approval, with a projected decision expected in early 2026. The anticipated patent expiry is set for 2041.\"\n        }\n    }\n}"
+  },
+  "comparison": {
+    "token_difference": -2916,
+    "cost_difference": -0.00033,
+    "cost_savings_percentage": -57.291666666666664,
+    "time_difference": -0.616217851638794,
+    "time_savings_percentage": -27.442145558396575
+  }
+}
