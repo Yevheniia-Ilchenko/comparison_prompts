@@ -2,44 +2,46 @@
   "original_approach": {
     "file_category": "LEGAL_GOVERNMENT",
     "category_metrics": {
-      "input_tokens": 466,
+      "input_tokens": 1500,
       "output_tokens": 4,
-      "execution_time": 0.5273749828338623,
-      "cost": 4.8e-05
+      "execution_time": 0.4875617027282715,
+      "cost": 0.000152
     },
     "knots_metrics": {
-      "input_tokens": 918,
-      "output_tokens": 266,
-      "execution_time": 1.5672328472137451,
-      "cost": 0.000198
+      "input_tokens": 3010,
+      "output_tokens": 482,
+      "execution_time": 2.1814558506011963,
+      "cost": 0.000494
     },
     "total_metrics": {
-      "input_tokens": 1384,
-      "output_tokens": 270,
-      "total_tokens": 1654,
-      "cost": 0.000246,
-      "execution_time": 2.099902629852295
+      "input_tokens": 4510,
+      "output_tokens": 486,
+      "total_tokens": 4996,
+      "cost": 0.000646,
+      "execution_time": 2.744502544403076
     },
     "category_result": "LEGAL_GOVERNMENT",
-    "knots_result": "{\n    \"category\": \"legal_and_government\",\n    \"extracted_data\": {\n        \"title_legal_jurisdiction\": {\n            \"title\": \"Test contract legal terms and conditions\",\n            \"jurisdiction\": null\n        },\n        \"legal_provisions_regulations\": {\n            \"rules\": [],\n            \"policies\": [],\n            \"enforcement_measures\": []\n        },\n        \"case_background_rulings\": {\n            \"legal_arguments\": [],\n            \"judges_opinion\": null,\n            \"verdict\": null\n        },\n        \"compliance_requirements\": {\n            \"penalties\": [],\n            \"obligations\": [],\n            \"permits_licenses\": []\n        },\n        \"official_notices_reports\": {\n            \"policy_statements\": [],\n            \"analysis\": [],\n            \"public_impact\": []\n        },\n        \"key_dates_timelines\": {\n            \"effective_dates_of_laws_policies\": [],\n            \"court_case_dates\": {\n                \"filing_date\": null,\n                \"ruling_date\": null\n            },\n            \"permit_license_dates\": {\n                \"issuance_date\": null,\n                \"expiration_date\": null\n            },\n            \"public_policy_dates\": {\n                \"implementation_date\": null,\n                \"review_date\": null\n            }\n        }\n    }\n}"
+    "category_result_tokens": 4,
+    "knots_result": "{\n    \"category\": \"legal_and_government\",\n    \"extracted_data\": {\n        \"title_legal_jurisdiction\": {\n            \"title\": \"Legal & Government Knowledge Corpus for KNOT Extraction\",\n            \"jurisdiction\": null\n        },\n        \"legal_provisions_regulations\": {\n            \"rules\": [\n                \"appropriations\",\n                \"regulations\",\n                \"agency guidance\",\n                \"notice\",\n                \"comment\",\n                \"review\",\n                \"audit\",\n                \"appeal\",\n                \"separation of duties\",\n                \"pilot programs\",\n                \"sunset clauses\"\n            ],\n            \"policies\": [],\n            \"enforcement_measures\": [\n                \"sanctions\"\n            ]\n        },\n        \"case_background_rulings\": {\n            \"legal_arguments\": [\n                \"The question is not whether to comply, but how to stage upgrades, sequence training, and preserve due process while meeting goals.\"\n            ],\n            \"judges_opinion\": null,\n            \"verdict\": null\n        },\n        \"compliance_requirements\": {\n            \"penalties\": [],\n            \"obligations\": [\n                \"track assumptions\",\n                \"define owners for each metric\",\n                \"schedule periodic policy retrospectives\",\n                \"Publish scope, definitions, and contact points\",\n                \"Record decisions, evidence, and delegated authority\",\n                \"Set deadlines and service-level expectations\",\n                \"Provide appeal and complaint mechanisms\",\n                \"Track metrics, costs, and risks; assign owners\"\n            ],\n            \"permits_licenses\": []\n        },\n        \"official_notices_reports\": {\n            \"policy_statements\": [],\n            \"analysis\": [\n                \"small, reversible changes with explicit rollback plans outperform large untested migrations\"\n            ],\n            \"public_impact\": [\n                \"Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.\"\n            ]\n        },\n        \"key_dates_timelines\": {\n            \"effective_dates_of_laws_policies\": [],\n            \"court_case_dates\": {\n                \"filing_date\": null,\n                \"ruling_date\": null\n            },\n            \"permit_license_dates\": {\n                \"issuance_date\": null,\n                \"expiration_date\": null\n            },\n            \"public_policy_dates\": {\n                \"implementation_date\": null,\n                \"review_date\": null\n            }\n        }\n    }\n}",
+    "knots_result_tokens": 482
   },
   "combined_approach": {
     "metrics": {
       "tokens": {
-        "input": 5008,
-        "output": 268,
-        "total": 5276
+        "input": 7100,
+        "output": 534,
+        "total": 7634
       },
-      "cost": 0.000608,
-      "execution_time": 1.2671329975128174
+      "cost": 0.000924,
+      "execution_time": 2.6116151809692383
     },
-    "result": "{\n    \"category\": \"legal_and_government\",\n    \"extracted_data\": {\n        \"title_legal_jurisdiction\": {\n            \"title\": \"Test contract legal terms and conditions\",\n            \"jurisdiction\": null\n        },\n        \"legal_provisions_regulations\": {\n            \"rules\": [],\n            \"policies\": [],\n            \"enforcement_measures\": []\n        },\n        \"case_background_rulings\": {\n            \"legal_arguments\": [],\n            \"judges_opinion\": null,\n            \"verdict\": null\n        },\n        \"compliance_requirements\": {\n            \"penalties\": [],\n            \"obligations\": [],\n            \"permits_licenses\": []\n        },\n        \"official_notices_reports\": {\n            \"policy_statements\": [],\n            \"analysis\": null,\n            \"public_impact\": null\n        },\n        \"key_dates_timelines\": {\n            \"effective_dates_of_laws_policies\": [],\n            \"court_case_dates\": {\n                \"filing_date\": null,\n                \"ruling_date\": null\n            },\n            \"permit_license_dates\": {\n                \"issuance_date\": null,\n                \"expiration_date\": null\n            },\n            \"public_policy_dates\": {\n                \"implementation_date\": null,\n                \"review_date\": null\n            }\n        }\n    }\n}"
+    "result": "{\n    \"category\": \"legal_and_government\",\n    \"extracted_data\": {\n        \"title_legal_jurisdiction\": {\n            \"title\": \"Legal & Government Knowledge Corpus for KNOT Extraction\",\n            \"jurisdiction\": \"Internal testing only\"\n        },\n        \"legal_provisions_regulations\": {\n            \"rules\": [\n                \"Constitutional Law & Separation of Powers\",\n                \"Administrative Law & Rulemaking\"\n            ],\n            \"policies\": [\n                \"broad mandates\",\n                \"appropriations\",\n                \"agency guidance\",\n                \"regulations\"\n            ],\n            \"enforcement_measures\": [\n                \"notice\",\n                \"comment\",\n                \"review\",\n                \"audit\",\n                \"appeal\",\n                \"sanctions\"\n            ]\n        },\n        \"case_background_rulings\": {\n            \"legal_arguments\": \"Officials document reasons, cite evidence, and apply proportionality.\",\n            \"judges_opinion\": \"Oversight is meaningful and rights remain intact.\",\n            \"verdict\": \"Sanctions are consistent with the rule of law.\"\n        },\n        \"compliance_requirements\": {\n            \"penalties\": \"Imposed sanctions\",\n            \"obligations\": [\n                \"Translate broad mandates into day-to-day practice\",\n                \"Document reasons\",\n                \"Cite evidence\",\n                \"Apply proportionality\",\n                \"Add checklists, peer review, and transparent metrics\",\n                \"Provide separation of duties, predictable service timelines, and clear routes for redress\",\n                \"Contain risk while evidence accumulates\",\n                \"Ensure notices are accessible, hearings are fair\",\n                \"Publish scope, definitions, and contact points\",\n                \"Record decisions, evidence, and delegated authority\",\n                \"Set deadlines and service-level expectations\",\n                \"Provide appeal and complaint mechanisms\",\n                \"Track metrics, costs, and risks; assign owners\"\n            ],\n            \"permits_licenses\": null\n        },\n        \"official_notices_reports\": {\n            \"policy_statements\": \"Durable outcomes depend on repeatable workflows.\",\n            \"analysis\": \"Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control.\",\n            \"public_impact\": \"Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.\"\n        },\n        \"key_dates_timelines\": {\n            \"effective_dates_of_laws_policies\": null,\n            \"court_case_dates\": null,\n            \"permit_license_dates\": null,\n            \"public_policy_dates\": {\n                \"implementation_date\": null,\n                \"review_date\": \"periodic policy retrospectives\"\n            }\n        }\n    }\n}"
   },
   "comparison": {
-    "token_difference": -3622,
-    "cost_difference": -0.000362,
-    "cost_savings_percentage": -147.15447154471545,
-    "time_difference": 0.8327696323394775,
-    "time_savings_percentage": 39.65753556859223
+    "token_difference": -2638,
+    "cost_difference": -0.00027800000000000004,
+    "cost_savings_percentage": -43.03405572755419,
+    "time_difference": 0.11372208595275879,
+    "time_savings_percentage": 4.1436320102772255
   }
 }

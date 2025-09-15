@@ -297,4 +297,54 @@ st.markdown("""
 """)
 
 st.markdown("---")
+
+st.header("File Examples")
+
+# List of files to load
+file_samples = [
+    {"name": "business_and_corporate", "path": "samples/business_and_corporate_test_doc.txt"},
+    {"name": "healthcare_medical", "path": "samples/healthcare_medical_test_doc.txt"},
+    {"name": "it_software", "path": "samples/it_test_doc.txt"},
+    {"name": "scientific_research", "path": "samples/academic_test_doc.txt"},
+    {"name": "legal_government", "path": "samples/legal_government_test_doc.txt"},
+
+]
+
+# Load files
+loaded_files = {}
+for file_info in file_samples:
+    try:
+        # First try to import from samples module
+        module_name = file_info["path"].split("/")[-1].replace(".txt", "")
+        try:
+            module = __import__(f"samples.{module_name}", fromlist=[module_name])
+            loaded_files[file_info["name"]] = getattr(module, module_name)
+        except (ImportError, AttributeError):
+            # If import fails, try to read the file directly
+            try:
+                with open(file_info["path"], "r", encoding="utf-8") as f:
+                    loaded_files[file_info["name"]] = f.read()
+            except:
+                continue
+    except Exception as e:
+        st.warning(f"Failed to load file {file_info['name']}: {str(e)}")
+
+if loaded_files:
+    # Create tabs for each loaded file
+    file_tabs = st.tabs(list(loaded_files.keys()))
+    
+    # Display content of each file
+    for i, (file_name, file_tab) in enumerate(zip(loaded_files.keys(), file_tabs)):
+        with file_tab:
+            try:
+                st.subheader(file_name)
+                
+                file_content = loaded_files[file_name]
+                st.text_area("Raw Document (first 15000 characters)", file_content[:15000] + ("..." if len(file_content) > 5000 else ""), height=400)
+                
+            except Exception as e:
+                st.error(f"Error displaying file {file_name}: {str(e)}")
+else:
+    st.warning("Could not load any files. Make sure the files exist in the samples/ directory.")
+
 st.caption("File Category Comparison Dashboard")

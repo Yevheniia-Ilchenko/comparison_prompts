@@ -1,0 +1,232 @@
+Title: Legal & Government Knowledge Corpus for KNOT Extraction
+Version: 1.1
+Language: English
+Structure: Narrative sections followed by 'KNOT' lines in a parse-friendly pipe format.
+Purpose: Provide consistent, domain-specific text to test downstream KNOT extraction pipelines.
+License: For internal testing only.
+
+Parsing Hints:
+- Each section begins with '=== SECTION {NNN}: {Title} ==='.
+- KNOT lines start with 'KNOT|' and use pipe-delimited key=value fields.
+- Fields: id, topic, type ∈ {definition,process,risk,control}, summary, evidence, source.
+
+=== SECTION 001: Constitutional Law & Separation of Powers ===
+
+In Constitutional Law & Separation of Powers, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 1: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+In Constitutional Law & Separation of Powers, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 101: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+Scenario: An agency applies constitutional law & separation of powers across regions with uneven capacity. A directive shortens statutory response windows by 30%. Managers must redesign intake, triage complex cases, and expand quality assurance without new funding. The question is not whether to comply, but how to stage upgrades, sequence training, and preserve due process while meeting goals.
+
+Notes: define once and reuse; numbers need owners; changes should be reversible; audits require trails; fairness needs explanations.
+
+Checklist:
+- Publish scope, definitions, and contact points.
+- Record decisions, evidence, and delegated authority.
+- Set deadlines and service-level expectations.
+- Provide appeal and complaint mechanisms.
+- Track metrics, costs, and risks; assign owners.
+
+KNOT|id=SEC001-K01|topic=Constitutional Law & Separation of Powers|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K02|topic=Constitutional Law & Separation of Powers|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K03|topic=Constitutional Law & Separation of Powers|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K04|topic=Constitutional Law & Separation of Powers|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K05|topic=Constitutional Law & Separation of Powers|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K06|topic=Constitutional Law & Separation of Powers|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K07|topic=Constitutional Law & Separation of Powers|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K08|topic=Constitutional Law & Separation of Powers|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K09|topic=Constitutional Law & Separation of Powers|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K10|topic=Constitutional Law & Separation of Powers|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K11|topic=Constitutional Law & Separation of Powers|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC001-K12|topic=Constitutional Law & Separation of Powers|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+
+
+=== SECTION 002: Administrative Law & Rulemaking ===
+
+In Administrative Law & Rulemaking, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 2: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+In Administrative Law & Rulemaking, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 102: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+Scenario: An agency applies administrative law & rulemaking across regions with uneven capacity. A directive shortens statutory response windows by 30%. Managers must redesign intake, triage complex cases, and expand quality assurance without new funding. The question is not whether to comply, but how to stage upgrades, sequence training, and preserve due process while meeting goals.
+
+Notes: define once and reuse; numbers need owners; changes should be reversible; audits require trails; fairness needs explanations.
+
+Checklist:
+- Publish scope, definitions, and contact points.
+- Record decisions, evidence, and delegated authority.
+- Set deadlines and service-level expectations.
+- Provide appeal and complaint mechanisms.
+- Track metrics, costs, and risks; assign owners.
+
+KNOT|id=SEC002-K01|topic=Administrative Law & Rulemaking|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K02|topic=Administrative Law & Rulemaking|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K03|topic=Administrative Law & Rulemaking|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K04|topic=Administrative Law & Rulemaking|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K05|topic=Administrative Law & Rulemaking|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K06|topic=Administrative Law & Rulemaking|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K07|topic=Administrative Law & Rulemaking|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K08|topic=Administrative Law & Rulemaking|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K09|topic=Administrative Law & Rulemaking|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K10|topic=Administrative Law & Rulemaking|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K11|topic=Administrative Law & Rulemaking|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC002-K12|topic=Administrative Law & Rulemaking|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+
+
+=== SECTION 003: Criminal Law & Procedure ===
+
+In Criminal Law & Procedure, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 3: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+In Criminal Law & Procedure, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 103: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+Scenario: An agency applies criminal law & procedure across regions with uneven capacity. A directive shortens statutory response windows by 30%. Managers must redesign intake, triage complex cases, and expand quality assurance without new funding. The question is not whether to comply, but how to stage upgrades, sequence training, and preserve due process while meeting goals.
+
+Notes: define once and reuse; numbers need owners; changes should be reversible; audits require trails; fairness needs explanations.
+
+Checklist:
+- Publish scope, definitions, and contact points.
+- Record decisions, evidence, and delegated authority.
+- Set deadlines and service-level expectations.
+- Provide appeal and complaint mechanisms.
+- Track metrics, costs, and risks; assign owners.
+
+KNOT|id=SEC003-K01|topic=Criminal Law & Procedure|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K02|topic=Criminal Law & Procedure|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K03|topic=Criminal Law & Procedure|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K04|topic=Criminal Law & Procedure|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K05|topic=Criminal Law & Procedure|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K06|topic=Criminal Law & Procedure|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K07|topic=Criminal Law & Procedure|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K08|topic=Criminal Law & Procedure|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K09|topic=Criminal Law & Procedure|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K10|topic=Criminal Law & Procedure|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K11|topic=Criminal Law & Procedure|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC003-K12|topic=Criminal Law & Procedure|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+
+
+=== SECTION 004: Civil Procedure & Access to Justice ===
+
+In Civil Procedure & Access to Justice, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 4: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+In Civil Procedure & Access to Justice, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 104: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+Scenario: An agency applies civil procedure & access to justice across regions with uneven capacity. A directive shortens statutory response windows by 30%. Managers must redesign intake, triage complex cases, and expand quality assurance without new funding. The question is not whether to comply, but how to stage upgrades, sequence training, and preserve due process while meeting goals.
+
+Notes: define once and reuse; numbers need owners; changes should be reversible; audits require trails; fairness needs explanations.
+
+Checklist:
+- Publish scope, definitions, and contact points.
+- Record decisions, evidence, and delegated authority.
+- Set deadlines and service-level expectations.
+- Provide appeal and complaint mechanisms.
+- Track metrics, costs, and risks; assign owners.
+
+KNOT|id=SEC004-K01|topic=Civil Procedure & Access to Justice|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K02|topic=Civil Procedure & Access to Justice|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K03|topic=Civil Procedure & Access to Justice|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K04|topic=Civil Procedure & Access to Justice|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K05|topic=Civil Procedure & Access to Justice|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K06|topic=Civil Procedure & Access to Justice|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K07|topic=Civil Procedure & Access to Justice|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K08|topic=Civil Procedure & Access to Justice|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K09|topic=Civil Procedure & Access to Justice|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K10|topic=Civil Procedure & Access to Justice|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K11|topic=Civil Procedure & Access to Justice|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC004-K12|topic=Civil Procedure & Access to Justice|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+
+
+=== SECTION 005: Public Contracts & Procurement ===
+
+In Public Contracts & Procurement, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 5: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+In Public Contracts & Procurement, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 105: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+Scenario: An agency applies public contracts & procurement across regions with uneven capacity. A directive shortens statutory response windows by 30%. Managers must redesign intake, triage complex cases, and expand quality assurance without new funding. The question is not whether to comply, but how to stage upgrades, sequence training, and preserve due process while meeting goals.
+
+Notes: define once and reuse; numbers need owners; changes should be reversible; audits require trails; fairness needs explanations.
+
+Checklist:
+- Publish scope, definitions, and contact points.
+- Record decisions, evidence, and delegated authority.
+- Set deadlines and service-level expectations.
+- Provide appeal and complaint mechanisms.
+- Track metrics, costs, and risks; assign owners.
+
+KNOT|id=SEC005-K01|topic=Public Contracts & Procurement|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K02|topic=Public Contracts & Procurement|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K03|topic=Public Contracts & Procurement|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K04|topic=Public Contracts & Procurement|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K05|topic=Public Contracts & Procurement|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K06|topic=Public Contracts & Procurement|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K07|topic=Public Contracts & Procurement|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K08|topic=Public Contracts & Procurement|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K09|topic=Public Contracts & Procurement|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K10|topic=Public Contracts & Procurement|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K11|topic=Public Contracts & Procurement|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC005-K12|topic=Public Contracts & Procurement|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+
+
+=== SECTION 006: Anti-Corruption & Integrity Systems ===
+
+In Anti-Corruption & Integrity Systems, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 6: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+In Anti-Corruption & Integrity Systems, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 106: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+
+Scenario: An agency applies anti-corruption & integrity systems across regions with uneven capacity. A directive shortens statutory response windows by 30%. Managers must redesign intake, triage complex cases, and expand quality assurance without new funding. The question is not whether to comply, but how to stage upgrades, sequence training, and preserve due process while meeting goals.
+
+Notes: define once and reuse; numbers need owners; changes should be reversible; audits require trails; fairness needs explanations.
+
+Checklist:
+- Publish scope, definitions, and contact points.
+- Record decisions, evidence, and delegated authority.
+- Set deadlines and service-level expectations.
+- Provide appeal and complaint mechanisms.
+- Track metrics, costs, and risks; assign owners.
+
+KNOT|id=SEC006-K01|topic=Anti-Corruption & Integrity Systems|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K02|topic=Anti-Corruption & Integrity Systems|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K03|topic=Anti-Corruption & Integrity Systems|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K04|topic=Anti-Corruption & Integrity Systems|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K05|topic=Anti-Corruption & Integrity Systems|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K06|topic=Anti-Corruption & Integrity Systems|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K07|topic=Anti-Corruption & Integrity Systems|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K08|topic=Anti-Corruption & Integrity Systems|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K09|topic=Anti-Corruption & Integrity Systems|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K10|topic=Anti-Corruption & Integrity Systems|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K11|topic=Anti-Corruption & Integrity Systems|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC006-K12|topic=Anti-Corruption & Integrity Systems|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+
+
+=== SECTION 999: Cross-Cutting Governance Patterns ===
+In Cross-Cutting Governance Patterns, institutions translate broad mandates into day-to-day practice. Objectives appear in appropriations, regulations, and agency guidance, but durable outcomes depend on repeatable workflows—notice, comment, review, audit, and appeal. Where discretion is wide, officials document reasons, cite evidence, and apply proportionality so that oversight is meaningful and rights remain intact. Common constraints include limited staff, heterogeneous IT systems, and deadlines that compress quality control. Good governance adds checklists, peer review, and transparent metrics that are feasible to collect, interpret, and act upon. Practical safeguards include separation of duties, predictable service timelines, and clear routes for redress. When uncertainty is high, pilot programs and sunset clauses contain risk while evidence accumulates. Public trust grows when notices are accessible, hearings are fair, and sanctions are consistent with the rule of law.  Field note 999: small, reversible changes with explicit rollback plans outperform large untested migrations; track assumptions, define owners for each metric, and schedule periodic policy retrospectives.
+Governance Patterns: proportionality; due process; transparency; accountability; participation; legality; efficiency; equity; evidence use.
+Checklist:
+- Publish scope, definitions, and contact points.
+- Record decisions, evidence, and delegated authority.
+- Set deadlines and service-level expectations.
+- Provide appeal and complaint mechanisms.
+- Track metrics, costs, and risks; assign owners.
+KNOT|id=SEC999-K01|topic=Cross-Cutting Governance Patterns|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K02|topic=Cross-Cutting Governance Patterns|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K03|topic=Cross-Cutting Governance Patterns|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K04|topic=Cross-Cutting Governance Patterns|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K05|topic=Cross-Cutting Governance Patterns|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K06|topic=Cross-Cutting Governance Patterns|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K07|topic=Cross-Cutting Governance Patterns|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K08|topic=Cross-Cutting Governance Patterns|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K09|topic=Cross-Cutting Governance Patterns|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K10|topic=Cross-Cutting Governance Patterns|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K11|topic=Cross-Cutting Governance Patterns|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K12|topic=Cross-Cutting Governance Patterns|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K13|topic=Cross-Cutting Governance Patterns|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K14|topic=Cross-Cutting Governance Patterns|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K15|topic=Cross-Cutting Governance Patterns|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K16|topic=Cross-Cutting Governance Patterns|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K17|topic=Cross-Cutting Governance Patterns|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K18|topic=Cross-Cutting Governance Patterns|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K19|topic=Cross-Cutting Governance Patterns|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K20|topic=Cross-Cutting Governance Patterns|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K21|topic=Cross-Cutting Governance Patterns|type=process|summary=Stepwise action with inputs, outputs, and decision points|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K22|topic=Cross-Cutting Governance Patterns|type=risk|summary=Failure mode with likelihood drivers and impact outline|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K23|topic=Cross-Cutting Governance Patterns|type=control|summary=Mitigation mapped to owners, tools, timelines, and audit trails|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+KNOT|id=SEC999-K24|topic=Cross-Cutting Governance Patterns|type=definition|summary=Core term clarified for consistent use in statutes and guidance|evidence=public_records;agency_manuals;case_law_digest|source=corpus
+End of Document.
