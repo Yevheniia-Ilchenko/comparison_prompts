@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("Single Prompt Analysis")
+st.title("Original Prompt FileCategory with Denoise Analysis")
 st.markdown("""
 This dashboard visualizes the results of a original prompt with the addition of denoise applied to different real-world files, 
 with a special focus on how noise in files affects extraction quality.
@@ -766,13 +766,11 @@ if all_metrics:
 st.markdown("""
 ### Key Findings:
 
-1. **Noise Impact**: Documents with HTML markup, advertising, and other noise elements require more tokens to process, but can result in less complete data extraction. The more noise, the worse the quality of the knots.
+1. **Noise Impact**: Documents with HTML markup, advertising, and other noise elements require more tokens to process, but can result in less complete data extraction. The more noise, the worse the quality of the knots. For example, in the Healthcare & Medical 2 Document file, there is less noise than in others and prompt copes well with denoising.
 
-2. **Processing Efficiency**: Clean text documents generally process faster and more efficiently than noisy documents.
+2. **Extraction Quality**: The prompt performs best on clean, well-structured text documents across all categories.
 
-3. **Extraction Quality**: The prompt performs best on clean, well-structured text documents across all categories.
-
-4. **Category Differences**: Different document categories have varying levels of extraction completeness based on the prompt's design,  but it also depends very much on the context of the document itself .
+3. **Category Differences**: Different document categories have varying levels of extraction completeness based on the prompt's design,  but it also depends very much on the context of the document itself .
 """)
 
 st.markdown("---")
