@@ -1,0 +1,71 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\business.txt",
+  "file_category": "BUSINESS_CORPORATE",
+  "extracted_data": {
+    "category": "business_and_corporate",
+    "extracted_data": {
+      "company_details": {
+        "name": "the Company",
+        "address": null,
+        "industry": null,
+        "stakeholders": "shareowners"
+      },
+      "executive_summary": {
+        "overview": "The Corporate Governance and Sustainability Committee is established by the Board to oversee various governance and sustainability matters, including board nominations, succession planning, corporate governance guidelines, environmental, social, legislative, regulatory, public policy, and corporate governance issues.",
+        "mission": null,
+        "key_objectives": "To identify qualified individuals for board membership, recommend directors for committees, lead the annual review of the Board's performance, develop Corporate Governance Guidelines, oversee succession plans for senior positions, oversee corporate governance affairs, and oversee policies and programs related to environmental, social, legislative, regulatory, public policy, and corporate governance matters."
+      },
+      "financial_data": {
+        "balance_sheets": null,
+        "income_statements": null,
+        "cash_flow": null
+      },
+      "contracts_agreements": {
+        "terms": "Terms of retention for search firms, outside counsel, experts, and advisors; terms of director compensation.",
+        "conditions": "Independence requirements for committee members; conditions for recommending nominees for Board membership.",
+        "legal_clauses": "Review of the Certificate of Incorporation, By-Laws, and Corporate Governance Guidelines; approval of related person transactions."
+      },
+      "marketing_strategy": {
+        "branding": null,
+        "customer_testimonials": null,
+        "case_studies": null
+      },
+      "compliance_regulations": {
+        "corporate_policies": "Corporate Governance Guidelines, Related Person Transactions Policy, human rights practices.",
+        "legal_disclosures": "Review of shareowner proposals, political and charitable contributions, public policy agenda."
+      },
+      "key_dates_timelines": {
+        "financial_reporting_periods": null,
+        "contract_dates": null,
+        "product_launch_marketing_campaigns": null,
+        "business_milestones": null,
+        "shareholder_meeting_dates": "Next annual meeting of shareowners."
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1386,
+      "output_tokens": 5,
+      "execution_time": 1.2492752075195312,
+      "cost": 0.000141
+    },
+    "extraction": {
+      "input_tokens": 2544,
+      "output_tokens": 455,
+      "execution_time": 4.438359022140503,
+      "cost": 0.000436
+    },
+    "total": {
+      "input_tokens": 3930,
+      "output_tokens": 460,
+      "total_tokens": 4390,
+      "cost": 0.000577,
+      "execution_time": 5.701580286026001
+    }
+  },
+  "raw_responses": {
+    "category": "BUSINESS_CORPORATE",
+    "extraction": "{\n    \"category\": \"business_and_corporate\",\n    \"extracted_data\": {\n        \"company_details\": {\n            \"name\": \"the Company\",\n            \"address\": null,\n            \"industry\": null,\n            \"stakeholders\": \"shareowners\"\n        },\n        \"executive_summary\": {\n            \"overview\": \"The Corporate Governance and Sustainability Committee is established by the Board to oversee various governance and sustainability matters, including board nominations, succession planning, corporate governance guidelines, environmental, social, legislative, regulatory, public policy, and corporate governance issues.\",\n            \"mission\": null,\n            \"key_objectives\": \"To identify qualified individuals for board membership, recommend directors for committees, lead the annual review of the Board's performance, develop Corporate Governance Guidelines, oversee succession plans for senior positions, oversee corporate governance affairs, and oversee policies and programs related to environmental, social, legislative, regulatory, public policy, and corporate governance matters.\"\n        },\n        \"financial_data\": {\n            \"balance_sheets\": null,\n            \"income_statements\": null,\n            \"cash_flow\": null\n        },\n        \"contracts_agreements\": {\n            \"terms\": \"Terms of retention for search firms, outside counsel, experts, and advisors; terms of director compensation.\",\n            \"conditions\": \"Independence requirements for committee members; conditions for recommending nominees for Board membership.\",\n            \"legal_clauses\": \"Review of the Certificate of Incorporation, By-Laws, and Corporate Governance Guidelines; approval of related person transactions.\"\n        },\n        \"marketing_strategy\": {\n            \"branding\": null,\n            \"customer_testimonials\": null,\n            \"case_studies\": null\n        },\n        \"compliance_regulations\": {\n            \"corporate_policies\": \"Corporate Governance Guidelines, Related Person Transactions Policy, human rights practices.\",\n            \"legal_disclosures\": \"Review of shareowner proposals, political and charitable contributions, public policy agenda.\"\n        },\n        \"key_dates_timelines\": {\n            \"financial_reporting_periods\": null,\n            \"contract_dates\": null,\n            \"product_launch_marketing_campaigns\": null,\n            \"business_milestones\": null,\n            \"shareholder_meeting_dates\": \"Next annual meeting of shareowners.\"\n        }\n    }\n}"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\research_with_noise.txt",
+  "file_category": "SCIENTIFIC_RESEARCH",
+  "extracted_data": {
+    "category": "scientific_and_research",
+    "extracted_data": {
+      "study_title_author_info": {
+        "title": "PMC COVID-19 Collection",
+        "authors": []
+      },
+      "hypothesis_goals": {
+        "hypothesis": "This collection provides access to COVID-19 related research to support ongoing scientific efforts.",
+        "research_goals": [
+          "Support public health emergency response efforts",
+          "Make COVID-19 and coronavirus-related publications and data immediately accessible",
+          "Facilitate text mining and secondary analysis of research articles",
+          "Provide continued access to and discovery of COVID-19 research to support ongoing research"
+        ]
+      },
+      "experiment_setup_data": {
+        "experiment_description": null,
+        "data_collection_method": null,
+        "tools_techniques": null
+      },
+      "statistical_analysis_results": {
+        "methods": [],
+        "results": []
+      },
+      "peer_review_references": {
+        "peer_review": "articles published in peer-reviewed journals",
+        "references": []
+      },
+      "environmental_climate_studies": {
+        "impact_assessment": null,
+        "conservation_strategies": []
+      },
+      "key_dates_timelines": {
+        "research_study_period": "March 2020 through June 2023",
+        "data_collection_dates": null,
+        "experiment_validation_dates": null,
+        "publication_dates": null
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1523,
+      "output_tokens": 5,
+      "execution_time": 1.4419536590576172,
+      "cost": 0.000154
+    },
+    "extraction": {
+      "input_tokens": 3378,
+      "output_tokens": 302,
+      "execution_time": 3.936713218688965,
+      "cost": 0.000459
+    },
+    "total": {
+      "input_tokens": 4901,
+      "output_tokens": 307,
+      "total_tokens": 5208,
+      "cost": 0.000613,
+      "execution_time": 5.398775815963745
+    }
+  },
+  "raw_responses": {
+    "category": "SCIENTIFIC_RESEARCH",
+    "extraction": "{\n    \"category\": \"scientific_and_research\",\n    \"extracted_data\": {\n        \"study_title_author_info\": {\n            \"title\": \"PMC COVID-19 Collection\",\n            \"authors\": []\n        },\n        \"hypothesis_goals\": {\n            \"hypothesis\": \"This collection provides access to COVID-19 related research to support ongoing scientific efforts.\",\n            \"research_goals\": [\n                \"Support public health emergency response efforts\",\n                \"Make COVID-19 and coronavirus-related publications and data immediately accessible\",\n                \"Facilitate text mining and secondary analysis of research articles\",\n                \"Provide continued access to and discovery of COVID-19 research to support ongoing research\"\n            ]\n        },\n        \"experiment_setup_data\": {\n            \"experiment_description\": null,\n            \"data_collection_method\": null,\n            \"tools_techniques\": null\n        },\n        \"statistical_analysis_results\": {\n            \"methods\": [],\n            \"results\": []\n        },\n        \"peer_review_references\": {\n            \"peer_review\": \"articles published in peer-reviewed journals\",\n            \"references\": []\n        },\n        \"environmental_climate_studies\": {\n            \"impact_assessment\": null,\n            \"conservation_strategies\": []\n        },\n        \"key_dates_timelines\": {\n            \"research_study_period\": \"March 2020 through June 2023\",\n            \"data_collection_dates\": null,\n            \"experiment_validation_dates\": null,\n            \"publication_dates\": null\n        }\n    }\n}"
+  }
+}

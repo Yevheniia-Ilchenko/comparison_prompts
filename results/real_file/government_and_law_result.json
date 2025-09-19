@@ -1,0 +1,73 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\government_and_law.html",
+  "file_category": "LEGAL_GOVERNMENT",
+  "extracted_data": {
+    "category": "legal_and_government",
+    "extracted_data": {
+      "title_legal_jurisdiction": {
+        "title": "U.S. Government Information",
+        "jurisdiction": "Federal Government"
+      },
+      "legal_provisions_regulations": {
+        "rules": [],
+        "policies": [],
+        "enforcement_measures": []
+      },
+      "case_background_rulings": {
+        "legal_arguments": [],
+        "judges_opinion": [],
+        "verdict": []
+      },
+      "compliance_requirements": {
+        "penalties": [],
+        "obligations": [],
+        "permits_licenses": []
+      },
+      "official_notices_reports": {
+        "policy_statements": [],
+        "analysis": [],
+        "public_impact": []
+      },
+      "key_dates_timelines": {
+        "effective_dates_of_laws_policies": [],
+        "court_case_dates": {
+          "filing_date": null,
+          "ruling_date": null
+        },
+        "permit_license_dates": {
+          "issuance_date": null,
+          "expiration_date": null
+        },
+        "public_policy_dates": {
+          "implementation_date": null,
+          "review_date": null
+        }
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1819,
+      "output_tokens": 4,
+      "execution_time": 0.2814040184020996,
+      "cost": 0.000184
+    },
+    "extraction": {
+      "input_tokens": 3851,
+      "output_tokens": 265,
+      "execution_time": 2.379488468170166,
+      "cost": 0.000491
+    },
+    "total": {
+      "input_tokens": 5670,
+      "output_tokens": 269,
+      "total_tokens": 5939,
+      "cost": 0.000675,
+      "execution_time": 2.692518472671509
+    }
+  },
+  "raw_responses": {
+    "category": "LEGAL_GOVERNMENT",
+    "extraction": "{\n    \"category\": \"legal_and_government\",\n    \"extracted_data\": {\n        \"title_legal_jurisdiction\": {\n            \"title\": \"U.S. Government Information\",\n            \"jurisdiction\": \"Federal Government\"\n        },\n        \"legal_provisions_regulations\": {\n            \"rules\": [],\n            \"policies\": [],\n            \"enforcement_measures\": []\n        },\n        \"case_background_rulings\": {\n            \"legal_arguments\": [],\n            \"judges_opinion\": [],\n            \"verdict\": []\n        },\n        \"compliance_requirements\": {\n            \"penalties\": [],\n            \"obligations\": [],\n            \"permits_licenses\": []\n        },\n        \"official_notices_reports\": {\n            \"policy_statements\": [],\n            \"analysis\": [],\n            \"public_impact\": []\n        },\n        \"key_dates_timelines\": {\n            \"effective_dates_of_laws_policies\": [],\n            \"court_case_dates\": {\n                \"filing_date\": null,\n                \"ruling_date\": null\n            },\n            \"permit_license_dates\": {\n                \"issuance_date\": null,\n                \"expiration_date\": null\n            },\n            \"public_policy_dates\": {\n                \"implementation_date\": null,\n                \"review_date\": null\n            }\n        }\n    }\n}"
+  }
+}

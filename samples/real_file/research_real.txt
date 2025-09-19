@@ -1,0 +1,33 @@
+PMC COVID-19 Collection
+
+Transmission electron micrograph of SARS-CoV-2 virus particles, isolated from a patient. Image captured and color-enhanced at the NIAID Integrated Research Facility (IRF) in Fort Detrick, Maryland. NIAID
+
+[ Image: Transmission electron micrograph of SARS-CoV-2 virus particles, isolated from a patient. Image captured and color-enhanced at the NIAID Integrated Research Facility (IRF) in Fort Detrick, Maryland. NIAID ]
+
+On March 13, 2020, national science and technology advisors from a dozen countries, including the United States, called on publishers to voluntarily make their COVID-19 and coronavirus-related publications, and the available data supporting them, immediately accessible in PubMed Central (PMC) and other appropriate public repositories to support public health emergency response efforts (see the Call to Make COVID-19 Data/Research Publicly Available).
+
+In response, more than 50 publishers and scholarly societies (see Collaborators to the right) volunteered to make their COVID-19 and coronavirus-related articles published in peer-reviewed journals freely accessible in PMC to researchers, health practitioners, and the public in formats and under license terms that facilitate text mining and secondary analysis. From March 2020 through June 2023, this collaboration resulted in making more than 350,000 articles relating to COVID-19 and previous coronaviruses accessible under license terms and through distribution channels that supported further research re-use and secondary analysis (see PMC Open Access Subset). In 2023, NLM renamed the COVID-19 Public Health Emergency Initiative as the PMC COVID-19 Collection (“Collection”).
+
+Around one-third of articles in the Collection were made available in PMC under a Creative Commons license, which ensures that the articles remain permanently accessible in PMC and the PMC Open Access Subset. All other articles in the Collection were deposited by publishers under custom license terms that allowed for access and/or re-use only for the duration of the COVID-19 Public Health Emergency.
+
+Upon the expiration of global public health emergency declarations, NLM engaged collaborators on providing continued access to and discovery of COVID-19 research to support ongoing research. See the PMC COVID-19 Collection FAQ for the current access status of articles deposited under such custom license terms following the expiration of the public health emergency.
+
+NLM remains appreciative for the opportunity to collaborate with the scholarly publishing community on the COVID-19 public health emergency response effort and remains committed to providing perpetual public access to all articles deposited in the PMC COVID-19 Collection for which the copyright holder provides such permission. 
+
+Coronavirus-Related and COVID-19-Related Articles in PMC
+Use the buttons below to run queries in PMC to find full-text content relating to COVID-19 and coronaviruses.
+
+ 
+
+COVID-19 Content
+
+All COVID-19 Content
+Coronavirus Content
+(historical and current literature)
+
+All Coronavirus Content
+ 
+
+NLM encourages customization of these suggested search queries to meet your specific research or information needs. For example, in PMC you can append 'AND "open access"[filter]' or 'AND "author manuscript"[filter]' to this query or to your own custom queries to identify articles that are currently available in machine-readable formats for text mining or other types of re-use through the PMC Article Datasets.
+
+Individuals interested in discovering all COVID-19-related literature in NLM literature databases should search each database individually (see also the NCBI Virus SARS-CoV-2 Data Hub). Results may differ due to the availability of records in each database as well as the scope of what is available to search in each database (e.g., titles and abstracts vs. full text). To view PMC-only records to complement your PubMed search results, you may append your PMC search with “NOT pmc pubmed[filter].” (See also “Why are some articles from the PMC COVID-19 Collection not discoverable in PubMed?”)

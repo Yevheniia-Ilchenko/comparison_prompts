@@ -1,0 +1,109 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\medical_2_with_noise.txt",
+  "file_category": "HEALTHCARE_MEDICAL",
+  "extracted_data": {
+    "category": "healthcare_and_medical",
+    "extracted_data": {
+      "patient_info": {
+        "name": null,
+        "ID": null,
+        "medical_history": null
+      },
+      "diagnosis_treatment": {
+        "prescriptions": [
+          "albuterol",
+          "fluticasone propionate",
+          "budesonide",
+          "ciclesonide",
+          "beclomethasone",
+          "mometasone",
+          "fluticasone furoate",
+          "montelukast",
+          "zafirlukast",
+          "zileuton",
+          "fluticasone-salmeterol",
+          "budesonide-formoterol",
+          "formoterol-mometasone",
+          "fluticasone furoate-vilanterol",
+          "theophylline",
+          "levalbuterol",
+          "ipratropium",
+          "tiotropium",
+          "prednisone",
+          "methylprednisolone",
+          "omalizumab",
+          "mepolizumab",
+          "dupilumab",
+          "reslizumab",
+          "benralizumab",
+          "tezepelumab"
+        ],
+        "procedures": [
+          "bronchodilator administration",
+          "methacholine challenge",
+          "chest X-ray",
+          "allergy testing (skin test or blood test)",
+          "nitric oxide test",
+          "sputum eosinophils test",
+          "provocative testing for exercise and cold-induced asthma",
+          "bronchial thermoplasty"
+        ],
+        "therapy": [
+          "allergy shots (immunotherapy)"
+        ]
+      },
+      "clinical_trial_data": {
+        "participants": null,
+        "control_groups": null,
+        "results": null
+      },
+      "healthcare_regulations": {
+        "medical_compliance": null,
+        "ethical_considerations": null
+      },
+      "pharmaceutical_docs": {
+        "drug_composition": null,
+        "side_effects": [
+          "psychological reactions (agitation, aggression, hallucinations, depression, suicidal thinking) associated with montelukast"
+        ],
+        "warnings": [
+          "montelukast has been linked to psychological reactions",
+          "oral and intravenous corticosteroids can cause serious side effects when used long term"
+        ]
+      },
+      "key_dates_timelines": {
+        "medical_consultation_admission_discharge_dates": null,
+        "clinical_trial_dates": {
+          "start_date": null,
+          "completion_date": null
+        },
+        "drug_approval_patent_expiry_dates": null
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1522,
+      "output_tokens": 6,
+      "execution_time": 1.35581374168396,
+      "cost": 0.000155
+    },
+    "extraction": {
+      "input_tokens": 3411,
+      "output_tokens": 586,
+      "execution_time": 4.72089695930481,
+      "cost": 0.000576
+    },
+    "total": {
+      "input_tokens": 4933,
+      "output_tokens": 592,
+      "total_tokens": 5525,
+      "cost": 0.000731,
+      "execution_time": 6.090933561325073
+    }
+  },
+  "raw_responses": {
+    "category": "HEALTHCARE_MEDICAL",
+    "extraction": "{\n    \"category\": \"healthcare_and_medical\",\n    \"extracted_data\": {\n        \"patient_info\": {\n            \"name\": null,\n            \"ID\": null,\n            \"medical_history\": null\n        },\n        \"diagnosis_treatment\": {\n            \"prescriptions\": [\n                \"albuterol\",\n                \"fluticasone propionate\",\n                \"budesonide\",\n                \"ciclesonide\",\n                \"beclomethasone\",\n                \"mometasone\",\n                \"fluticasone furoate\",\n                \"montelukast\",\n                \"zafirlukast\",\n                \"zileuton\",\n                \"fluticasone-salmeterol\",\n                \"budesonide-formoterol\",\n                \"formoterol-mometasone\",\n                \"fluticasone furoate-vilanterol\",\n                \"theophylline\",\n                \"levalbuterol\",\n                \"ipratropium\",\n                \"tiotropium\",\n                \"prednisone\",\n                \"methylprednisolone\",\n                \"omalizumab\",\n                \"mepolizumab\",\n                \"dupilumab\",\n                \"reslizumab\",\n                \"benralizumab\",\n                \"tezepelumab\"\n            ],\n            \"procedures\": [\n                \"bronchodilator administration\",\n                \"methacholine challenge\",\n                \"chest X-ray\",\n                \"allergy testing (skin test or blood test)\",\n                \"nitric oxide test\",\n                \"sputum eosinophils test\",\n                \"provocative testing for exercise and cold-induced asthma\",\n                \"bronchial thermoplasty\"\n            ],\n            \"therapy\": [\n                \"allergy shots (immunotherapy)\"\n            ]\n        },\n        \"clinical_trial_data\": {\n            \"participants\": null,\n            \"control_groups\": null,\n            \"results\": null\n        },\n        \"healthcare_regulations\": {\n            \"medical_compliance\": null,\n            \"ethical_considerations\": null\n        },\n        \"pharmaceutical_docs\": {\n            \"drug_composition\": null,\n            \"side_effects\": [\n                \"psychological reactions (agitation, aggression, hallucinations, depression, suicidal thinking) associated with montelukast\"\n            ],\n            \"warnings\": [\n                \"montelukast has been linked to psychological reactions\",\n                \"oral and intravenous corticosteroids can cause serious side effects when used long term\"\n            ]\n        },\n        \"key_dates_timelines\": {\n            \"medical_consultation_admission_discharge_dates\": null,\n            \"clinical_trial_dates\": {\n                \"start_date\": null,\n                \"completion_date\": null\n            },\n            \"drug_approval_patent_expiry_dates\": null\n        }\n    }\n}"
+  }
+}

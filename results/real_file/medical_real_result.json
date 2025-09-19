@@ -1,0 +1,69 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\medical_real.txt",
+  "file_category": "HEALTHCARE_MEDICAL",
+  "extracted_data": {
+    "category": "healthcare_and_medical",
+    "extracted_data": {
+      "patient_info": {
+        "name": null,
+        "ID": null,
+        "medical_history": null
+      },
+      "diagnosis_treatment": {
+        "prescriptions": "Asthma medicines",
+        "procedures": "Spirometry",
+        "therapy": [
+          "reliever therapy",
+          "controller therapy"
+        ]
+      },
+      "clinical_trial_data": {
+        "participants": null,
+        "control_groups": null,
+        "results": null
+      },
+      "healthcare_regulations": {
+        "medical_compliance": null,
+        "ethical_considerations": null
+      },
+      "pharmaceutical_docs": {
+        "drug_composition": null,
+        "side_effects": "Most side effects are mild and soon go away",
+        "warnings": null
+      },
+      "key_dates_timelines": {
+        "medical_consultation_admission_discharge_dates": null,
+        "clinical_trial_dates": {
+          "start_date": null,
+          "completion_date": null
+        },
+        "drug_approval_patent_expiry_dates": null
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1244,
+      "output_tokens": 6,
+      "execution_time": 0.7936215400695801,
+      "cost": 0.000127
+    },
+    "extraction": {
+      "input_tokens": 1887,
+      "output_tokens": 251,
+      "execution_time": 1.3018767833709717,
+      "cost": 0.000289
+    },
+    "total": {
+      "input_tokens": 3131,
+      "output_tokens": 257,
+      "total_tokens": 3388,
+      "cost": 0.000416,
+      "execution_time": 2.1024880409240723
+    }
+  },
+  "raw_responses": {
+    "category": "HEALTHCARE_MEDICAL",
+    "extraction": "{\n    \"category\": \"healthcare_and_medical\",\n    \"extracted_data\": {\n        \"patient_info\": {\n            \"name\": null,\n            \"ID\": null,\n            \"medical_history\": null\n        },\n        \"diagnosis_treatment\": {\n            \"prescriptions\": \"Asthma medicines\",\n            \"procedures\": \"Spirometry\",\n            \"therapy\": [\n                \"reliever therapy\",\n                \"controller therapy\"\n            ]\n        },\n        \"clinical_trial_data\": {\n            \"participants\": null,\n            \"control_groups\": null,\n            \"results\": null\n        },\n        \"healthcare_regulations\": {\n            \"medical_compliance\": null,\n            \"ethical_considerations\": null\n        },\n        \"pharmaceutical_docs\": {\n            \"drug_composition\": null,\n            \"side_effects\": \"Most side effects are mild and soon go away\",\n            \"warnings\": null\n        },\n        \"key_dates_timelines\": {\n            \"medical_consultation_admission_discharge_dates\": null,\n            \"clinical_trial_dates\": {\n                \"start_date\": null,\n                \"completion_date\": null\n            },\n            \"drug_approval_patent_expiry_dates\": null\n        }\n    }\n}"
+  }
+}

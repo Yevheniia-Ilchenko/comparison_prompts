@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\government_and_law_with_noise.txt",
+  "file_category": "LEGAL_GOVERNMENT",
+  "extracted_data": {
+    "category": "legal_and_government",
+    "extracted_data": {
+      "title_legal_jurisdiction": {
+        "title": "U.S. Government Structure",
+        "jurisdiction": "U.S. Federal Government"
+      },
+      "legal_provisions_regulations": {
+        "rules": [
+          "Regulations are published daily in the Federal Register",
+          "Regulations are codified in the Code of Federal Regulations once a year"
+        ],
+        "policies": [],
+        "enforcement_measures": []
+      },
+      "case_background_rulings": {
+        "legal_arguments": [],
+        "judges_opinion": [],
+        "verdict": []
+      },
+      "compliance_requirements": {
+        "penalties": [],
+        "obligations": [
+          "Executive branch agencies are granted the power to implement regulations relating to matters within their jurisdiction"
+        ],
+        "permits_licenses": []
+      },
+      "official_notices_reports": {
+        "policy_statements": [
+          "Government publications are issued by the legislative, executive and judicial branches of the Federal Government."
+        ],
+        "analysis": [
+          "A court's authority to decide constitutionality is called judicial review."
+        ],
+        "public_impact": []
+      },
+      "key_dates_timelines": {
+        "effective_dates_of_laws_policies": [],
+        "court_case_dates": {
+          "filing_date": null,
+          "ruling_date": null
+        },
+        "permit_license_dates": {
+          "issuance_date": null,
+          "expiration_date": null
+        },
+        "public_policy_dates": {
+          "implementation_date": null,
+          "review_date": null
+        }
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1589,
+      "output_tokens": 4,
+      "execution_time": 0.575249433517456,
+      "cost": 0.000161
+    },
+    "extraction": {
+      "input_tokens": 3539,
+      "output_tokens": 284,
+      "execution_time": 1.8283820152282715,
+      "cost": 0.000468
+    },
+    "total": {
+      "input_tokens": 5128,
+      "output_tokens": 288,
+      "total_tokens": 5416,
+      "cost": 0.000629,
+      "execution_time": 2.418599843978882
+    }
+  },
+  "raw_responses": {
+    "category": "LEGAL_GOVERNMENT",
+    "extraction": "{\"category\": \"legal_and_government\", \"extracted_data\": {\"title_legal_jurisdiction\": {\"title\": \"U.S. Government Structure\", \"jurisdiction\": \"U.S. Federal Government\"}, \"legal_provisions_regulations\": {\"rules\": [\"Regulations are published daily in the Federal Register\", \"Regulations are codified in the Code of Federal Regulations once a year\"], \"policies\": [], \"enforcement_measures\": []}, \"case_background_rulings\": {\"legal_arguments\": [], \"judges_opinion\": [], \"verdict\": []}, \"compliance_requirements\": {\"penalties\": [], \"obligations\": [\"Executive branch agencies are granted the power to implement regulations relating to matters within their jurisdiction\"], \"permits_licenses\": []}, \"official_notices_reports\": {\"policy_statements\": [\"Government publications are issued by the legislative, executive and judicial branches of the Federal Government.\"], \"analysis\": [\"A court's authority to decide constitutionality is called judicial review.\"], \"public_impact\": []}, \"key_dates_timelines\": {\"effective_dates_of_laws_policies\": [], \"court_case_dates\": {\"filing_date\": null, \"ruling_date\": null}, \"permit_license_dates\": {\"issuance_date\": null, \"expiration_date\": null}, \"public_policy_dates\": {\"implementation_date\": null, \"review_date\": null}}}}"
+  }
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Corporate Governance and Sustainability Committee Charter for Global Enterprises Inc.">
+    <meta name="keywords" content="corporate governance, sustainability, committee, charter, board">
+    <title>Corporate Governance and Sustainability Committee Charter | Global Enterprises Inc.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #0056b3;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 10px;
+        }
+        .banner {
+            background-color: #ffeb3b;
+            padding: 10px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        h1 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0056b3;
+            margin-top: 25px;
+        }
+        .disclaimer {
+            font-size: 0.8em;
+            color: #666;
+            border-top: 1px dotted #ccc;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123456789-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-123456789-1');
+    </script>
+</head>
+<body>
+    <div class="header">
+        <img src="/images/company-logo.png" alt="Global Enterprises Inc. Logo" class="logo">
+        <h1>Global Enterprises Inc.</h1>
+        <p>Innovating for a Sustainable Future</p>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/investors">Investors</a></li>
+            <li><a href="/governance">Corporate Governance</a></li>
+            <li><a href="/sustainability">Sustainability</a></li>
+            <li><a href="/news">News & Media</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="banner">
+        <strong>IMPORTANT NOTICE:</strong> This document was last updated on October 17, 2024. Please refer to our <a href="/governance/documents">document repository</a> for the most recent version.
+    </div>
+
+    <main>
+        <article>
+            <h1>Corporate Governance and Sustainability Committee Charter</h1>
+
+            <div class="document-metadata">
+                <p><strong>Document ID:</strong> GOV-2024-10-17-001</p>
+                <p><strong>Approved by:</strong> Board of Directors</p>
+                <p><strong>Effective Date:</strong> October 17, 2024</p>
+                <p><strong>Supersedes:</strong> Version dated March 22, 2023</p>
+            </div>
+
+            <section id="purpose">
+                <h2>Purpose</h2>
+                <p>The Corporate Governance and Sustainability Committee is established by the Board:</p>
+                <ul>
+                    <li>to identify individuals qualified to be Board members consistent with criteria approved by the Board, and to recommend to the Board director nominees for the next annual meeting of shareowners;</li>
+                    <li>to recommend to the Board directors to serve on each standing Board Committee;</li>
+                    <li>to lead the Board in its annual review of the Board's performance;</li>
+                    <li>to develop and recommend to the Board a set of Corporate Governance Guidelines;</li>
+                    <li>to oversee the development and implementation of succession plans for the Chief Executive Officer and the most senior positions at the Company;</li>
+                    <li>to oversee the corporate governance affairs of the Board and the Company consistent with the long-term best interests of the Company and its shareowners; and</li>
+                    <li>to oversee the Company's policies and programs and related risks to the Company that concern certain environmental, social, legislative, regulatory, public policy and corporate governance matters, including public issues of significance which may, in the opinion of the Committee, affect the Company's business, its shareowners, the broader stakeholder community or the general public.</li>
+                </ul>
+            </section>
+
+            <div class="social-share">
+                <p>Share this document: 
+                    <a href="https://twitter.com/intent/tweet?url=https://globalenterprises.com/governance/committee-charter">Twitter</a> | 
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://globalenterprises.com/governance/committee-charter">LinkedIn</a> | 
+                    <a href="mailto:?subject=Corporate Governance Committee Charter&body=https://globalenterprises.com/governance/committee-charter">Email</a>
+                </p>
+            </div>
+
+            <section id="membership">
+                <h2>Committee Membership</h2>
+                <p>The Committee shall be comprised of no fewer than three members. Each member of the Committee shall meet the independence requirements of the New York Stock Exchange and the Company's Corporate Governance Guidelines.</p>
+                <p>The members of the Committee shall be appointed by, and may be removed by, the Board. A majority of the members shall constitute a quorum.</p>
+            </section>
+
+            <div class="banner">
+                <strong>DOWNLOAD:</strong> <a href="/downloads/governance-charter-2024.pdf">PDF version</a> | <a href="/downloads/governance-charter-2024.docx">Word version</a>
+            </div>
+
+            <section id="authority">
+                <h2>Committee Authority and Responsibilities</h2>
+                <ol>
+                    <li>The Committee shall oversee preparation of and recommend to the Board the process and protocols regarding succession plans for the Chief Executive Officer, including plans in the event of an emergency, unexpected resignation or retirement of the Chief Executive Officer. The Committee shall also periodically review and recommend to the Board succession plans for the most senior positions at the Company.</li>
+                    <li>The Committee shall seek individuals qualified to become Board members for recommendation to the Board, including evaluating persons suggested by shareowners or others, and conduct the appropriate inquiries into the backgrounds and qualifications of possible nominees. Directors should possess the highest personal and professional ethics and integrity and be committed to representing the long-term interests of the shareowners. The Committee shall determine each proposed nominee's qualifications for service on the Board. The assessment will include a review of the nominee's judgment, experience, independence, understanding of the Company's or other related industries, and such other factors as the Committee concludes are pertinent in light of the current needs of the Board. Each nominee should be a person of integrity and be committed to devoting the time and attention necessary to fulfill his or her duties to the Company. Diversity of race, ethnicity, gender and age are important factors in evaluating candidates for Board membership.</li>
+                    <li>The Committee shall evaluate the performance of each director before recommending to the Board his or her nomination for an additional term as director.</li>
+                    <li>The Committee shall have the sole authority to retain and terminate any search firm to be used to identify director candidates and shall have sole authority to approve the search firm's fees and other retention terms.</li>
+                    <li>The Committee shall annually review the composition of each standing Board Committee (including this Committee) and present recommendations for Committee membership to the Board as needed.</li>
+                    <li>The Committee, in collaboration with the Lead Independent Director, shall oversee and manage the evaluation of the Board, Board Committees and management.</li>
+                    <li>During the year, the Committee shall receive input on the Board's performance from directors and, through the Committee's Chairman or the Lead Independent Director, will discuss the input with the full Board and oversee the full Board's review of its performance.</li>
+                    <li>The Committee shall periodically review and reassess the adequacy of the Company's corporate governance framework, including its Certificate of Incorporation, By-Laws and Corporate Governance Guidelines, and recommend any proposed changes to the Board for approval.</li>
+                    <li>The Committee shall review and approve all related person transactions in accordance with the Company's Related Person Transactions Policy.</li>
+                    <li>The Committee shall recommend and review all matters pertaining to fees and retainers paid to directors for Board and Committee service and for serving as Chairman of a Board Committee, and shall have sole authority to employ consultants or advisors to evaluate director compensation and to approve consulting fees and other retention terms. In determining compensation, the Committee shall take into consideration the responsibilities of the directors and fees and other forms of compensation being paid by other corporations comparable to the Company.</li>
+                    <li>The Committee will review the Company's sustainability programs and goals and the Company's progress toward achieving those goals, particularly in the Company's key sustainability focus areas.</li>
+                    <li>The Committee will review the Company's human rights practices, including those practices within the Company's business system and supply chain.</li>
+                    <li>The Committee will have oversight for the Company's public policy agenda and will periodically review significant public policy matters.</li>
+                    <li>Through the Company's shareowner engagement program, the Committee will monitor investor sentiment related to sustainability and corporate governance matters.</li>
+                    <li>The Committee shall review shareowner proposals submitted to the Company.</li>
+                    <li>The Committee shall review political and charitable contributions made by the Company.</li>
+                    <li>The Committee shall have authority to retain such outside counsel, experts and other advisors, as the Committee may deem appropriate in its sole discretion and shall have the sole authority to approve related fees and other retention terms. The Committee shall be provided with appropriate funding, as determined by the Committee, for payment of compensation to such outside counsel, accountants, experts and other advisors.</li>
+                    <li>The Committee shall make regular reports to the Board.</li>
+                    <li>The Committee may form and delegate authority to subcommittees when appropriate.</li>
+                    <li>The Committee shall periodically review and reassess the adequacy of this Charter and recommend any proposed changes to the Board for approval.</li>
+                    <li>The Committee shall annually review its own performance.</li>
+                </ol>
+            </section>
+
+            <div class="document-footer">
+                <p><strong>Last updated:</strong> October 17, 2024</p>
+                <p><strong>Document Owner:</strong> Corporate Secretary</p>
+                <p><strong>Approved by:</strong> Board of Directors</p>
+            </div>
+        </article>
+    </main>
+
+    <div class="related-documents">
+        <h3>Related Documents</h3>
+        <ul>
+            <li><a href="/governance/board-charter">Board of Directors Charter</a></li>
+            <li><a href="/governance/audit-committee">Audit Committee Charter</a></li>
+            <li><a href="/governance/compensation-committee">Compensation Committee Charter</a></li>
+            <li><a href="/governance/code-of-conduct">Code of Business Conduct and Ethics</a></li>
+            <li><a href="/governance/bylaws">Corporate Bylaws</a></li>
+        </ul>
+    </div>
+
+    <div class="disclaimer">
+        <p><strong>Disclaimer:</strong> This document contains forward-looking statements that involve risks and uncertainties. Actual results may differ materially from those indicated in such forward-looking statements. The Company undertakes no obligation to update any forward-looking statement to reflect events or circumstances after the date of this document.</p>
+        <p>The information contained in this document is proprietary and confidential. Unauthorized distribution, copying, or disclosure is strictly prohibited.</p>
+    </div>
+
+    <div class="footer">
+        <div class="footer-links">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="/about/history">Our History</a></li>
+                    <li><a href="/about/leadership">Leadership Team</a></li>
+                    <li><a href="/about/locations">Global Locations</a></li>
+                    <li><a href="/about/careers">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Investors</h4>
+                <ul>
+                    <li><a href="/investors/financial-reports">Financial Reports</a></li>
+                    <li><a href="/investors/events">Events & Presentations</a></li>
+                    <li><a href="/investors/stock-info">Stock Information</a></li>
+                    <li><a href="/investors/dividend-history">Dividend History</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Governance</h4>
+                <ul>
+                    <li><a href="/governance/board">Board of Directors</a></li>
+                    <li><a href="/governance/committees">Committees</a></li>
+                    <li><a href="/governance/documents">Governance Documents</a></li>
+                    <li><a href="/governance/policies">Policies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="/contact/general">General Inquiries</a></li>
+                    <li><a href="/contact/investor-relations">Investor Relations</a></li>
+                    <li><a href="/contact/media">Media Relations</a></li>
+                    <li><a href="/contact/locations">Office Locations</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Global Enterprises Inc. All Rights Reserved.</p>
+            <p>123 Corporate Plaza, Suite 500, New York, NY 10001 | Phone: (212) 555-1234</p>
+            <p><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-use">Terms of Use</a> | <a href="/cookie-policy">Cookie Policy</a> | <a href="/sitemap">Sitemap</a></p>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" style="position: fixed; bottom: 0; width: 100%; background-color: #333; color: white; padding: 15px; text-align: center;">
+        <p>We use cookies to enhance your experience on our website. By continuing to use our site, you agree to our <a href="/cookie-policy">Cookie Policy</a>.</p>
+        <button onclick="document.getElementById('cookie-consent').style.display='none'">Accept</button>
+        <button onclick="window.location.href='/cookie-preferences'">Preferences</button>
+    </div>
+
+    <!-- Newsletter Signup Popup -->
+    <div id="newsletter-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; z-index: 1000; max-width: 400px;">
+        <h3>Stay Updated</h3>
+        <p>Subscribe to our newsletter for the latest updates on corporate governance and sustainability initiatives.</p>
+        <form>
+            <input type="email" placeholder="Your email address" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+            <button type="submit" style="background: #0056b3; color: white; border: none; padding: 8px 15px;">Subscribe</button>
+        </form>
+        <button onclick="document.getElementById('newsletter-popup').style.display='none'" style="position: absolute; top: 5px; right: 5px; background: none; border: none;">✕</button>
+    </div>
+
+    <script>
+        // Show newsletter popup after 5 seconds
+        setTimeout(function() {
+            document.getElementById('newsletter-popup').style.display = 'block';
+        }, 5000);
+        
+        // Track document views
+        function trackDocumentView() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'view_document', {
+                    'document_type': 'charter',
+                    'document_id': 'GOV-2024-10-17-001',
+                    'document_name': 'Corporate Governance and Sustainability Committee Charter'
+                });
+            }
+        }
+        
+        // Execute when page loads
+        window.onload = function() {
+            trackDocumentView();
+        };
+    </script>
+</body>
+</html>

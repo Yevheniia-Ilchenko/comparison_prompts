@@ -1,0 +1,85 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\research_real.txt",
+  "file_category": "SCIENTIFIC_RESEARCH",
+  "extracted_data": {
+    "category": "scientific_and_research",
+    "extracted_data": {
+      "study_title_author_info": {
+        "title": "PMC COVID-19 Collection",
+        "authors": []
+      },
+      "hypothesis_goals": {
+        "hypothesis": "",
+        "research_goals": [
+          "To support public health emergency response efforts by making COVID-19 and coronavirus-related publications and their supporting data immediately accessible.",
+          "To facilitate text mining and secondary analysis of COVID-19 and coronavirus-related articles.",
+          "To provide continued access to and discovery of COVID-19 research to support ongoing research.",
+          "To provide perpetual public access to all articles deposited in the PMC COVID-19 Collection for which the copyright holder provides such permission."
+        ]
+      },
+      "experiment_setup_data": {
+        "experiment_description": "The content describes a collaborative effort by publishers and scholarly societies to make COVID-19 and coronavirus-related articles freely accessible in PubMed Central (PMC). This includes making articles available in formats and under license terms that facilitate text mining and secondary analysis.",
+        "data_collection_method": "Articles were deposited by publishers into PMC. Some articles were made available under Creative Commons licenses, while others were under custom license terms for a specific duration.",
+        "tools_techniques": [
+          "Text mining",
+          "Secondary analysis",
+          "PubMed Central (PMC)",
+          "PMC Open Access Subset",
+          "Creative Commons license",
+          "NCBI Virus SARS-CoV-2 Data Hub",
+          "PubMed"
+        ]
+      },
+      "statistical_analysis_results": {
+        "methods": [
+          "Text mining",
+          "Secondary analysis"
+        ],
+        "results": [
+          "More than 350,000 articles relating to COVID-19 and previous coronaviruses were made accessible.",
+          "Approximately one-third of articles in the Collection were made available under a Creative Commons license.",
+          "Custom license terms allowed for access and/or re-use only for the duration of the COVID-19 Public Health Emergency."
+        ]
+      },
+      "peer_review_references": {
+        "peer_review": "Articles were published in peer-reviewed journals and made freely accessible in PMC.",
+        "references": []
+      },
+      "environmental_climate_studies": {
+        "impact_assessment": "",
+        "conservation_strategies": []
+      },
+      "key_dates_timelines": {
+        "research_study_period": "March 2020 through June 2023",
+        "data_collection_dates": "",
+        "experiment_validation_dates": "",
+        "publication_dates": ""
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1257,
+      "output_tokens": 5,
+      "execution_time": 0.306149959564209,
+      "cost": 0.000128
+    },
+    "extraction": {
+      "input_tokens": 1891,
+      "output_tokens": 529,
+      "execution_time": 4.917457580566406,
+      "cost": 0.000401
+    },
+    "total": {
+      "input_tokens": 3148,
+      "output_tokens": 534,
+      "total_tokens": 3682,
+      "cost": 0.000529,
+      "execution_time": 5.234638452529907
+    }
+  },
+  "raw_responses": {
+    "category": "SCIENTIFIC_RESEARCH",
+    "extraction": "{\n    \"category\": \"scientific_and_research\",\n    \"extracted_data\": {\n        \"study_title_author_info\": {\n            \"title\": \"PMC COVID-19 Collection\",\n            \"authors\": []\n        },\n        \"hypothesis_goals\": {\n            \"hypothesis\": \"\",\n            \"research_goals\": [\n                \"To support public health emergency response efforts by making COVID-19 and coronavirus-related publications and their supporting data immediately accessible.\",\n                \"To facilitate text mining and secondary analysis of COVID-19 and coronavirus-related articles.\",\n                \"To provide continued access to and discovery of COVID-19 research to support ongoing research.\",\n                \"To provide perpetual public access to all articles deposited in the PMC COVID-19 Collection for which the copyright holder provides such permission.\"\n            ]\n        },\n        \"experiment_setup_data\": {\n            \"experiment_description\": \"The content describes a collaborative effort by publishers and scholarly societies to make COVID-19 and coronavirus-related articles freely accessible in PubMed Central (PMC). This includes making articles available in formats and under license terms that facilitate text mining and secondary analysis.\",\n            \"data_collection_method\": \"Articles were deposited by publishers into PMC. Some articles were made available under Creative Commons licenses, while others were under custom license terms for a specific duration.\",\n            \"tools_techniques\": [\n                \"Text mining\",\n                \"Secondary analysis\",\n                \"PubMed Central (PMC)\",\n                \"PMC Open Access Subset\",\n                \"Creative Commons license\",\n                \"NCBI Virus SARS-CoV-2 Data Hub\",\n                \"PubMed\"\n            ]\n        },\n        \"statistical_analysis_results\": {\n            \"methods\": [\n                \"Text mining\",\n                \"Secondary analysis\"\n            ],\n            \"results\": [\n                \"More than 350,000 articles relating to COVID-19 and previous coronaviruses were made accessible.\",\n                \"Approximately one-third of articles in the Collection were made available under a Creative Commons license.\",\n                \"Custom license terms allowed for access and/or re-use only for the duration of the COVID-19 Public Health Emergency.\"\n            ]\n        },\n        \"peer_review_references\": {\n            \"peer_review\": \"Articles were published in peer-reviewed journals and made freely accessible in PMC.\",\n            \"references\": []\n        },\n        \"environmental_climate_studies\": {\n            \"impact_assessment\": \"\",\n            \"conservation_strategies\": []\n        },\n        \"key_dates_timelines\": {\n            \"research_study_period\": \"March 2020 through June 2023\",\n            \"data_collection_dates\": \"\",\n            \"experiment_validation_dates\": \"\",\n            \"publication_dates\": \"\"\n        }\n    }\n}"
+  }
+}

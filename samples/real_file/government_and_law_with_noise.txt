@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U.S. Government Structure</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .header { background-color: #003366; color: white; padding: 10px; }
+        .footer { background-color: #f1f1f1; padding: 10px; font-size: 0.8em; }
+        .ad-banner { background-color: #ffeb3b; padding: 10px; margin: 15px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Official U.S. Government Information Portal</h1>
+            <p>Last updated: September 19, 2025 | <a href="mailto:info@government.gov">Contact Us</a></p>
+        </div>
+
+        <div class="ad-banner">
+            <strong>ADVERTISEMENT:</strong> Download our free Government Resources App! <a href="https://app.gov/download">Click here</a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="branches.html">Government Branches</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h2>Government publications are issued by the legislative, executive and judicial branches of the Federal Government.</h2>
+            
+            <div class="social-share">
+                <p>Share this information: 
+                    <a href="https://twitter.com/share?url=https://gov.info/branches">Twitter</a> | 
+                    <a href="https://facebook.com/share?url=https://gov.info/branches">Facebook</a> | 
+                    <a href="https://linkedin.com/share?url=https://gov.info/branches">LinkedIn</a>
+                </p>
+            </div>
+
+            <h3 id="executive">Executive Branch</h3>
+            <p>The executive branch of government enforces the laws of the land. It was established in Article II of the Constitution. Many laws enacted by Congress require agencies to issue regulations. Executive branch agencies are granted the power to implement regulations relating to matters within their jurisdiction. Regulations are published daily in the <a href="https://www.federalregister.gov">Federal Register</a> and are then codified in the <a href="https://www.ecfr.gov">Code of Federal Regulations</a> once a year.</p>
+            
+            <div class="ad-banner">
+                <strong>SPECIAL OFFER:</strong> Subscribe to our newsletter for government updates! <a href="https://gov.info/subscribe">Subscribe Now</a>
+            </div>
+
+            <h3 id="judicial">Judicial Branch</h3>
+            <p>The judicial branch of government is established in Article III of the Constitution with the creation of the Supreme Court. This court is the highest court in the country and is empowered with the judicial powers of the government. There are lower Federal courts but they were not created by the Constitution. Rather, Congress deemed them necessary and established them using power granted from the Constitution. Courts decide arguments about the meaning of laws, how they are applied, and whether they break the rules of the Constitution. A court's authority to decide constitutionality is called judicial review.</p>
+            
+            <img src="images/supreme-court.jpg" alt="Supreme Court Building" width="400" height="250">
+
+            <h3 id="legislative">Legislative Branch</h3>
+            <p>The legislative branch of government has the authority to make laws for the nation. It was established in Article I of the Constitution with the creation of Congress. Congress is made up of two chambers, the Senate and the House of Representatives. Agencies such as the Government Publishing Office, Library of Congress, Congressional Budget Office, and the General Accounting Office that provide support services for the Congress are also part of the legislative branch.</p>
+            
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>Branch</th>
+                    <th>Main Function</th>
+                    <th>Constitutional Article</th>
+                </tr>
+                <tr>
+                    <td>Executive</td>
+                    <td>Enforces laws</td>
+                    <td>Article II</td>
+                </tr>
+                <tr>
+                    <td>Judicial</td>
+                    <td>Interprets laws</td>
+                    <td>Article III</td>
+                </tr>
+                <tr>
+                    <td>Legislative</td>
+                    <td>Makes laws</td>
+                    <td>Article I</td>
+                </tr>
+            </table>
+
+            <h3 id="sessions">Sessions of Congress</h3>
+            <p>The legislative branch of government operates under "congresses" and "sessions." Each congress is made up of two sessions which last for approximately one year each. A complete guide to the sessions of congress that includes the beginning and ending dates, recesses, number of days in the session, the name of the Speaker of the House and the President Pro Tem of the Senate, may be found by searching in the <a href="https://www.govinfo.gov/app/collection/cdir">Congressional Directory</a>.</p>
+            
+            <div class="disclaimer" style="font-size: 0.8em; color: #666;">
+                <p><strong>Disclaimer:</strong> The information provided on this website is for general informational purposes only. While we strive to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose.</p>
+            </div>
+        </main>
+
+        <div class="ad-banner">
+            <strong>ADVERTISEMENT:</strong> Learn about government careers! <a href="https://usajobs.gov">Visit USAJobs</a>
+        </div>
+
+        <aside>
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#executive">Executive Branch</a></li>
+                <li><a href="#judicial">Judicial Branch</a></li>
+                <li><a href="#legislative">Legislative Branch</a></li>
+                <li><a href="#sessions">Sessions of Congress</a></li>
+            </ul>
+        </aside>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <h4>Browse</h4>
+                <ul>
+                    <li><a href="/browse/a-z">A to Z</a></li>
+                    <li><a href="/browse/category">Category</a></li>
+                    <li><a href="/browse/date">Date</a></li>
+                    <li><a href="/browse/committee">Committee</a></li>
+                    <li><a href="/browse/author">Author</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/policies">Policies</a></li>
+                    <li><a href="/authentication">Authentication</a></li>
+                    <li><a href="/digital-preservation">Digital Preservation</a></li>
+                    <li><a href="/history">History</a></li>
+                    <li><a href="/agency-submission">Agency Submission</a></li>
+                    <li><a href="/us-government-information">U.S. Government Information</a></li>
+                    <li><a href="/fdsys-retirement">FDsys Retirement</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Developers</h4>
+                <ul>
+                    <li><a href="/developers">Developer Hub</a></li>
+                    <li><a href="/api">API</a></li>
+                    <li><a href="/bulk-data">Bulk Data Repository</a></li>
+                    <li><a href="/link-service">Link Service</a></li>
+                    <li><a href="/feeds">Feeds</a></li>
+                    <li><a href="/sitemaps">Sitemaps</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>System Design</h4>
+                <ul>
+                    <li><a href="/features">All Features</a></li>
+                    <li><a href="/featured-content">Featured Content</a></li>
+                    <li><a href="/news">News</a></li>
+                    <li><a href="/release-notes">Release Notes</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="/help">Help</a></li>
+                    <li><a href="/finding-information">Finding Information</a></li>
+                    <li><a href="/whats-available">What's Available</a></li>
+                    <li><a href="/tutorials">Tutorials and Handouts</a></li>
+                    <li><a href="/other-resources">Other Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Feedback</h4>
+                <ul>
+                    <li><a href="/submit-feedback">Submit Feedback</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2025 U.S. Government Publishing Office. All rights reserved.</p>
+            <p>605 Castro Street, Mountain View, CA 94041</p>
+            <p>Follow us: <a href="https://twitter.com/usgpo">Twitter</a> | <a href="https://facebook.com/usgpo">Facebook</a> | <a href="https://instagram.com/usgpo">Instagram</a></p>
+        </footer>
+    </div>
+
+    <!-- Cookie consent banner -->
+    <div id="cookie-consent" style="position: fixed; bottom: 0; width: 100%; background-color: #333; color: white; padding: 15px; text-align: center;">
+        <p>This website uses cookies to ensure you get the best experience. <a href="/privacy-policy">Learn more</a></p>
+        <button onclick="document.getElementById('cookie-consent').style.display='none'">Accept</button>
+    </div>
+
+    <!-- Analytics tracking code -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

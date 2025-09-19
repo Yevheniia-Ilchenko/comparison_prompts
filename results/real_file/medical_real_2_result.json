@@ -1,0 +1,148 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\medical_real_2.txt",
+  "file_category": "HEALTHCARE_MEDICAL",
+  "extracted_data": {
+    "category": "healthcare_and_medical",
+    "extracted_data": {
+      "patient_info": {
+        "name": null,
+        "ID": null,
+        "medical_history": null
+      },
+      "diagnosis_treatment": {
+        "prescriptions": [
+          "fluticasone propionate",
+          "Flovent HFA",
+          "Flovent Diskus",
+          "Xhance",
+          "budesonide",
+          "Pulmicort Flexhaler",
+          "Pulmicort Respules",
+          "Rhinocort",
+          "ciclesonide",
+          "Alvesco",
+          "beclomethasone",
+          "Qvar Redihaler",
+          "mometasone",
+          "Asmanex HFA",
+          "Asmanex Twisthaler",
+          "fluticasone furoate",
+          "Arnuity Ellipta",
+          "montelukast",
+          "Singulair",
+          "zafirlukast",
+          "Accolate",
+          "zileuton",
+          "Zyflo",
+          "fluticasone-salmeterol",
+          "Advair HFA",
+          "Airduo Digihaler",
+          "budesonide-formoterol",
+          "Symbicort",
+          "formoterol-mometasone",
+          "Dulera",
+          "fluticasone furoate-vilanterol",
+          "Breo Ellipta",
+          "Theophylline",
+          "Theo-24",
+          "Elixophyllin",
+          "Theochron",
+          "albuterol",
+          "ProAir HFA",
+          "Ventolin HFA",
+          "levalbuterol",
+          "Xopenex",
+          "Xopenex HFA",
+          "ipratropium",
+          "Atrovent HFA",
+          "tiotropium",
+          "Spiriva",
+          "Spiriva Respimat",
+          "prednisone",
+          "Prednisone Intensol",
+          "Rayos",
+          "methylprednisolone",
+          "Medrol",
+          "Depo-Medrol",
+          "Solu-Medrol",
+          "omalizumab",
+          "Xolair",
+          "mepolizumab",
+          "Nucala",
+          "dupilumab",
+          "Dupixent",
+          "reslizumab",
+          "Cinqair",
+          "benralizumab",
+          "Fasenra",
+          "tezepelumab",
+          "Tezspire"
+        ],
+        "procedures": [
+          "Spirometry",
+          "Peak flow",
+          "Methacholine challenge",
+          "Allergy testing",
+          "Nitric oxide test",
+          "Sputum eosinophils",
+          "Provocative testing for exercise and cold-induced asthma",
+          "Bronchial thermoplasty"
+        ],
+        "therapy": [
+          "allergy shots"
+        ]
+      },
+      "clinical_trial_data": {
+        "participants": null,
+        "control_groups": null,
+        "results": null
+      },
+      "healthcare_regulations": {
+        "medical_compliance": null,
+        "ethical_considerations": null
+      },
+      "pharmaceutical_docs": {
+        "drug_composition": null,
+        "side_effects": [
+          "psychological reactions, such as agitation, aggression, hallucinations, depression and suicidal thinking"
+        ],
+        "warnings": [
+          "Montelukast has been linked to psychological reactions, such as agitation, aggression, hallucinations, depression and suicidal thinking. Seek medical advice right away if you experience any of these reactions."
+        ]
+      },
+      "key_dates_timelines": {
+        "medical_consultation_admission_discharge_dates": null,
+        "clinical_trial_dates": {
+          "start_date": null,
+          "completion_date": null
+        },
+        "drug_approval_patent_expiry_dates": null
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1544,
+      "output_tokens": 6,
+      "execution_time": 0.5604064464569092,
+      "cost": 0.000157
+    },
+    "extraction": {
+      "input_tokens": 3334,
+      "output_tokens": 857,
+      "execution_time": 4.962537527084351,
+      "cost": 0.000676
+    },
+    "total": {
+      "input_tokens": 4878,
+      "output_tokens": 863,
+      "total_tokens": 5741,
+      "cost": 0.000833,
+      "execution_time": 5.527278184890747
+    }
+  },
+  "raw_responses": {
+    "category": "HEALTHCARE_MEDICAL",
+    "extraction": "{\n    \"category\": \"healthcare_and_medical\",\n    \"extracted_data\": {\n        \"patient_info\": {\n            \"name\": null,\n            \"ID\": null,\n            \"medical_history\": null\n        },\n        \"diagnosis_treatment\": {\n            \"prescriptions\": [\n                \"fluticasone propionate\",\n                \"Flovent HFA\",\n                \"Flovent Diskus\",\n                \"Xhance\",\n                \"budesonide\",\n                \"Pulmicort Flexhaler\",\n                \"Pulmicort Respules\",\n                \"Rhinocort\",\n                \"ciclesonide\",\n                \"Alvesco\",\n                \"beclomethasone\",\n                \"Qvar Redihaler\",\n                \"mometasone\",\n                \"Asmanex HFA\",\n                \"Asmanex Twisthaler\",\n                \"fluticasone furoate\",\n                \"Arnuity Ellipta\",\n                \"montelukast\",\n                \"Singulair\",\n                \"zafirlukast\",\n                \"Accolate\",\n                \"zileuton\",\n                \"Zyflo\",\n                \"fluticasone-salmeterol\",\n                \"Advair HFA\",\n                \"Airduo Digihaler\",\n                \"budesonide-formoterol\",\n                \"Symbicort\",\n                \"formoterol-mometasone\",\n                \"Dulera\",\n                \"fluticasone furoate-vilanterol\",\n                \"Breo Ellipta\",\n                \"Theophylline\",\n                \"Theo-24\",\n                \"Elixophyllin\",\n                \"Theochron\",\n                \"albuterol\",\n                \"ProAir HFA\",\n                \"Ventolin HFA\",\n                \"levalbuterol\",\n                \"Xopenex\",\n                \"Xopenex HFA\",\n                \"ipratropium\",\n                \"Atrovent HFA\",\n                \"tiotropium\",\n                \"Spiriva\",\n                \"Spiriva Respimat\",\n                \"prednisone\",\n                \"Prednisone Intensol\",\n                \"Rayos\",\n                \"methylprednisolone\",\n                \"Medrol\",\n                \"Depo-Medrol\",\n                \"Solu-Medrol\",\n                \"omalizumab\",\n                \"Xolair\",\n                \"mepolizumab\",\n                \"Nucala\",\n                \"dupilumab\",\n                \"Dupixent\",\n                \"reslizumab\",\n                \"Cinqair\",\n                \"benralizumab\",\n                \"Fasenra\",\n                \"tezepelumab\",\n                \"Tezspire\"\n            ],\n            \"procedures\": [\n                \"Spirometry\",\n                \"Peak flow\",\n                \"Methacholine challenge\",\n                \"Allergy testing\",\n                \"Nitric oxide test\",\n                \"Sputum eosinophils\",\n                \"Provocative testing for exercise and cold-induced asthma\",\n                \"Bronchial thermoplasty\"\n            ],\n            \"therapy\": [\n                \"allergy shots\"\n            ]\n        },\n        \"clinical_trial_data\": {\n            \"participants\": null,\n            \"control_groups\": null,\n            \"results\": null\n        },\n        \"healthcare_regulations\": {\n            \"medical_compliance\": null,\n            \"ethical_considerations\": null\n        },\n        \"pharmaceutical_docs\": {\n            \"drug_composition\": null,\n            \"side_effects\": [\n                \"psychological reactions, such as agitation, aggression, hallucinations, depression and suicidal thinking\"\n            ],\n            \"warnings\": [\n                \"Montelukast has been linked to psychological reactions, such as agitation, aggression, hallucinations, depression and suicidal thinking. Seek medical advice right away if you experience any of these reactions.\"\n            ]\n        },\n        \"key_dates_timelines\": {\n            \"medical_consultation_admission_discharge_dates\": null,\n            \"clinical_trial_dates\": {\n                \"start_date\": null,\n                \"completion_date\": null\n            },\n            \"drug_approval_patent_expiry_dates\": null\n        }\n    }\n}"
+  }
+}

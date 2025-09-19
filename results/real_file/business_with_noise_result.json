@@ -1,0 +1,71 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\business_with_noise.txt",
+  "file_category": "BUSINESS_CORPORATE",
+  "extracted_data": {
+    "category": "business_and_corporate",
+    "extracted_data": {
+      "company_details": {
+        "name": "Global Enterprises Inc.",
+        "address": null,
+        "industry": null,
+        "stakeholders": "shareowners"
+      },
+      "executive_summary": {
+        "overview": "The Corporate Governance and Sustainability Committee Charter outlines the purpose, membership, authority, and responsibilities of the committee, focusing on board nominations, succession planning, corporate governance guidelines, and oversight of environmental, social, and governance matters.",
+        "mission": null,
+        "key_objectives": "To identify qualified board members, recommend committee directors, lead board performance reviews, develop governance guidelines, oversee succession plans for senior positions, manage corporate governance affairs, and oversee environmental, social, legislative, regulatory, public policy, and corporate governance matters."
+      },
+      "financial_data": {
+        "balance_sheets": null,
+        "income_statements": null,
+        "cash_flow": null
+      },
+      "contracts_agreements": {
+        "terms": null,
+        "conditions": null,
+        "legal_clauses": "The Committee shall review and approve all related person transactions in accordance with the Company's Related Person Transactions Policy."
+      },
+      "marketing_strategy": {
+        "branding": "Innovating for a Sustainable Future",
+        "customer_testimonials": null,
+        "case_studies": null
+      },
+      "compliance_regulations": {
+        "corporate_policies": "Corporate Governance Guidelines, Related Person Transactions Policy, Certificate of Incorporation, By-Laws",
+        "legal_disclosures": null
+      },
+      "key_dates_timelines": {
+        "financial_reporting_periods": null,
+        "contract_dates": null,
+        "product_launch_marketing_campaigns": null,
+        "business_milestones": null,
+        "shareholder_meeting_dates": null
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1622,
+      "output_tokens": 5,
+      "execution_time": 0.8810529708862305,
+      "cost": 0.000164
+    },
+    "extraction": {
+      "input_tokens": 3357,
+      "output_tokens": 397,
+      "execution_time": 4.003174304962158,
+      "cost": 0.000495
+    },
+    "total": {
+      "input_tokens": 4979,
+      "output_tokens": 402,
+      "total_tokens": 5381,
+      "cost": 0.000659,
+      "execution_time": 4.896223068237305
+    }
+  },
+  "raw_responses": {
+    "category": "BUSINESS_CORPORATE",
+    "extraction": "{\n    \"category\": \"business_and_corporate\",\n    \"extracted_data\": {\n        \"company_details\": {\n            \"name\": \"Global Enterprises Inc.\",\n            \"address\": null,\n            \"industry\": null,\n            \"stakeholders\": \"shareowners\"\n        },\n        \"executive_summary\": {\n            \"overview\": \"The Corporate Governance and Sustainability Committee Charter outlines the purpose, membership, authority, and responsibilities of the committee, focusing on board nominations, succession planning, corporate governance guidelines, and oversight of environmental, social, and governance matters.\",\n            \"mission\": null,\n            \"key_objectives\": \"To identify qualified board members, recommend committee directors, lead board performance reviews, develop governance guidelines, oversee succession plans for senior positions, manage corporate governance affairs, and oversee environmental, social, legislative, regulatory, public policy, and corporate governance matters.\"\n        },\n        \"financial_data\": {\n            \"balance_sheets\": null,\n            \"income_statements\": null,\n            \"cash_flow\": null\n        },\n        \"contracts_agreements\": {\n            \"terms\": null,\n            \"conditions\": null,\n            \"legal_clauses\": \"The Committee shall review and approve all related person transactions in accordance with the Company's Related Person Transactions Policy.\"\n        },\n        \"marketing_strategy\": {\n            \"branding\": \"Innovating for a Sustainable Future\",\n            \"customer_testimonials\": null,\n            \"case_studies\": null\n        },\n        \"compliance_regulations\": {\n            \"corporate_policies\": \"Corporate Governance Guidelines, Related Person Transactions Policy, Certificate of Incorporation, By-Laws\",\n            \"legal_disclosures\": null\n        },\n        \"key_dates_timelines\": {\n            \"financial_reporting_periods\": null,\n            \"contract_dates\": null,\n            \"product_launch_marketing_campaigns\": null,\n            \"business_milestones\": null,\n            \"shareholder_meeting_dates\": null\n        }\n    }\n}"
+  }
+}

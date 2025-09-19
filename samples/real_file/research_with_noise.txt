@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMC COVID-19 Collection | National Library of Medicine</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <meta name="description" content="Access COVID-19 and coronavirus-related research articles in PubMed Central">
+    <!-- Google Analytics tracking code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3316591-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-3316591-1');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <form action="/search" method="get">
+                <input type="text" name="term" placeholder="Search PMC...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <article class="collection-info">
+            <h1>PMC COVID-19 Collection</h1>
+            
+            <div class="featured-image">
+                <img src="/images/sars-cov-2-tem.jpg" alt="Transmission electron micrograph of SARS-CoV-2 virus particles, isolated from a patient. Image captured and color-enhanced at the NIAID Integrated Research Facility (IRF) in Fort Detrick, Maryland. NIAID">
+                <figcaption>Transmission electron micrograph of SARS-CoV-2 virus particles, isolated from a patient. Image captured and color-enhanced at the NIAID Integrated Research Facility (IRF) in Fort Detrick, Maryland. NIAID</figcaption>
+            </div>
+
+            <div class="alert info">
+                <p><strong>IMPORTANT:</strong> This collection provides access to COVID-19 related research to support ongoing scientific efforts.</p>
+            </div>
+
+            <p>On March 13, 2020, national science and technology advisors from a dozen countries, including the United States, called on publishers to voluntarily make their COVID-19 and coronavirus-related publications, and the available data supporting them, immediately accessible in PubMed Central (PMC) and other appropriate public repositories to support public health emergency response efforts (see the <a href="/call-to-action">Call to Make COVID-19 Data/Research Publicly Available</a>).</p>
+
+            <p>In response, more than 50 publishers and scholarly societies (see Collaborators to the right) volunteered to make their COVID-19 and coronavirus-related articles published in peer-reviewed journals freely accessible in PMC to researchers, health practitioners, and the public in formats and under license terms that facilitate text mining and secondary analysis. From March 2020 through June 2023, this collaboration resulted in making more than 350,000 articles relating to COVID-19 and previous coronaviruses accessible under license terms and through distribution channels that supported further research re-use and secondary analysis (see <a href="/open-access">PMC Open Access Subset</a>). In 2023, NLM renamed the COVID-19 Public Health Emergency Initiative as the PMC COVID-19 Collection ("Collection").</p>
+
+            <!-- Advertisement Banner -->
+            <div class="ad-banner">
+                <p>Support COVID-19 research by subscribing to our newsletter</p>
+                <a href="/subscribe" class="btn">Subscribe Now</a>
+            </div>
+
+            <p>Around one-third of articles in the Collection were made available in PMC under a Creative Commons license, which ensures that the articles remain permanently accessible in PMC and the PMC Open Access Subset. All other articles in the Collection were deposited by publishers under custom license terms that allowed for access and/or re-use only for the duration of the COVID-19 Public Health Emergency.</p>
+
+            <p>Upon the expiration of global public health emergency declarations, NLM engaged collaborators on providing continued access to and discovery of COVID-19 research to support ongoing research. See the <a href="/faq">PMC COVID-19 Collection FAQ</a> for the current access status of articles deposited under such custom license terms following the expiration of the public health emergency.</p>
+
+            <p>NLM remains appreciative for the opportunity to collaborate with the scholarly publishing community on the COVID-19 public health emergency response effort and remains committed to providing perpetual public access to all articles deposited in the PMC COVID-19 Collection for which the copyright holder provides such permission.</p>
+
+            <h2>Coronavirus-Related and COVID-19-Related Articles in PMC</h2>
+            <p>Use the buttons below to run queries in PMC to find full-text content relating to COVID-19 and coronaviruses.</p>
+
+            <div class="search-buttons">
+                <h3>COVID-19 Content</h3>
+                <a href="https://www.ncbi.nlm.nih.gov/pmc/?term=COVID-19" class="btn primary">All COVID-19 Content</a>
+                
+                <h3>Coronavirus Content<br>(historical and current literature)</h3>
+                <a href="https://www.ncbi.nlm.nih.gov/pmc/?term=coronavirus" class="btn primary">All Coronavirus Content</a>
+            </div>
+
+            <!-- Social Media Sharing -->
+            <div class="social-share">
+                <p>Share this resource:</p>
+                <a href="https://twitter.com/intent/tweet?url=https://www.ncbi.nlm.nih.gov/pmc/about/covid-19/" class="twitter-share">Twitter</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.ncbi.nlm.nih.gov/pmc/about/covid-19/" class="facebook-share">Facebook</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.ncbi.nlm.nih.gov/pmc/about/covid-19/" class="linkedin-share">LinkedIn</a>
+            </div>
+
+            <p>NLM encourages customization of these suggested search queries to meet your specific research or information needs. For example, in PMC you can append 'AND "open access"[filter]' or 'AND "author manuscript"[filter]' to this query or to your own custom queries to identify articles that are currently available in machine-readable formats for text mining or other types of re-use through the <a href="/datasets">PMC Article Datasets</a>.</p>
+
+            <p>Individuals interested in discovering all COVID-19-related literature in NLM literature databases should search each database individually (see also the <a href="https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049">NCBI Virus SARS-CoV-2 Data Hub</a>). Results may differ due to the availability of records in each database as well as the scope of what is available to search in each database (e.g., titles and abstracts vs. full text). To view PMC-only records to complement your PubMed search results, you may append your PMC search with "NOT pmc pubmed[filter]." (See also "<a href="/faq#discovery">Why are some articles from the PMC COVID-19 Collection not discoverable in PubMed?</a>")</p>
+        </article>
+    </main>
+
+    <aside class="sidebar">
+        <div class="collaborators">
+            <h3>Collaborators</h3>
+            <ul>
+                <li>American Association for the Advancement of Science</li>
+                <li>BMJ Publishing Group</li>
+                <li>Elsevier</li>
+                <li>JAMA Network</li>
+                <li>The Lancet</li>
+                <li>New England Journal of Medicine</li>
+                <li>Oxford University Press</li>
+                <li>PLOS</li>
+                <li>Springer Nature</li>
+                <li>Taylor & Francis</li>
+                <li>Wiley</li>
+                <li><a href="/collaborators">View all collaborators</a></li>
+            </ul>
+        </div>
+
+        <div class="related-resources">
+            <h3>Related Resources</h3>
+            <ul>
+                <li><a href="https://www.nih.gov/coronavirus">NIH COVID-19 Research</a></li>
+                <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/">CDC COVID-19 Information</a></li>
+                <li><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">WHO Coronavirus Disease</a></li>
+            </ul>
+        </div>
+
+        <div class="newsletter-signup">
+            <h3>Stay Informed</h3>
+            <p>Sign up for updates on COVID-19 research</p>
+            <form>
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </aside>
+
+    <footer>
+        <div class="footer-links">
+            <div class="footer-section">
+                <h4>About NLM</h4>
+                <ul>
+                    <li><a href="https://www.nlm.nih.gov/about/index.html">About</a></li>
+                    <li><a href="https://www.nlm.nih.gov/careers/careers.html">Careers</a></li>
+                    <li><a href="https://www.nlm.nih.gov/contactus/index.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/">PubMed</a></li>
+                    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/">PMC</a></li>
+                    <li><a href="https://www.nlm.nih.gov/bsd/disted/pubmedtutorial/">Tutorials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="https://www.nlm.nih.gov/privacy.html">Privacy Policy</a></li>
+                    <li><a href="https://www.nlm.nih.gov/accessibility.html">Accessibility</a></li>
+                    <li><a href="https://www.nlm.nih.gov/copyright.html">Copyright</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>U.S. National Library of Medicine, 8600 Rockville Pike, Bethesda, MD 20894</p>
+            <p>National Institutes of Health, Department of Health & Human Services</p>
+            <p>© 2024 National Library of Medicine</p>
+        </div>
+    </footer>
+
+    <!-- Cookie consent banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>This site uses cookies to improve your experience. <a href="/privacy">Learn more</a></p>
+        <button id="accept-cookies">Accept</button>
+    </div>
+
+    <script>
+        document.getElementById('accept-cookies').addEventListener('click', function() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            // Set cookie
+            document.cookie = "cookies_accepted=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        });
+    </script>
+</body>
+</html>

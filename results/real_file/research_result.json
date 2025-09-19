@@ -1,0 +1,32 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\research.html",
+  "file_category": "SCIENTIFIC_RESEARCH",
+  "extracted_data": {
+    "error": "Failed to parse JSON from response"
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1616,
+      "output_tokens": 5,
+      "execution_time": 0.538128137588501,
+      "cost": 0.000164
+    },
+    "extraction": {
+      "input_tokens": 3277,
+      "output_tokens": 208,
+      "execution_time": 1.5918662548065186,
+      "cost": 0.000411
+    },
+    "total": {
+      "input_tokens": 4893,
+      "output_tokens": 213,
+      "total_tokens": 5106,
+      "cost": 0.000575,
+      "execution_time": 2.1407995223999023
+    }
+  },
+  "raw_responses": {
+    "category": "SCIENTIFIC_RESEARCH",
+    "extraction": "```json\n{\n    \"category\": \"scientific_and_research\",\n    \"extracted_data\": {\n        \"study_title_author_info\": {\n            \"title\": \"PMC COVID-19 Collection\",\n            \"authors\": []\n        },\n        \"hypothesis_goals\": {\n            \"hypothesis\": \"\",\n            \"research_goals\": []\n        },\n        \"experiment_setup_data\": {\n            \"experiment_description\": \"\",\n            \"data_collection_method\": \"\",\n            \"tools_techniques\": []\n        },\n        \"statistical_analysis_results\": {\n            \"methods\": [],\n            \"results\": []\n        },\n        \"peer_review_references\": {\n            \"peer_review\": \"\",\n            \"references\": []\n        },\n        \"environmental_climate_studies\": {\n            \"impact_assessment\": \"\",\n            \"conservation_strategies\": []\n        },\n        \"key_dates_timelines\": {\n            \"research_study_period\": \"\",\n            \"data_collection_dates\": \"\",\n            \"experiment_validation_dates\": \"\",\n            \"publication_dates\": \"\"\n        }\n    }\n}\n```"
+  }
+}

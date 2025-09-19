@@ -1,0 +1,66 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\medical.html",
+  "file_category": "HEALTHCARE_MEDICAL",
+  "extracted_data": {
+    "category": "healthcare_and_medical",
+    "extracted_data": {
+      "patient_info": {
+        "name": null,
+        "ID": null,
+        "medical_history": null
+      },
+      "diagnosis_treatment": {
+        "prescriptions": [],
+        "procedures": [],
+        "therapy": []
+      },
+      "clinical_trial_data": {
+        "participants": null,
+        "control_groups": null,
+        "results": null
+      },
+      "healthcare_regulations": {
+        "medical_compliance": null,
+        "ethical_considerations": null
+      },
+      "pharmaceutical_docs": {
+        "drug_composition": null,
+        "side_effects": null,
+        "warnings": null
+      },
+      "key_dates_timelines": {
+        "medical_consultation_admission_discharge_dates": null,
+        "clinical_trial_dates": {
+          "start_date": null,
+          "completion_date": null
+        },
+        "drug_approval_patent_expiry_dates": null
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 1877,
+      "output_tokens": 6,
+      "execution_time": 0.34854555130004883,
+      "cost": 0.00019
+    },
+    "extraction": {
+      "input_tokens": 3945,
+      "output_tokens": 220,
+      "execution_time": 1.1561121940612793,
+      "cost": 0.000483
+    },
+    "total": {
+      "input_tokens": 5822,
+      "output_tokens": 226,
+      "total_tokens": 6048,
+      "cost": 0.000673,
+      "execution_time": 1.540201187133789
+    }
+  },
+  "raw_responses": {
+    "category": "HEALTHCARE_MEDICAL",
+    "extraction": "{\n    \"category\": \"healthcare_and_medical\",\n    \"extracted_data\": {\n        \"patient_info\": {\n            \"name\": null,\n            \"ID\": null,\n            \"medical_history\": null\n        },\n        \"diagnosis_treatment\": {\n            \"prescriptions\": [],\n            \"procedures\": [],\n            \"therapy\": []\n        },\n        \"clinical_trial_data\": {\n            \"participants\": null,\n            \"control_groups\": null,\n            \"results\": null\n        },\n        \"healthcare_regulations\": {\n            \"medical_compliance\": null,\n            \"ethical_considerations\": null\n        },\n        \"pharmaceutical_docs\": {\n            \"drug_composition\": null,\n            \"side_effects\": null,\n            \"warnings\": null\n        },\n        \"key_dates_timelines\": {\n            \"medical_consultation_admission_discharge_dates\": null,\n            \"clinical_trial_dates\": {\n                \"start_date\": null,\n                \"completion_date\": null\n            },\n            \"drug_approval_patent_expiry_dates\": null\n        }\n    }\n}"
+  }
+}

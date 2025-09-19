@@ -1,0 +1,87 @@
+{
+  "file_path": "c:\\Evgeniya\\work\\bridge-worker\\samples\\government_and_law_real.txt",
+  "file_category": "LEGAL_GOVERNMENT",
+  "extracted_data": {
+    "category": "legal_and_government",
+    "extracted_data": {
+      "title_legal_jurisdiction": {
+        "title": "Government Publications",
+        "jurisdiction": "Federal Government"
+      },
+      "legal_provisions_regulations": {
+        "rules": [
+          "Regulations are published daily in the Federal Register and are then codified in the Code of Federal Regulations once a year.",
+          "Congress deemed lower Federal courts necessary and established them using power granted from the Constitution.",
+          "Courts decide arguments about the meaning of laws, how they are applied, and whether they break the rules of the Constitution."
+        ],
+        "policies": [
+          "Executive branch agencies are granted the power to implement regulations relating to matters within their jurisdiction."
+        ],
+        "enforcement_measures": [
+          "The executive branch of government enforces the laws of the land."
+        ]
+      },
+      "case_background_rulings": {
+        "legal_arguments": [
+          "Arguments about the meaning of laws",
+          "Arguments about how laws are applied",
+          "Arguments about whether laws break the rules of the Constitution"
+        ],
+        "judges_opinion": [],
+        "verdict": []
+      },
+      "compliance_requirements": {
+        "penalties": [],
+        "obligations": [],
+        "permits_licenses": []
+      },
+      "official_notices_reports": {
+        "policy_statements": [],
+        "analysis": [
+          "A court's authority to decide constitutionality is called judicial review."
+        ],
+        "public_impact": []
+      },
+      "key_dates_timelines": {
+        "effective_dates_of_laws_policies": [],
+        "court_case_dates": {
+          "filing_date": null,
+          "ruling_date": null
+        },
+        "permit_license_dates": {
+          "issuance_date": null,
+          "expiration_date": null
+        },
+        "public_policy_dates": {
+          "implementation_date": null,
+          "review_date": null
+        }
+      }
+    }
+  },
+  "metrics": {
+    "category": {
+      "input_tokens": 962,
+      "output_tokens": 4,
+      "execution_time": 0.7397737503051758,
+      "cost": 9.8e-05
+    },
+    "extraction": {
+      "input_tokens": 1713,
+      "output_tokens": 423,
+      "execution_time": 3.0999865531921387,
+      "cost": 0.00034
+    },
+    "total": {
+      "input_tokens": 2675,
+      "output_tokens": 427,
+      "total_tokens": 3102,
+      "cost": 0.000438,
+      "execution_time": 3.8477518558502197
+    }
+  },
+  "raw_responses": {
+    "category": "LEGAL_GOVERNMENT",
+    "extraction": "{\n    \"category\": \"legal_and_government\",\n    \"extracted_data\": {\n        \"title_legal_jurisdiction\": {\n            \"title\": \"Government Publications\",\n            \"jurisdiction\": \"Federal Government\"\n        },\n        \"legal_provisions_regulations\": {\n            \"rules\": [\n                \"Regulations are published daily in the Federal Register and are then codified in the Code of Federal Regulations once a year.\",\n                \"Congress deemed lower Federal courts necessary and established them using power granted from the Constitution.\",\n                \"Courts decide arguments about the meaning of laws, how they are applied, and whether they break the rules of the Constitution.\"\n            ],\n            \"policies\": [\n                \"Executive branch agencies are granted the power to implement regulations relating to matters within their jurisdiction.\"\n            ],\n            \"enforcement_measures\": [\n                \"The executive branch of government enforces the laws of the land.\"\n            ]\n        },\n        \"case_background_rulings\": {\n            \"legal_arguments\": [\n                \"Arguments about the meaning of laws\",\n                \"Arguments about how laws are applied\",\n                \"Arguments about whether laws break the rules of the Constitution\"\n            ],\n            \"judges_opinion\": [],\n            \"verdict\": []\n        },\n        \"compliance_requirements\": {\n            \"penalties\": [],\n            \"obligations\": [],\n            \"permits_licenses\": []\n        },\n        \"official_notices_reports\": {\n            \"policy_statements\": [],\n            \"analysis\": [\n                \"A court's authority to decide constitutionality is called judicial review.\"\n            ],\n            \"public_impact\": []\n        },\n        \"key_dates_timelines\": {\n            \"effective_dates_of_laws_policies\": [],\n            \"court_case_dates\": {\n                \"filing_date\": null,\n                \"ruling_date\": null\n            },\n            \"permit_license_dates\": {\n                \"issuance_date\": null,\n                \"expiration_date\": null\n            },\n            \"public_policy_dates\": {\n                \"implementation_date\": null,\n                \"review_date\": null\n            }\n        }\n    }\n}"
+  }
+}
